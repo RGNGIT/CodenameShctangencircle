@@ -16,5 +16,11 @@ namespace CodenameShctangencircle
         {
             InitializeComponent();
         }
+
+        void hi()
+        {
+
+        }
+
     }
 }
