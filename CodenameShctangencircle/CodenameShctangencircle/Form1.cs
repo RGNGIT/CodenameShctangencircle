@@ -15,6 +15,8 @@ namespace CodenameShctangencircle
         public Form1()
         {
             InitializeComponent();
+            Cycles cikl = new Cycles();
+            cikl.nCycle();
         }
 
         void hi()
