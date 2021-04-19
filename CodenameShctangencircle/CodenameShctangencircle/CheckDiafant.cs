@@ -23,6 +23,7 @@ namespace CodenameShctangencircle
                 }
             }
             DiafantOutput = DiafantResults;
+            System.IO.File.WriteAllLines("file1.txt", DiafantOutput);
         }
 
         public List<string> DiafantResults = new List<string>();
