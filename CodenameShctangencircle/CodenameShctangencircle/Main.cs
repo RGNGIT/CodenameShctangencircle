@@ -17,20 +17,35 @@ namespace CodenameShctangencircle
             InitializeComponent();
         }
 
-        void hi()
-        {
-
-        }
+        
+        public List<string> Output = new List<string>();
+        public List<string> DiafantOutput = new List<string>();
 
         private void Start_Click(object sender, EventArgs e)
         {
-            List<string> Output = new List<string>();
+            
             Cycles cikl = new Cycles();
             cikl.nCycle(ref Output);
             foreach (string i in Output)
             {
                 ResBox.Items.Add(i);
             }
+        }
+
+        private void combFindBTN_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                CheckDiafant chk = new CheckDiafant();
+                chk.check(Output, Convert.ToInt32(nKoefTB.Text), Convert.ToInt32(k1KoefTB.Text), Convert.ToInt32(k2KoefTB.Text), Convert.ToInt32(k3KoefTB.Text), Convert.ToInt32(k4KoefTB.Text), Convert.ToInt32(k5KoefTB.Text), ref DiafantOutput);
+            }
+            catch(System.FormatException)
+            {
+
+            }
+
+            foreach (string i in DiafantOutput) DiafantResultBox.Items.Add(i);
+
         }
     }
 }

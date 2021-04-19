@@ -71,7 +71,7 @@ namespace CodenameShctangencircle
                 {
                     if(n == n1 + n2 + n3 + n4 + n5)
                     {
-                        Combinations.Add($"{n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5}; \n");
+                        Combinations.Add($"{n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5}; ");
                     }
                 }
             }
