@@ -16,8 +16,10 @@ namespace CodenameShctangencircle
                 k3 = getNumber(comb)[3];
                 k4 = getNumber(comb)[4];
                 k5 = getNumber(comb)[5];
-                
-                if(k1 * k1Koef + k2 * k2Koef + k3 * k3Koef + k4 * k4Koef + k5 * k5Koef == nKoef * n + 990)
+
+                int a = k1 * k1Koef + k2 * k2Koef + k3 * k3Koef + k4 * k4Koef + k5 * k5Koef, b = nKoef * n + 990;
+
+                if (a == b)
                 {
                     DiafantResults.Add($"{n},{k1},{k2},{k3},{k4},{k5}");
                 }

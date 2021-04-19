@@ -19,8 +19,7 @@ namespace CodenameShctangencircle
 
         
         public List<string> Output = new List<string>();
-        public List<string> DiafantOutput = new List<string>();
-
+        
         private void Start_Click(object sender, EventArgs e)
         {
             
@@ -32,12 +31,6 @@ namespace CodenameShctangencircle
             }
         }
 
-        private void combFindBTN_Click(object sender, EventArgs e)
-        {
-            CheckDiafant chk = new CheckDiafant();
-            chk.check(Output, Convert.ToInt32(nKoefTB.Text), Convert.ToInt32(k1KoefTB.Text), Convert.ToInt32(k2KoefTB.Text), Convert.ToInt32(k3KoefTB.Text), Convert.ToInt32(k4KoefTB.Text), Convert.ToInt32(k5KoefTB.Text), ref DiafantOutput);
-            foreach (string i in DiafantOutput) DiafantResultBox.Items.Add(i);
-
-        }
+        
     }
 }
