@@ -10,7 +10,7 @@ namespace CodenameShctangencircle
             int n, k1, k2, k3, k4, k5;
             foreach(string comb in Combinations)
             {
-                n = Convert.ToInt32(getNumber(comb, 1));
+                n = Convert.ToInt32(getNumber(comb, 1)); //коэфициенты диафанта
                 k1 = Convert.ToInt32(getNumber(comb, 2));
                 k2 = Convert.ToInt32(getNumber(comb, 3));
                 k3 = Convert.ToInt32(getNumber(comb, 4));
@@ -28,7 +28,7 @@ namespace CodenameShctangencircle
         public List<string> DiafantResults = new List<string>();
 
 
-        string getNumber(string comb, int pos)
+        string getNumber(string comb, int pos) //поз - позиция числа (нумерация с единицы)
         {
             int commasCounter = 0, stringPos = 0;
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
@@ -38,7 +38,7 @@ namespace CodenameShctangencircle
                 if (commasCounter == pos) break;
                 stringPos++;
             }
-            while(comb[stringPos] != ',')
+            while(comb[stringPos] != ',') //типа в обратном порядке от закрывающей запятой
             {
                 sb.Insert(0, comb[stringPos]); stringPos--; 
             }
