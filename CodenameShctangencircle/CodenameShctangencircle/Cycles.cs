@@ -79,7 +79,7 @@ namespace CodenameShctangencircle
 
         public void nCycle(ref List<string> Output)
         {
-            for(int n = 47; n <= 122; n++)
+            for(int n = 47; n <= 50; n++)
             {
                 k1Cycle(n);
             }
