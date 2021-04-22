@@ -19,14 +19,15 @@ namespace CodenameShctangencircle
 
         
         public List<string> Output = new List<string>();
+        public List<string> OutputVisual = new List<string>();
         public List<string> stepOutput = new List<string>();
 
         private void Start_Click(object sender, EventArgs e)
         {
             
             Cycles cikl = new Cycles();
-            cikl.nCycle(ref Output);
-            foreach (string i in Output)
+            cikl.nCycle(ref OutputVisual, ref Output);
+            foreach (string i in OutputVisual)
             {
                 ResBox.Items.Add(i);
             }

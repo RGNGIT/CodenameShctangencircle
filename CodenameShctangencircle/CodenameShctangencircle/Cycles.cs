@@ -6,7 +6,9 @@ namespace CodenameShctangencircle
     public class Cycles
     {
         public List<string> Combinations = new List<string>();
+        public List<string> Combination2 = new List<string>();
 
+        int Count = 1;
 
         void k1Cycle(int n)
         {
@@ -72,19 +74,23 @@ namespace CodenameShctangencircle
                     if(n == n1 + n2 + n3 + n4 + n5)
                     {
                         Combinations.Add($"{n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
+                        Combination2.Add($"({Count}) {n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
+                        Count++;
                     }
                 }
             }
         }
 
-        public void nCycle(ref List<string> Output)
+        public void nCycle(ref List<string> VisualOutput, ref List<string> Output)
         {
-            for(int n = 47; n <= 50; n++)
-            {
-                k1Cycle(n);
-            }
+            ///for(int n = 47; n <= 50; n++)
+            //
+                k1Cycle(55);
+            //}
             System.IO.File.WriteAllLines("file.txt", Combinations);
             Output = Combinations;
+            VisualOutput = Combination2;
+
         }
 
 
