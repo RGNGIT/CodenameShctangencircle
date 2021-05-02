@@ -31,6 +31,7 @@ namespace CodenameShctangencircle
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.A11TB = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.step5TB = new System.Windows.Forms.TextBox();
             this.step4TB = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@ namespace CodenameShctangencircle
             this.ResBox = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.StepsResultBox = new System.Windows.Forms.ListBox();
-            this.A11TB = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -78,6 +78,14 @@ namespace CodenameShctangencircle
             this.tabPage1.Text = "Параметры";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // A11TB
+            // 
+            this.A11TB.Location = new System.Drawing.Point(6, 51);
+            this.A11TB.Name = "A11TB";
+            this.A11TB.Size = new System.Drawing.Size(29, 20);
+            this.A11TB.TabIndex = 7;
+            this.A11TB.Text = "0,500";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(50, 213);
@@ -110,7 +118,7 @@ namespace CodenameShctangencircle
             this.step3TB.Name = "step3TB";
             this.step3TB.Size = new System.Drawing.Size(29, 20);
             this.step3TB.TabIndex = 3;
-            this.step3TB.Text = "0.1";
+            this.step3TB.Text = "0,1";
             // 
             // step2TB
             // 
@@ -118,7 +126,7 @@ namespace CodenameShctangencircle
             this.step2TB.Name = "step2TB";
             this.step2TB.Size = new System.Drawing.Size(29, 20);
             this.step2TB.TabIndex = 2;
-            this.step2TB.Text = "0.05";
+            this.step2TB.Text = "0,01";
             // 
             // step1TB
             // 
@@ -126,7 +134,7 @@ namespace CodenameShctangencircle
             this.step1TB.Name = "step1TB";
             this.step1TB.Size = new System.Drawing.Size(29, 20);
             this.step1TB.TabIndex = 1;
-            this.step1TB.Text = "0.005";
+            this.step1TB.Text = "0,005";
             // 
             // Start
             // 
@@ -176,14 +184,6 @@ namespace CodenameShctangencircle
             this.StepsResultBox.Name = "StepsResultBox";
             this.StepsResultBox.Size = new System.Drawing.Size(1438, 407);
             this.StepsResultBox.TabIndex = 0;
-            // 
-            // A11TB
-            // 
-            this.A11TB.Location = new System.Drawing.Point(6, 51);
-            this.A11TB.Name = "A11TB";
-            this.A11TB.Size = new System.Drawing.Size(29, 20);
-            this.A11TB.TabIndex = 7;
-            this.A11TB.Text = "0.500";
             // 
             // Main
             // 

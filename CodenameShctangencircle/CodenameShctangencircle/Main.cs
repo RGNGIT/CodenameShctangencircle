@@ -43,20 +43,20 @@ namespace CodenameShctangencircle
                     defaultCase = 2;
                 }
             } //зависимость от введенных шагов
-            if (A11TB.Text == (0.505).ToString())
+            if (Convert.ToDouble(A11TB.Text) == 0.505)
             {
-                if (step2TB.Text == (0.01).ToString())
+                if (Convert.ToDouble(step2TB.Text) == 0.01)
                 {
-                    if (step4TB.Text == (1).ToString())
+                    if (Convert.ToDouble(step4TB.Text) == 1)
                     {
                         defaultCase = 3;
                     }
-                    if (step4TB.Text == (0.5).ToString())
+                    if (Convert.ToDouble(step4TB.Text) == 0.5)
                     {
                         defaultCase = 4;
                     }
                 }
-                if (step2TB.Text == (0.05).ToString())
+                if (Convert.ToDouble(step2TB.Text) == 0.05)
                 {
                     defaultCase = 5;
                 }
@@ -69,6 +69,8 @@ namespace CodenameShctangencircle
                 ResBox.Items.Add(i);
             }
         }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
