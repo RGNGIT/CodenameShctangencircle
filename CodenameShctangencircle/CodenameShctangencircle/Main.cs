@@ -25,6 +25,7 @@ namespace CodenameShctangencircle
         private void Start_Click(object sender, EventArgs e)
         {
             int defaultCase = 0;
+            listBox1.Items.Add(defaultCase); // Чек дефолт
             if (Convert.ToDouble(A11TB.Text) == 0.500)
             {
                 if (Convert.ToDouble(step2TB.Text) == 0.01)
@@ -38,11 +39,13 @@ namespace CodenameShctangencircle
                         defaultCase = 1;
                     }
                 }
+                listBox1.Items.Add(defaultCase);
                 if (Convert.ToDouble(step2TB.Text) == 0.05)
                 {
                     defaultCase = 2;
                 }
             } //зависимость от введенных шагов
+            listBox1.Items.Add(defaultCase); // Чек дефолт
             if (A11TB.Text == (0.505).ToString())
             {
                 if (step2TB.Text == (0.01).ToString())
@@ -60,6 +63,7 @@ namespace CodenameShctangencircle
                 {
                     defaultCase = 5;
                 }
+                listBox1.Items.Add(defaultCase); // Чек дефолт
             }
 
             Cycles cikl = new Cycles();

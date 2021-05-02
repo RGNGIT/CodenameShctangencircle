@@ -31,6 +31,7 @@ namespace CodenameShctangencircle
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.A11TB = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.step5TB = new System.Windows.Forms.TextBox();
             this.step4TB = new System.Windows.Forms.TextBox();
@@ -42,7 +43,7 @@ namespace CodenameShctangencircle
             this.ResBox = new System.Windows.Forms.ListBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.StepsResultBox = new System.Windows.Forms.ListBox();
-            this.A11TB = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -62,6 +63,7 @@ namespace CodenameShctangencircle
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.A11TB);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.step5TB);
@@ -77,6 +79,14 @@ namespace CodenameShctangencircle
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Параметры";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // A11TB
+            // 
+            this.A11TB.Location = new System.Drawing.Point(6, 51);
+            this.A11TB.Name = "A11TB";
+            this.A11TB.Size = new System.Drawing.Size(79, 20);
+            this.A11TB.TabIndex = 7;
+            this.A11TB.Text = "0.500";
             // 
             // button1
             // 
@@ -177,13 +187,13 @@ namespace CodenameShctangencircle
             this.StepsResultBox.Size = new System.Drawing.Size(1438, 407);
             this.StepsResultBox.TabIndex = 0;
             // 
-            // A11TB
+            // listBox1
             // 
-            this.A11TB.Location = new System.Drawing.Point(6, 51);
-            this.A11TB.Name = "A11TB";
-            this.A11TB.Size = new System.Drawing.Size(29, 20);
-            this.A11TB.TabIndex = 7;
-            this.A11TB.Text = "0.500";
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(599, 66);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.TabIndex = 8;
             // 
             // Main
             // 
@@ -218,6 +228,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.TextBox step1TB;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox A11TB;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 
