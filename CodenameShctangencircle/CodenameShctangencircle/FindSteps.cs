@@ -7,7 +7,7 @@ namespace CodenameShctangencircle
     {
         private List<string> stepCombinations = new List<string>();
 
-        public void vFindSteps(List<string> Combinations, double q1, double q2, double q3, double q4, double q5, ref List<string> stComb)
+        public void vFindSteps(List<string> Combinations, double q1, double q2, double q3, double q4, double q5, ref List<string> stComb, double A11)
         {
             int n, n1, n2, n3, n4, n5;
             double KSR, SDM = 0, VGU = 0, NGU = 0, KE;
@@ -27,7 +27,7 @@ namespace CodenameShctangencircle
                 #region не смотри сюда ты меня убьешь я это делал в 5 утра аааааааааааааааааааа
                 string res = $" ({Count}) " + n + " )";
                 
-                res += $" (| "; double temp = 0;
+                res += $" (| "; double temp = A11;
                 for (int i = 0; i < n1; i++)
                 {   
                     temp += q1;
