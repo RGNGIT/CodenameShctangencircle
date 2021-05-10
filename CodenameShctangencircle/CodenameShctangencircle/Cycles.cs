@@ -81,7 +81,7 @@ namespace CodenameShctangencircle
             }
         }
 
-        public void nCycle(ref List<string> VisualOutput, ref List<string> Output, int defaultCase)
+        public void nCycle(ref List<string> VisualOutput, ref List<string> Output, int defaultCase, int lower, int higher)
         {
             switch (defaultCase)
             {
@@ -119,7 +119,7 @@ namespace CodenameShctangencircle
 
 
 
-            for(int n = 47; n <= 50; n++)
+            for(int n = lower; n <= higher; n++)
             { 
                 k1Cycle(n);
             }

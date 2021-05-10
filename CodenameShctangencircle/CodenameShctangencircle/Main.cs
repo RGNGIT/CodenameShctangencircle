@@ -63,7 +63,19 @@ namespace CodenameShctangencircle
             }
 
             Cycles cikl = new Cycles();
-            cikl.nCycle(ref OutputVisual, ref Output, defaultCase);
+
+            switch (defaultCase) 
+            {
+                case 0: { label1.Text = "Будут использованы слудующие коэфициенты: -99; 0,5K1; 0,1K2; 0,1K3; 0,1K4"; break; }
+                case 1: { label1.Text = "Будут использованы слудующие коэфициенты: -99; 0,5K1; 0,1K2; 0,2K3; 0,05K4"; break; }
+                case 2: { label1.Text = "Будут использованы слудующие коэфициенты: -99; 0,1K1; 0,5K2; 0,1K3; 0,1K4"; break; }
+                case 3: { label1.Text = "Будут использованы слудующие коэфициенты: -100; 0,5K1; 0,1K2; 0,1K3; 0,1K4"; break; }
+                case 4: { label1.Text = "Будут использованы слудующие коэфициенты: -100; 0,5K1; 0,1K2; 0,2K3; 0,05K4"; break; }
+                case 5: { label1.Text = "Будут использованы слудующие коэфициенты: -100; 0,1K1; 0,5K2; 0,1K3; 0,1K4"; break; }
+            }
+            
+
+            cikl.nCycle(ref OutputVisual, ref Output, defaultCase, Convert.ToInt32(N1textBox.Text), Convert.ToInt32(N2textBox.Text));
             foreach (string i in OutputVisual)
             {
                 ResBox.Items.Add(i);
@@ -76,7 +88,6 @@ namespace CodenameShctangencircle
         {
             FindSteps fs = new FindSteps();
             
-
             fs.vFindSteps(Output, Convert.ToDouble(step1TB.Text), Convert.ToDouble(step2TB.Text), Convert.ToDouble(step3TB.Text), Convert.ToDouble(step4TB.Text), Convert.ToDouble(step5TB.Text), ref stepOutput, Convert.ToDouble(A11TB.Text));
             foreach (string st in stepOutput) StepsResultBox.Items.Add(st);
         }
