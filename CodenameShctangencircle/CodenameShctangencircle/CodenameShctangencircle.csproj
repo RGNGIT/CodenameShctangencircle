@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="CheckDiafant.cs" />
     <Compile Include="Cycles.cs" />
+    <Compile Include="Database.cs" />
     <Compile Include="FindSteps.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

@@ -9,6 +9,7 @@ namespace CodenameShctangencircle
         public List<string> Combination2 = new List<string>();
 
         int Count = 1;
+        public int o, o1, o2, o3, o4, p1, p2, p3, p4, p5, GridCount;
 
         void k1Cycle(int n)
         {
@@ -75,6 +76,12 @@ namespace CodenameShctangencircle
                     {
                         Combinations.Add($"{n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
                         Combination2.Add($"({Count}) {n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
+                        Database.o.Add(n); Database.p1.Add(n1);
+                        Database.o1.Add(k1); Database.p2.Add(n2);
+                        Database.o2.Add(k2); Database.p3.Add(n3);
+                        Database.o3.Add(k3); Database.p4.Add(n4);
+                        Database.o4.Add(k4); Database.p5.Add(n5);
+                        Database.o5.Add(k5); Database.GridCount.Add(Count);
                         Count++;
                     }
                 }
