@@ -115,13 +115,14 @@ namespace CodenameShctangencircle
             Process.Start(@"GaugeBlockv3-1.exe"); Thread.Sleep(1000);
             IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик");
             //BringWindowToTop(w); 
-            if (w.ToInt32() == 0) MessageBox.Show("не нашель");
+            if (w.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
             ShowWindow(w, 9); 
             SetForegroundWindow(w);
             SendKeys.Send("{RIGHT}"); 
             SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}");
             SendKeys.Send("^(a) + {BS}"); SendKeys.Send(comboBoxa11TB.SelectedItem.ToString()); SendKeys.Send("{TAB}");
-            SendKeys.Send("^(a) + {BS}"); SendKeys.Send("{TAB}"); SendKeys.Send(textBox1.Text);
+            SendKeys.Send("^(a) + {BS}"); SendKeys.Send(stepOutput[0]);
+            SendKeys.Send("{TAB}"); SendKeys.Send("^(a) + {BS}"); SendKeys.Send(textBox1.Text);
         }
 
         #region SendKeysToOtherWindow

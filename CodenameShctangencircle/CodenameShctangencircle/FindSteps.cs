@@ -28,70 +28,70 @@ namespace CodenameShctangencircle
                 string res;
                 Database.Count.Add(Count.ToString());
 
-                res = $" (| "; 
+                res = $""; 
                 double temp = A11;
                 for (int i = 0; i < n1; i++)
                 {   
                     temp += q1;
                     if (max == n1 && i == 0) NGU = temp;
       
-                    res += temp + " | ";
+                    res += temp + " ";
                 }
                 if (max == n1) VGU = temp;
                 SDM += temp;
-                res += " ) ";
+                res += " ";
                 Database.l1.Add(res);
 
-                res = " (| ";
+                res = " ";
                 for (int i = 0; i < n2; i++)
                 {
                     temp += q2;
                     if (max == n2 && i == 0) NGU = temp;
-                    res += temp + " | ";
+                    res += temp + " ";
                 }
                 if (max == n2) VGU = temp;
                 SDM += temp;
-                res += " ) ";
+                res += " ";
                 Database.l2.Add(res);
 
-                res = " (| ";
+                res = " ";
                 for (int i = 0; i < n3; i++)
                 {
                     temp += q3;
                     if (max == n3 && i == 0) NGU = temp;
-                    res += temp + " | ";
+                    res += temp + " ";
                 }
                 if (max == n3) VGU = temp;
                 SDM += temp;
-                res += " ) ";
+                res += " ";
                 Database.l3.Add(res);
                 
-                res = " (| ";
+                res = " ";
                 for (int i = 0; i < n4; i++)
                 {
                     temp += q4;
                     if (max == n4 && i == 0) NGU = temp;
-                    res += temp + " | ";
+                    res += temp + " ";
                 }
                 if (max == n4) VGU = temp;
                 SDM += temp;
-                res += " ) ";
+                res += " ";
                 Database.l4.Add(res);
                 
-                res = " (| ";
+                res = " ";
                 for (int i = 0; i < n5; i++)
                 {
                     temp += q5;
                     if (max == n5 && i == 0) NGU = temp;
-                    res += temp + " | ";
+                    res += temp + " ";
                 }
                 if (max == n5) VGU = temp;
                 SDM += temp;
-                res += " ) ";
+                res += " ";
                 Database.l5.Add(res);
 
                 KE = (KSR / SDM) * (VGU - NGU);
-                res += $" |KE = {KE}| |KSR = {KSR}| |SDM = {SDM}| |VGU = {VGU}| |NGU = {NGU}|";
+                //res += $" |KE = {KE}| |KSR = {KSR}| |SDM = {SDM}| |VGU = {VGU}| |NGU = {NGU}|";
                 Database.KE.Add(KE.ToString());
                 Database.KSR.Add(KSR.ToString());
                 Database.SDM.Add(SDM.ToString());
