@@ -31,6 +31,7 @@ namespace CodenameShctangencircle
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.comboBoxa11TB = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -41,15 +42,15 @@ namespace CodenameShctangencircle
             this.step1TB = new System.Windows.Forms.TextBox();
             this.Start = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewCyclesRes = new System.Windows.Forms.DataGridView();
-            this.comboBoxa11TB = new System.Windows.Forms.ComboBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewRes = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCyclesRes)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +67,7 @@ namespace CodenameShctangencircle
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.comboBoxa11TB);
             this.tabPage1.Controls.Add(this.textBox2);
             this.tabPage1.Controls.Add(this.textBox1);
@@ -83,6 +85,18 @@ namespace CodenameShctangencircle
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Параметры";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // comboBoxa11TB
+            // 
+            this.comboBoxa11TB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxa11TB.FormattingEnabled = true;
+            this.comboBoxa11TB.Items.AddRange(new object[] {
+            "0,500",
+            "0,505"});
+            this.comboBoxa11TB.Location = new System.Drawing.Point(6, 32);
+            this.comboBoxa11TB.Name = "comboBoxa11TB";
+            this.comboBoxa11TB.Size = new System.Drawing.Size(169, 21);
+            this.comboBoxa11TB.TabIndex = 10;
             // 
             // textBox2
             // 
@@ -169,6 +183,14 @@ namespace CodenameShctangencircle
             this.tabPage2.Text = "Результаты циклов";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewCyclesRes
+            // 
+            this.dataGridViewCyclesRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCyclesRes.Location = new System.Drawing.Point(6, 6);
+            this.dataGridViewCyclesRes.Name = "dataGridViewCyclesRes";
+            this.dataGridViewCyclesRes.Size = new System.Drawing.Size(1263, 388);
+            this.dataGridViewCyclesRes.TabIndex = 2;
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dataGridViewRes);
@@ -180,26 +202,6 @@ namespace CodenameShctangencircle
             this.tabPage3.Text = "Результаты подбора";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewCyclesRes
-            // 
-            this.dataGridViewCyclesRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCyclesRes.Location = new System.Drawing.Point(6, 6);
-            this.dataGridViewCyclesRes.Name = "dataGridViewCyclesRes";
-            this.dataGridViewCyclesRes.Size = new System.Drawing.Size(1263, 388);
-            this.dataGridViewCyclesRes.TabIndex = 2;
-            // 
-            // comboBoxa11TB
-            // 
-            this.comboBoxa11TB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxa11TB.FormattingEnabled = true;
-            this.comboBoxa11TB.Items.AddRange(new object[] {
-            "0,500",
-            "0,505"});
-            this.comboBoxa11TB.Location = new System.Drawing.Point(6, 32);
-            this.comboBoxa11TB.Name = "comboBoxa11TB";
-            this.comboBoxa11TB.Size = new System.Drawing.Size(169, 21);
-            this.comboBoxa11TB.TabIndex = 10;
-            // 
             // dataGridViewRes
             // 
             this.dataGridViewRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -207,6 +209,16 @@ namespace CodenameShctangencircle
             this.dataGridViewRes.Name = "dataGridViewRes";
             this.dataGridViewRes.Size = new System.Drawing.Size(1265, 394);
             this.dataGridViewRes.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(315, 370);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Main
             // 
@@ -220,8 +232,8 @@ namespace CodenameShctangencircle
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCyclesRes)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRes)).EndInit();
             this.ResumeLayout(false);
 
@@ -245,6 +257,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.DataGridView dataGridViewCyclesRes;
         private System.Windows.Forms.ComboBox comboBoxa11TB;
         private System.Windows.Forms.DataGridView dataGridViewRes;
+        private System.Windows.Forms.Button button2;
     }
 }
 

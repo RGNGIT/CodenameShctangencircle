@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace CodenameShctangencircle
@@ -43,7 +46,7 @@ namespace CodenameShctangencircle
             checkKoefs();
             Cycles cikl = new Cycles();
             cikl.nCycle(ref OutputVisual, ref Output, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text), defaultcase);
-            for(int i = 0; i < Database.GridCount.Count; i++)
+            for (int i = 0; i < Database.GridCount.Count; i++)
             {
                 dataGridViewCyclesRes.Rows.Add(
                     Database.GridCount[i],
@@ -61,11 +64,14 @@ namespace CodenameShctangencircle
             }
         }
         int defaultcase = 0;
+
+        public IntPtr WinApi { get; private set; }
+
         void checkKoefs()
         {
-            if(Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()) == 0.500) 
+            if (Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()) == 0.500)
             {
-                if(Convert.ToDouble(step2TB.Text) == 0.01)
+                if (Convert.ToDouble(step2TB.Text) == 0.01)
                 {
                     if (Convert.ToDouble(step4TB.Text) == 1) { defaultcase = 0; }
                     else defaultcase = 1;
@@ -87,7 +93,7 @@ namespace CodenameShctangencircle
         {
             FindSteps fs = new FindSteps();
             fs.vFindSteps(Output, Convert.ToDouble(step1TB.Text), Convert.ToDouble(step2TB.Text), Convert.ToDouble(step3TB.Text), Convert.ToDouble(step4TB.Text), Convert.ToDouble(step5TB.Text), ref stepOutput, Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()));
-            for(int i = 0; i < Database.Count.Count; i++)
+            for (int i = 0; i < Database.Count.Count; i++)
             {
                 dataGridViewRes.Rows.Add(
                     Database.Count[i],
@@ -103,5 +109,36 @@ namespace CodenameShctangencircle
                     Database.NGU[i]);
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"GaugeBlockv3-1.exe"); Thread.Sleep(1000);
+            IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик");
+            //BringWindowToTop(w); 
+            if (w.ToInt32() == 0) MessageBox.Show("не нашель");
+            ShowWindow(w, 9); 
+            SetForegroundWindow(w);
+            SendKeys.Send("{RIGHT}"); 
+            SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}");
+            SendKeys.Send("^(a) + {BS}"); SendKeys.Send(comboBoxa11TB.SelectedItem.ToString()); SendKeys.Send("{TAB}");
+            SendKeys.Send("^(a) + {BS}"); SendKeys.Send("{TAB}"); SendKeys.Send(textBox1.Text);
+        }
+
+        #region SendKeysToOtherWindow
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern IntPtr FindWindow(string IpClassName, string IpWindowName);
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool BringWindowToTop(IntPtr hwnd);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool SetActiveWindow(IntPtr hwnd);
+        [DllImport("user32.dll")]
+        static extern bool SetForegroundWindow(IntPtr hWnd);
+
+
+        [System.Runtime.InteropServices.DllImport("User32.dll")]
+        public static extern bool ShowWindow(IntPtr handle, int nCmdShow);
+        #endregion
     }
 }
