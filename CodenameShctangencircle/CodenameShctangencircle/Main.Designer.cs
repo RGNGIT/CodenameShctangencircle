@@ -31,6 +31,8 @@ namespace CodenameShctangencircle
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
+            this.labelTest = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBoxa11TB = new System.Windows.Forms.ComboBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -46,8 +48,7 @@ namespace CodenameShctangencircle
             this.dataGridViewCyclesRes = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewRes = new System.Windows.Forms.DataGridView();
-            this.labelTest = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -89,6 +90,25 @@ namespace CodenameShctangencircle
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Параметры";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(703, 240);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // labelTest
+            // 
+            this.labelTest.AutoSize = true;
+            this.labelTest.Location = new System.Drawing.Point(384, 80);
+            this.labelTest.Name = "labelTest";
+            this.labelTest.Size = new System.Drawing.Size(35, 13);
+            this.labelTest.TabIndex = 12;
+            this.labelTest.Text = "label1";
             // 
             // button2
             // 
@@ -224,24 +244,9 @@ namespace CodenameShctangencircle
             this.dataGridViewRes.Size = new System.Drawing.Size(1265, 394);
             this.dataGridViewRes.TabIndex = 0;
             // 
-            // labelTest
+            // backgroundWorker1
             // 
-            this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(384, 80);
-            this.labelTest.Name = "labelTest";
-            this.labelTest.Size = new System.Drawing.Size(35, 13);
-            this.labelTest.TabIndex = 12;
-            this.labelTest.Text = "label1";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(703, 240);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // Main
             // 
@@ -283,6 +288,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label labelTest;
         private System.Windows.Forms.Button button3;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

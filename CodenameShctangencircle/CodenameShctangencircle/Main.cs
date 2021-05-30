@@ -6,6 +6,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 using System.Text;
+using System.ComponentModel;
 
 namespace CodenameShctangencircle
 {
@@ -120,9 +121,9 @@ namespace CodenameShctangencircle
             string[] arr = File.ReadAllLines($"Составленные1_0.txt");
             StringBuilder sb;
             string Temp = string.Empty;
-            foreach(char i in arr[1])
+            foreach (char i in arr[1])
             {
-                if(Char.IsDigit(i))
+                if (Char.IsDigit(i))
                 {
                     Temp += i;
                 }
@@ -173,42 +174,77 @@ namespace CodenameShctangencircle
             labelTest.Text = $"{NoRepeatAmount}||{LongestStep}||{LowerBorder}||{UpperBorder}||{KE}";
         }
 
+        void ProgramCycles()
+        {
+
+            IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); IntPtr frm1 = FindWindow(null, "Form1"); if (frm1.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
+            //BringWindowToTop(w); 
+            f = frm1;
+            if (w.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
+            ShowWindow(w, 9);
+            SetForegroundWindow(w);
+            //myProcess.Kill(); 
+            //DataFormats.Text, Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]
+            SendKeys.SendWait("{RIGHT}"); SendKeys.SendWait("{TAB}");
+            SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
+            SendKeys.SendWait("{TAB}");
+            for (int i = 0; i < dataGridViewRes.Rows.Count; i++)
+            {
+                SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(sas); SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("^a"); 
+                Thread thread = new Thread(() => Clipboard.SetData(DataFormats.Text, sus));
+                thread.SetApartmentState(ApartmentState.STA);
+                thread.Start();
+                thread.Join();
+                Thread.Sleep(200);
+                SendKeys.SendWait("^v");
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(sas);
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{ENTER}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{ENTER}");
+                SendKeys.SendWait("{TAB}");
+                Thread.Sleep(1000);
+                string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
+                /*
+                foreach (string s in arr)
+                {
+                    labelTest.Text += $"{s}\n";
+                }
+                */
+                //GetFileVars();
+                // dataGridAllResults.Rows.Add(Database.Count[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], "f");
+                iterator++;
+                //SendKeys.SendWait("%{F4}");
+                //SetForegroundWindow(f);
+                // SendKeys.SendWait("{TAB}");
+            }
+            SendKeys.SendWait("%{F4}");
+        }
+        string sas, sus;
+        Process s; IntPtr f;
         private void button2_Click(object sender, EventArgs e)
         {
-            Process.Start(@"GaugeBlockv3-1.exe"); Thread.Sleep(1000);
-            IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик");
-            //BringWindowToTop(w); 
-            if (w.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
-            ShowWindow(w, 9); 
-            SetForegroundWindow(w);
-            SendKeys.Send("{RIGHT}"); 
-            SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}");
-            SendKeys.Send("^(a) + {BS}"); SendKeys.Send(comboBoxa11TB.SelectedItem.ToString()); SendKeys.Send("{TAB}");
-            SendKeys.Send("^(a) + {BS}"); Clipboard.SetData(DataFormats.Text, Database.l1[0] + Database.l2[0] + Database.l3[0] + Database.l4[0] + Database.l5[0]);
-            //SendKeys.Send(Database.l1[0] + Database.l2[0] + Database.l3[0] + Database.l4[0] + Database.l5[0]);
-            SendKeys.Send("^(v)");
-            SendKeys.Send("{TAB}"); SendKeys.Send("^(a) + {BS}"); SendKeys.Send(textBox1.Text);
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{ENTER}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{TAB}");
-            SendKeys.Send("{ENTER}");
-            Thread.Sleep(1000);
-            string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
-            foreach(string i in arr)
-            {
-                labelTest.Text += $"{i}\n";
-            }
-            iterator++;
+            sas = comboBoxa11TB.SelectedItem.ToString();
+            sus = Database.l1[0] + Database.l2[0] + Database.l3[0] + Database.l4[0] + Database.l5[0];
+            backgroundWorker1.RunWorkerAsync();
+
+
+
+
         }
 
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
+        {
+            Process myProcess = Process.Start(@"GaugeBlockv3-1.exe"); Thread.Sleep(1000); s = myProcess;
+            ProgramCycles();
+        }
         int iterator = 1;
         #region SendKeysToOtherWindow
 
