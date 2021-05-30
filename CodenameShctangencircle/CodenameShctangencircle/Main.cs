@@ -171,7 +171,7 @@ namespace CodenameShctangencircle
             sb = new StringBuilder(Temp);
             sb.Remove(0, 1);
             KE = Convert.ToDouble(sb.ToString());
-            labelTest.Text = $"{NoRepeatAmount}||{LongestStep}||{LowerBorder}||{UpperBorder}||{KE}";
+            //labelTest.Text = $"{NoRepeatAmount}||{LongestStep}||{LowerBorder}||{UpperBorder}||{KE}";
         }
 
         void ProgramCycles()
@@ -188,60 +188,63 @@ namespace CodenameShctangencircle
             SendKeys.SendWait("{RIGHT}"); SendKeys.SendWait("{TAB}");
             SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
             SendKeys.SendWait("{TAB}");
-            for (int i = 0; i < dataGridViewRes.Rows.Count; i++)
+            for (int i = 0; i < dataGridViewRes.Rows.Count-1; i++)
             {
                 SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(sas); SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("^a"); 
-                Thread thread = new Thread(() => Clipboard.SetData(DataFormats.Text, sus));
+                Thread thread = new Thread(() => Clipboard.SetData(DataFormats.Text, Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]));
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
                 thread.Join();
                 Thread.Sleep(200);
                 SendKeys.SendWait("^v");
-                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(sas);
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(Database.o[i].ToString());
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
+                Thread.Sleep(200);
                 SendKeys.SendWait("{ENTER}");
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}"); Thread.Sleep(200);
                 SendKeys.SendWait("{ENTER}");
                 SendKeys.SendWait("{TAB}");
                 Thread.Sleep(1000);
                 string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
-                /*dad
-                foreach (string s in arr)
+                
+                /*foreach (string s in arr)
                 {
                     labelTest.Text += $"{s}\n";
+                }*/
+                
+                GetFileVars();
+                dataGridAllResults.Rows.Add(Database.o[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE);
+                if (iterator % 10 == 0)
+                {
+                    iterator = 0;
+                    for (int j = 1; j < 11; j++) File.Delete($"Составленные{j}_0.txt");
                 }
-                */
-                //GetFileVars();
-                // dataGridAllResults.Rows.Add(Database.Count[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], "f");
+            
                 iterator++;
-                //SendKeys.SendWait("%{F4}");
-                //SetForegroundWindow(f);
-                // SendKeys.SendWait("{TAB}");
+                
+               
             }
             SendKeys.SendWait("%{F4}");
         }
-        string sas, sus;
+        string sas, sus, sos; List<int> o = Database.o;
         Process s; IntPtr f;
         private void button2_Click(object sender, EventArgs e)
         {
-            sas = comboBoxa11TB.SelectedItem.ToString();
+            sas = comboBoxa11TB.SelectedItem.ToString(); sos = textBox1.Text;
             sus = Database.l1[0] + Database.l2[0] + Database.l3[0] + Database.l4[0] + Database.l5[0];
             backgroundWorker1.RunWorkerAsync();
-
-
-
-
         }
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+      
             Process myProcess = Process.Start(@"GaugeBlockv3-1.exe"); Thread.Sleep(1000); s = myProcess;
             ProgramCycles();
         }
