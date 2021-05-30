@@ -4,9 +4,10 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-
+using System.IO;
 namespace CodenameShctangencircle
 {
+
     public partial class Main : Form
     {
         public Main()
@@ -121,10 +122,13 @@ namespace CodenameShctangencircle
             SendKeys.Send("{RIGHT}"); 
             SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}"); SendKeys.Send("{TAB}");
             SendKeys.Send("^(a) + {BS}"); SendKeys.Send(comboBoxa11TB.SelectedItem.ToString()); SendKeys.Send("{TAB}");
-            SendKeys.Send("^(a) + {BS}"); SendKeys.Send(stepOutput[0]);
+            SendKeys.Send("^(a) + {BS}"); Clipboard.SetData(DataFormats.Text, Database.l1[0] + Database.l2[0] + Database.l3[0] + Database.l4[0] + Database.l5[0]);
+            //SendKeys.Send(Database.l1[0] + Database.l2[0] + Database.l3[0] + Database.l4[0] + Database.l5[0]);
+            SendKeys.Send("^(v)");
             SendKeys.Send("{TAB}"); SendKeys.Send("^(a) + {BS}"); SendKeys.Send(textBox1.Text);
+            string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
         }
-
+        int iterator = 1;
         #region SendKeysToOtherWindow
 
         [DllImport("user32.dll", SetLastError = true)]
