@@ -212,7 +212,7 @@ namespace CodenameShctangencircle
                 SendKeys.SendWait("{TAB}");
                 Thread.Sleep(1000);
                 string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
-                /*
+                /*dad
                 foreach (string s in arr)
                 {
                     labelTest.Text += $"{s}\n";
