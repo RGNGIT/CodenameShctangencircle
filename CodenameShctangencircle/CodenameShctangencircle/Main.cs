@@ -5,6 +5,8 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using System.IO;
+using System.Text;
+
 namespace CodenameShctangencircle
 {
 
@@ -111,6 +113,66 @@ namespace CodenameShctangencircle
             }
         }
 
+        double NoRepeatAmount, LongestStep, LowerBorder, UpperBorder, KE;
+
+        void GetFileVars()
+        {
+            string[] arr = File.ReadAllLines($"Составленные1_0.txt");
+            StringBuilder sb;
+            string Temp = string.Empty;
+            foreach(char i in arr[1])
+            {
+                if(Char.IsDigit(i))
+                {
+                    Temp += i;
+                }
+            }
+            NoRepeatAmount = Convert.ToDouble(Temp);
+            Temp = string.Empty;
+            foreach (char i in arr[3])
+            {
+                if (Char.IsDigit(i))
+                {
+                    Temp += i;
+                }
+            }
+            LongestStep = Convert.ToDouble(Temp);
+            Temp = string.Empty;
+            foreach (char i in arr[5])
+            {
+                if (Char.IsDigit(i) || i == ',')
+                {
+                    Temp += i;
+                }
+            }
+            sb = new StringBuilder(Temp);
+            sb.Remove(0, 1);
+            LowerBorder = Convert.ToDouble(sb.ToString());
+            Temp = string.Empty;
+            foreach (char i in arr[7])
+            {
+                if (Char.IsDigit(i) || i == ',')
+                {
+                    Temp += i;
+                }
+            }
+            sb = new StringBuilder(Temp);
+            sb.Remove(0, 1);
+            UpperBorder = Convert.ToDouble(sb.ToString());
+            Temp = string.Empty;
+            foreach (char i in arr[10])
+            {
+                if (Char.IsDigit(i) || i == ',')
+                {
+                    Temp += i;
+                }
+            }
+            sb = new StringBuilder(Temp);
+            sb.Remove(0, 1);
+            KE = Convert.ToDouble(sb.ToString());
+            labelTest.Text = $"{NoRepeatAmount}||{LongestStep}||{LowerBorder}||{UpperBorder}||{KE}";
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Process.Start(@"GaugeBlockv3-1.exe"); Thread.Sleep(1000);
@@ -126,8 +188,27 @@ namespace CodenameShctangencircle
             //SendKeys.Send(Database.l1[0] + Database.l2[0] + Database.l3[0] + Database.l4[0] + Database.l5[0]);
             SendKeys.Send("^(v)");
             SendKeys.Send("{TAB}"); SendKeys.Send("^(a) + {BS}"); SendKeys.Send(textBox1.Text);
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{ENTER}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
+            SendKeys.Send("{ENTER}");
+            Thread.Sleep(1000);
             string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
+            foreach(string i in arr)
+            {
+                labelTest.Text += $"{i}\n";
+            }
+            iterator++;
         }
+
         int iterator = 1;
         #region SendKeysToOtherWindow
 
@@ -145,5 +226,10 @@ namespace CodenameShctangencircle
         [System.Runtime.InteropServices.DllImport("User32.dll")]
         public static extern bool ShowWindow(IntPtr handle, int nCmdShow);
         #endregion
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            GetFileVars();
+        }
     }
 }
