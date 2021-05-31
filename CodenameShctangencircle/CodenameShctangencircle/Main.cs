@@ -220,7 +220,7 @@ namespace CodenameShctangencircle
                 }*/
                 
                 GetFileVars();
-                dataGridAllResults.Rows.Add(Database.o[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE);
+                dataGridAllResults.Rows.Add(Database.o[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE, NoRepeatAmount, LongestStep, LowerBorder, UpperBorder);
                 if (iterator % 10 == 0)
                 {
                     iterator = 0;
