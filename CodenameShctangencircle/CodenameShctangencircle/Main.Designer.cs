@@ -53,11 +53,11 @@ namespace CodenameShctangencircle
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -264,7 +264,7 @@ namespace CodenameShctangencircle
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(1275, 400);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.Text = "Результаты";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // dataGridAllResults
@@ -282,7 +282,7 @@ namespace CodenameShctangencircle
             this.Column7});
             this.dataGridAllResults.Location = new System.Drawing.Point(3, 0);
             this.dataGridAllResults.Name = "dataGridAllResults";
-            this.dataGridAllResults.Size = new System.Drawing.Size(1005, 400);
+            this.dataGridAllResults.Size = new System.Drawing.Size(1272, 400);
             this.dataGridAllResults.TabIndex = 0;
             // 
             // Column1
@@ -302,10 +302,6 @@ namespace CodenameShctangencircle
             this.Column3.HeaderText = "KE";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // Column4
             // 
@@ -330,6 +326,10 @@ namespace CodenameShctangencircle
             this.Column7.HeaderText = "ВГУ";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             // 
             // Main
             // 

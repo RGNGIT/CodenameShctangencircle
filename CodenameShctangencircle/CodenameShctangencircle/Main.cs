@@ -34,11 +34,6 @@ namespace CodenameShctangencircle
             dataGridViewRes.Columns.Add("_l3", "l3");
             dataGridViewRes.Columns.Add("_l4", "l4");
             dataGridViewRes.Columns.Add("_l5", "l5");
-            dataGridViewRes.Columns.Add("_KE", "KE");
-            dataGridViewRes.Columns.Add("_KSR", "KSR");
-            dataGridViewRes.Columns.Add("_SDM", "SDM");
-            dataGridViewRes.Columns.Add("_VGU", "VGU");
-            dataGridViewRes.Columns.Add("_NGU", "NGU");
         }
 
         public List<string> Output = new List<string>();
@@ -105,12 +100,7 @@ namespace CodenameShctangencircle
                     Database.l2[i],
                     Database.l3[i],
                     Database.l4[i],
-                    Database.l5[i],
-                    Database.KE[i],
-                    Database.KSR[i],
-                    Database.SDM[i],
-                    Database.VGU[i],
-                    Database.NGU[i]);
+                    Database.l5[i]);
             }
         }
 
@@ -190,15 +180,15 @@ namespace CodenameShctangencircle
             SendKeys.SendWait("{TAB}");
             for (int i = 0; i < dataGridViewRes.Rows.Count-1; i++)
             {
-                SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(sas); SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("^a"); 
+                SendKeys.SendWait("^A"); Thread.Sleep(200); SendKeys.SendWait(sas); SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("^A"); 
                 Thread thread = new Thread(() => Clipboard.SetData(DataFormats.Text, Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]));
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
                 thread.Join();
                 Thread.Sleep(200);
-                SendKeys.SendWait("^v");
-                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(Database.o[i].ToString());
+                SendKeys.SendWait("^V");
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("^A"); Thread.Sleep(200); SendKeys.SendWait(Database.o[i].ToString());
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
