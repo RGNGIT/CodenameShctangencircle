@@ -180,15 +180,15 @@ namespace CodenameShctangencircle
             SendKeys.SendWait("{TAB}");
             for (int i = 0; i < dataGridViewRes.Rows.Count-1; i++)
             {
-                SendKeys.SendWait("^A"); Thread.Sleep(200); SendKeys.SendWait(sas); SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("^A"); 
+                SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(sas); SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("^a"); 
                 Thread thread = new Thread(() => Clipboard.SetData(DataFormats.Text, Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]));
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
                 thread.Join();
                 Thread.Sleep(200);
-                SendKeys.SendWait("^V");
-                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("^A"); Thread.Sleep(200); SendKeys.SendWait(Database.o[i].ToString());
+                SendKeys.SendWait("^v");
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(Database.o[i].ToString());
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
