@@ -116,9 +116,9 @@ namespace CodenameShctangencircle
 
         double NoRepeatAmount, LongestStep, LowerBorder, UpperBorder, KE;
 
-        void GetFileVars()
+        void GetFileVars(int iterator)
         {
-            string[] arr = File.ReadAllLines($"Составленные1_0.txt");
+            string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
             StringBuilder sb;
             string Temp = string.Empty;
             foreach (char i in arr[1])
@@ -213,13 +213,14 @@ namespace CodenameShctangencircle
                 SendKeys.SendWait("{TAB}");
                 Thread.Sleep(1000);
                 string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
-                
+
                 /*foreach (string s in arr)
                 {
                     labelTest.Text += $"{s}\n";
                 }*/
-                
-                GetFileVars();
+                Thread.Sleep(200);
+                GetFileVars(iterator);
+                Thread.Sleep(200);
                 dataGridAllResults.Rows.Add(Database.o[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE, NoRepeatAmount, LongestStep, LowerBorder, UpperBorder);
                 if (iterator % 10 == 0)
                 {
@@ -268,7 +269,7 @@ namespace CodenameShctangencircle
 
         private void button3_Click(object sender, EventArgs e)
         {
-            GetFileVars();
+            //GetFileVars();
         }
     }
 }
