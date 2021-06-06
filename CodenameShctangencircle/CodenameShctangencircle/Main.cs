@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text;
 using System.ComponentModel;
+using WindowsInput;
 
 namespace CodenameShctangencircle
 {
@@ -166,7 +167,7 @@ namespace CodenameShctangencircle
 
         void ProgramCycles()
         {
-
+            InputSimulator simulator = new InputSimulator();
             IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); IntPtr frm1 = FindWindow(null, "Form1"); if (frm1.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
             //BringWindowToTop(w); 
             f = frm1;
@@ -180,15 +181,21 @@ namespace CodenameShctangencircle
             SendKeys.SendWait("{TAB}");
             for (int i = 0; i < dataGridViewRes.Rows.Count-1; i++)
             {
-                SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(sas); SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("^a"); 
+                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
+                Thread.Sleep(200);
+                SendKeys.SendWait(sas);
+                SendKeys.SendWait("{TAB}");
+                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread thread = new Thread(() => Clipboard.SetData(DataFormats.Text, Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]));
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
                 thread.Join();
                 Thread.Sleep(200);
-                SendKeys.SendWait("^v");
-                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("^a"); Thread.Sleep(200); SendKeys.SendWait(Database.o[i].ToString());
+                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_V);
+                SendKeys.SendWait("{TAB}");
+                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
+                Thread.Sleep(200); 
+                SendKeys.SendWait(Database.o[i].ToString());
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
@@ -197,11 +204,14 @@ namespace CodenameShctangencircle
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
                 SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}"); Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}"); 
+                SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{TAB}"); 
+                SendKeys.SendWait("{TAB}"); 
+                Thread.Sleep(200);
                 SendKeys.SendWait("{ENTER}");
                 SendKeys.SendWait("{TAB}");
-                Thread.Sleep(1000);
+                Thread.Sleep(200);
                 string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
 
                 /*foreach (string s in arr)
