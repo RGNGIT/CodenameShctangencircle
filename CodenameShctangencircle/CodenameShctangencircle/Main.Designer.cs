@@ -57,7 +57,9 @@ namespace CodenameShctangencircle
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -82,6 +84,7 @@ namespace CodenameShctangencircle
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.labelTest);
             this.tabPage1.Controls.Add(this.button2);
@@ -279,7 +282,8 @@ namespace CodenameShctangencircle
             this.Column4,
             this.Column5,
             this.Column6,
-            this.Column7});
+            this.Column7,
+            this.Column8});
             this.dataGridAllResults.Location = new System.Drawing.Point(3, 0);
             this.dataGridAllResults.Name = "dataGridAllResults";
             this.dataGridAllResults.Size = new System.Drawing.Size(1272, 400);
@@ -327,9 +331,22 @@ namespace CodenameShctangencircle
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Суммарная длина";
+            this.Column8.Name = "Column8";
+            // 
             // backgroundWorker1
             // 
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(927, 80);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(120, 95);
+            this.listBox1.TabIndex = 14;
             // 
             // Main
             // 
@@ -383,6 +400,8 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }
 

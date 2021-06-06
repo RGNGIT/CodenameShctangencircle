@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.ComponentModel;
 using WindowsInput;
+using WindowsInput.Native;
 
 namespace CodenameShctangencircle
 {
@@ -165,6 +166,11 @@ namespace CodenameShctangencircle
             //labelTest.Text = $"{NoRepeatAmount}||{LongestStep}||{LowerBorder}||{UpperBorder}||{KE}";
         }
 
+        VirtualKeyCode[] modCodes = new VirtualKeyCode[2] 
+        {
+            VirtualKeyCode.CONTROL,
+            VirtualKeyCode.SHIFT
+        };
         void ProgramCycles()
         {
             InputSimulator simulator = new InputSimulator();
@@ -211,17 +217,31 @@ namespace CodenameShctangencircle
                 Thread.Sleep(200);
                 SendKeys.SendWait("{ENTER}");
                 SendKeys.SendWait("{TAB}");
-                Thread.Sleep(200);
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
+                SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}"); // SendKeys.SendWait("{DOWN}"); SendKeys.SendWait("{DOWN}");
+                // simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.SHIFT, WindowsInput.Native.VirtualKeyCode.DOWN);
+                simulator.Keyboard.ModifiedKeyStroke(modCodes, VirtualKeyCode.RIGHT);
+                simulator.Keyboard.ModifiedKeyStroke(modCodes, VirtualKeyCode.RIGHT);
+                simulator.Keyboard.ModifiedKeyStroke(modCodes, VirtualKeyCode.RIGHT);
+                simulator.Keyboard.ModifiedKeyStroke(modCodes, VirtualKeyCode.RIGHT);
+                simulator.Keyboard.ModifiedKeyStroke(modCodes, VirtualKeyCode.RIGHT);
+                simulator.Keyboard.ModifiedKeyStroke(modCodes, VirtualKeyCode.RIGHT);
+                simulator.Keyboard.ModifiedKeyStroke(modCodes, VirtualKeyCode.RIGHT);
+                simulator.Keyboard.ModifiedKeyStroke(modCodes, VirtualKeyCode.RIGHT);
+                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.LCONTROL, WindowsInput.Native.VirtualKeyCode.VK_C);
+                //sumLength = sumLength.Substring(sumLength.LastIndexOf(' '));
+                SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}"); 
+                                 Thread.Sleep(500);
                 string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
-
                 /*foreach (string s in arr)
                 {
                     labelTest.Text += $"{s}\n";
                 }*/
+                string Temp = Clipboard.GetText(TextDataFormat.Text);
                 Thread.Sleep(200);
                 GetFileVars(iterator);
                 Thread.Sleep(200);
-                dataGridAllResults.Rows.Add(Database.o[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE, NoRepeatAmount, LongestStep, LowerBorder, UpperBorder);
+                dataGridAllResults.Rows.Add(Database.o[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE, NoRepeatAmount, LongestStep, LowerBorder, UpperBorder, Temp);
                 if (iterator % 10 == 0)
                 {
                     iterator = 0;

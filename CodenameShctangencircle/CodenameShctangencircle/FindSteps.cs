@@ -30,7 +30,8 @@ namespace CodenameShctangencircle
 
                 res = $""; 
                 double temp = A11;
-                for (int i = 0; i < n1; i++)
+                res += temp + " ";
+                for (int i = 1; i < n1; i++)
                 {   
                     temp += q1;
                     if (max == n1 && i == 0) NGU = temp;
