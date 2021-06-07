@@ -176,8 +176,10 @@ namespace CodenameShctangencircle
             SetForegroundWindow(w);
             //myProcess.Kill(); 
             //DataFormats.Text, Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]
-            SendKeys.SendWait("{RIGHT}"); SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("{TAB}"); SendKeys.SendWait("{TAB}");
+            SendKeys.SendWait("{RIGHT}"); 
+            SendKeys.SendWait("{TAB}");
+            SendKeys.SendWait("{TAB}"); 
+            SendKeys.SendWait("{TAB}");
             SendKeys.SendWait("{TAB}");
             for (int i = 0; i < dataGridViewRes.Rows.Count-1; i++)
             {
