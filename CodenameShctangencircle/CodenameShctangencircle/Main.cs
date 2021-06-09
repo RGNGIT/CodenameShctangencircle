@@ -61,13 +61,14 @@ namespace CodenameShctangencircle
                     Database.p4[i],
                     Database.p5[i]);
             }
+            button1_Click(sender, e);
         }
         int defaultcase = 0;
 
         public IntPtr WinApi { get; private set; }
 
         void checkKoefs()
-        {
+        {/*
             if (Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()) == 0.500)
             {
                 if (Convert.ToDouble(step2TB.Text) == 0.01)
@@ -86,18 +87,21 @@ namespace CodenameShctangencircle
                 }
                 if (Convert.ToDouble(step2TB.Text) == 0.05) defaultcase = 5;
             }
-            /*if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 0) defaultcase = 0;
-            if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 0) defaultcase = 1;
-            if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 0) defaultcase = 2;
-            if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 1) defaultcase = 3;
-            if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 1) defaultcase = 4;
-            if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 1) defaultcase = 5;*/
-        }
-
+           */
+            
+            if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 0) { defaultcase = 0; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 1; step5 = 10; }
+            if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 0) { defaultcase = 1; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 0.5; step5 = 10; }
+            if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 0) { defaultcase = 2; step1 = 0.005; step2 = 0.05; step3 = 0.1; step4 = 1; step5 = 10; }
+            if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 1) { defaultcase = 3; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 1; step5 = 10; }
+            if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 1) { defaultcase = 4; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 0.5; step5 = 10; }
+            if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 1) { defaultcase = 5; step1 = 0.005; step2 = 0.05; step3 = 0.1; step4 = 1; step5 = 10; } 
+        
+            }
+        double step1, step2, step3, step4, step5;
         private void button1_Click(object sender, EventArgs e)
         {
             FindSteps fs = new FindSteps();
-            fs.vFindSteps(Output, Convert.ToDouble(step1TB.Text), Convert.ToDouble(step2TB.Text), Convert.ToDouble(step3TB.Text), Convert.ToDouble(step4TB.Text), Convert.ToDouble(step5TB.Text), ref stepOutput, Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()));
+            fs.vFindSteps(Output, step1, step2, step3, step4, step5, ref stepOutput, Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()));
             for (int i = 0; i < Database.Count.Count; i++)
             {
                 dataGridViewRes.Rows.Add(

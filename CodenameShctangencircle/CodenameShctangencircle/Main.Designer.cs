@@ -50,7 +50,6 @@ namespace CodenameShctangencircle
             this.dataGridViewRes = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridAllResults = new System.Windows.Forms.DataGridView();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +57,7 @@ namespace CodenameShctangencircle
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -83,18 +83,13 @@ namespace CodenameShctangencircle
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.labelTest);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.comboBoxa11TB);
             this.tabPage1.Controls.Add(this.textBox2);
             this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.step5TB);
-            this.tabPage1.Controls.Add(this.step4TB);
-            this.tabPage1.Controls.Add(this.step3TB);
-            this.tabPage1.Controls.Add(this.step2TB);
-            this.tabPage1.Controls.Add(this.step1TB);
             this.tabPage1.Controls.Add(this.Start);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -117,7 +112,7 @@ namespace CodenameShctangencircle
             // labelTest
             // 
             this.labelTest.AutoSize = true;
-            this.labelTest.Location = new System.Drawing.Point(384, 80);
+            this.labelTest.Location = new System.Drawing.Point(796, 139);
             this.labelTest.Name = "labelTest";
             this.labelTest.Size = new System.Drawing.Size(35, 13);
             this.labelTest.TabIndex = 12;
@@ -142,7 +137,7 @@ namespace CodenameShctangencircle
             "0,505"});
             this.comboBoxa11TB.Location = new System.Drawing.Point(6, 32);
             this.comboBoxa11TB.Name = "comboBoxa11TB";
-            this.comboBoxa11TB.Size = new System.Drawing.Size(169, 21);
+            this.comboBoxa11TB.Size = new System.Drawing.Size(266, 21);
             this.comboBoxa11TB.TabIndex = 10;
             // 
             // textBox2
@@ -163,7 +158,7 @@ namespace CodenameShctangencircle
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(100, 371);
+            this.button1.Location = new System.Drawing.Point(116, 469);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 6;
@@ -173,7 +168,7 @@ namespace CodenameShctangencircle
             // 
             // step5TB
             // 
-            this.step5TB.Location = new System.Drawing.Point(146, 6);
+            this.step5TB.Location = new System.Drawing.Point(372, 496);
             this.step5TB.Name = "step5TB";
             this.step5TB.Size = new System.Drawing.Size(29, 20);
             this.step5TB.TabIndex = 5;
@@ -181,7 +176,7 @@ namespace CodenameShctangencircle
             // 
             // step4TB
             // 
-            this.step4TB.Location = new System.Drawing.Point(111, 6);
+            this.step4TB.Location = new System.Drawing.Point(337, 496);
             this.step4TB.Name = "step4TB";
             this.step4TB.Size = new System.Drawing.Size(29, 20);
             this.step4TB.TabIndex = 4;
@@ -189,7 +184,7 @@ namespace CodenameShctangencircle
             // 
             // step3TB
             // 
-            this.step3TB.Location = new System.Drawing.Point(76, 6);
+            this.step3TB.Location = new System.Drawing.Point(302, 496);
             this.step3TB.Name = "step3TB";
             this.step3TB.Size = new System.Drawing.Size(29, 20);
             this.step3TB.TabIndex = 3;
@@ -197,7 +192,7 @@ namespace CodenameShctangencircle
             // 
             // step2TB
             // 
-            this.step2TB.Location = new System.Drawing.Point(41, 6);
+            this.step2TB.Location = new System.Drawing.Point(267, 496);
             this.step2TB.Name = "step2TB";
             this.step2TB.Size = new System.Drawing.Size(29, 20);
             this.step2TB.TabIndex = 2;
@@ -205,7 +200,7 @@ namespace CodenameShctangencircle
             // 
             // step1TB
             // 
-            this.step1TB.Location = new System.Drawing.Point(6, 6);
+            this.step1TB.Location = new System.Drawing.Point(232, 496);
             this.step1TB.Name = "step1TB";
             this.step1TB.Size = new System.Drawing.Size(29, 20);
             this.step1TB.TabIndex = 1;
@@ -288,10 +283,6 @@ namespace CodenameShctangencircle
             this.dataGridAllResults.Size = new System.Drawing.Size(1272, 400);
             this.dataGridAllResults.TabIndex = 0;
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            // 
             // Column1
             // 
             this.Column1.HeaderText = "Количество N";
@@ -334,6 +325,10 @@ namespace CodenameShctangencircle
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -342,7 +337,7 @@ namespace CodenameShctangencircle
             "δ1=0,005; δ2=0,01; δ3=0,1; δ4=1; δ5=10",
             "δ1=0,005; δ2=0,01; δ3=0,1; δ4=0,5; δ5=10",
             "δ1=0,005; δ2=0,05; δ3=0,1; δ4=1; δ5=10"});
-            this.comboBox1.Location = new System.Drawing.Point(210, 534);
+            this.comboBox1.Location = new System.Drawing.Point(6, 6);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(266, 21);
             this.comboBox1.TabIndex = 14;
@@ -351,9 +346,14 @@ namespace CodenameShctangencircle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 440);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(1299, 441);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.step1TB);
+            this.Controls.Add(this.step2TB);
+            this.Controls.Add(this.step3TB);
+            this.Controls.Add(this.step4TB);
+            this.Controls.Add(this.step5TB);
+            this.Controls.Add(this.button1);
             this.Name = "Main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Main_Load);
@@ -367,6 +367,7 @@ namespace CodenameShctangencircle
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAllResults)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
