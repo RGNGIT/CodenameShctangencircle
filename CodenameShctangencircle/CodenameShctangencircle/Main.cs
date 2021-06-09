@@ -6,7 +6,6 @@ using System.Threading;
 using System.Windows.Forms;
 using System.IO;
 using System.Text;
-using System.ComponentModel;
 using WindowsInput;
 
 namespace CodenameShctangencircle
@@ -87,6 +86,12 @@ namespace CodenameShctangencircle
                 }
                 if (Convert.ToDouble(step2TB.Text) == 0.05) defaultcase = 5;
             }
+            /*if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 0) defaultcase = 0;
+            if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 0) defaultcase = 1;
+            if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 0) defaultcase = 2;
+            if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 1) defaultcase = 3;
+            if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 1) defaultcase = 4;
+            if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 1) defaultcase = 5;*/
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -211,19 +216,17 @@ namespace CodenameShctangencircle
                 SendKeys.SendWait("{TAB}"); 
                 SendKeys.SendWait("{TAB}"); 
                 Thread.Sleep(200);
-                SendKeys.SendWait("{ENTER}");
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                 SendKeys.SendWait("{TAB}");
-                Thread.Sleep(200);
+                Thread.Sleep(4000);
                 string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
 
-                /*foreach (string s in arr)
-                {
-                    labelTest.Text += $"{s}\n";
-                }*/
                 Thread.Sleep(200);
                 GetFileVars(iterator);
                 Thread.Sleep(200);
+
                 dataGridAllResults.Rows.Add(Database.o[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE, NoRepeatAmount, LongestStep, LowerBorder, UpperBorder);
+                
                 if (iterator % 10 == 0)
                 {
                     iterator = 0;
@@ -252,6 +255,25 @@ namespace CodenameShctangencircle
             ProgramCycles();
         }
         int iterator = 1;
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                if (File.Exists("Составленные1_0.txt")) File.Delete("Составленные1_0.txt");
+                if (File.Exists("Составленные2_0.txt")) File.Delete("Составленные2_0.txt");
+                if (File.Exists("Составленные3_0.txt")) File.Delete("Составленные3_0.txt");
+                if (File.Exists("Составленные4_0.txt")) File.Delete("Составленные4_0.txt");
+                if (File.Exists("Составленные5_0.txt")) File.Delete("Составленные5_0.txt");
+                if (File.Exists("Составленные6_0.txt")) File.Delete("Составленные6_0.txt");
+                if (File.Exists("Составленные7_0.txt")) File.Delete("Составленные7_0.txt");
+                if (File.Exists("Составленные8_0.txt")) File.Delete("Составленные8_0.txt");
+                if (File.Exists("Составленные9_0.txt")) File.Delete("Составленные9_0.txt");
+                if (File.Exists("Составленные10_0.txt")) File.Delete("Составленные10_0.txt");
+            }
+            catch { }
+        }
+
         #region SendKeysToOtherWindow
 
         [DllImport("user32.dll", SetLastError = true)]

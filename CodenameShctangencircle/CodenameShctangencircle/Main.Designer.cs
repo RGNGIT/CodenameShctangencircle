@@ -50,6 +50,7 @@ namespace CodenameShctangencircle
             this.dataGridViewRes = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridAllResults = new System.Windows.Forms.DataGridView();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +58,7 @@ namespace CodenameShctangencircle
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -150,6 +151,7 @@ namespace CodenameShctangencircle
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(42, 20);
             this.textBox2.TabIndex = 8;
+            this.textBox2.Text = "43";
             // 
             // textBox1
             // 
@@ -157,6 +159,7 @@ namespace CodenameShctangencircle
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(42, 20);
             this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "43";
             // 
             // button1
             // 
@@ -285,6 +288,10 @@ namespace CodenameShctangencircle
             this.dataGridAllResults.Size = new System.Drawing.Size(1272, 400);
             this.dataGridAllResults.TabIndex = 0;
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            // 
             // Column1
             // 
             this.Column1.HeaderText = "Количество N";
@@ -293,7 +300,7 @@ namespace CodenameShctangencircle
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "Меры";
+            this.Column2.HeaderText = "Список мер";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -305,7 +312,7 @@ namespace CodenameShctangencircle
             // 
             // Column4
             // 
-            this.Column4.HeaderText = "Количество составленных мер (без повторений)";
+            this.Column4.HeaderText = "Количество составленных мер набора (без повторений)";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
@@ -327,18 +334,29 @@ namespace CodenameShctangencircle
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
-            // backgroundWorker1
+            // comboBox1
             // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "δ1=0,005; δ2=0,01; δ3=0,1; δ4=1; δ5=10",
+            "δ1=0,005; δ2=0,01; δ3=0,1; δ4=0,5; δ5=10",
+            "δ1=0,005; δ2=0,05; δ3=0,1; δ4=1; δ5=10"});
+            this.comboBox1.Location = new System.Drawing.Point(210, 534);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(266, 21);
+            this.comboBox1.TabIndex = 14;
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1299, 452);
+            this.ClientSize = new System.Drawing.Size(1299, 440);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.tabControl1);
             this.Name = "Main";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -376,6 +394,7 @@ namespace CodenameShctangencircle
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView dataGridAllResults;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
