@@ -83,7 +83,7 @@ namespace CodenameShctangencircle
         {
             FindSteps fs = new FindSteps();
             fs.vFindSteps(Output, step1, step2, step3, step4, step5, ref stepOutput, Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()));
-           
+            r = new ResultForm();
             //тут был грид степов
         }
 
@@ -141,12 +141,10 @@ namespace CodenameShctangencircle
                     Temp += i;
                 }
             }
-            sb = new StringBuilder(Temp);
-            sb.Remove(0, 1);
-            //KE = Convert.ToDouble(sb.ToString());
+            KE = Convert.ToDouble(Temp);
             
         }
-        ResultForm r = new ResultForm();
+        ResultForm r;
         void ProgramCycles()
         {
             //DataFormats.Text, 
@@ -197,7 +195,7 @@ namespace CodenameShctangencircle
                 Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                Thread.Sleep(500);
+                Thread.Sleep(1000);
                 string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
 
                 Thread.Sleep(200);
@@ -211,7 +209,7 @@ namespace CodenameShctangencircle
                     for (int j = 1; j < 11; j++) File.Delete($"Составленные{j}_0.txt");
                 }
                 iterator++;
-                r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.Count.ToString(), NoRepeatAmount.ToString());
+                r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.Count[i].ToString(), LongestStep.ToString());
                 
             }
             SendKeys.SendWait("%{F4}");

@@ -1,6 +1,6 @@
-﻿
-using System;
+﻿using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace CodenameShctangencircle
 {
@@ -81,14 +81,34 @@ namespace CodenameShctangencircle
 
         string countSDM(string sizes)
         {
-            string sdm = String.Empty;
-            return sdm;
+            string TempString = String.Empty;
+            List<double> Temp = new List<double>();
+            double sum = 0;
+            bool FTS = true;
+            foreach (char i in sizes)
+            {
+                if (i != ' ')
+                {
+                    TempString += i;
+                    FTS = true;
+                }
+                if(i == ' ' && FTS)
+                {
+                    Temp.Add(Convert.ToDouble(TempString));
+                    TempString = String.Empty;
+                    FTS = false;
+                }
+            }
+            foreach(double i in Temp)
+            {
+                sum += i;
+            }
+            return sum.ToString();
         }
 
         public void FillSchoodDG(string Sizes, string KE, string NGU, string VGU, string N, string KSR) 
         {
-            string sdm = "sas";
-            DataGridSchool.Rows.Add(N, Sizes, KSR, sdm, VGU, NGU, KE);
+            DataGridSchool.Rows.Add(N, Sizes, KSR, countSDM(Sizes), VGU, NGU, KE);
         }
     }
 }
