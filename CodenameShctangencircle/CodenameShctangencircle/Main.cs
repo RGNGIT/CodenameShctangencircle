@@ -54,7 +54,7 @@ namespace CodenameShctangencircle
             dataGridViewCyclesRes.Rows.Clear();
             dataGridViewRes.Rows.Clear();
             dataGridViewFin.Rows.Clear();
-            Database.ClearShit();
+            Database.ClearStuff();
             checkKoefs();
 
             Cycles cikl = new Cycles();
@@ -75,8 +75,11 @@ namespace CodenameShctangencircle
                     Database.p4[i],
                     Database.p5[i]);
             }
-            button1_Click(sender, e);
+            Thread.Sleep(1000);
+            button1_Click(sender, e); Thread.Sleep(1000);
             DrawTable();
+            sas = comboBoxa11TB.SelectedItem.ToString();
+            backgroundWorker1.RunWorkerAsync(); //MessageBox.Show("Рассчеты завершены. Проверяйте вкладки выше");
         }
         int defaultcase = 0;
 
@@ -108,7 +111,7 @@ namespace CodenameShctangencircle
                     Database.l4[i],
                     Database.l5[i]);
             }
-            MessageBox.Show("Рассчеты завершены. Проверяйте вкладки выше");
+            
         }
 
         void DrawTable()
@@ -135,7 +138,7 @@ namespace CodenameShctangencircle
             }
         }
 
-        double NoRepeatAmount, LongestStep, LowerBorder, UpperBorder, KE;
+        double NoRepeatAmount, LongestStep, LowerBorder, UpperBorder, KE = 0;
 
         void GetFileVars(int iterator)
         {
@@ -191,58 +194,58 @@ namespace CodenameShctangencircle
             }
             sb = new StringBuilder(Temp);
             sb.Remove(0, 1);
-            KE = Convert.ToDouble(sb.ToString());
+            //KE = Convert.ToDouble(sb.ToString());
             
         }
 
         void ProgramCycles()
         {
             InputSimulator simulator = new InputSimulator();
-            IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); IntPtr frm1 = FindWindow(null, "Form1"); if (frm1.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
+            IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); IntPtr frm1 = FindWindow(null, "Form1");// if (frm1.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
             //BringWindowToTop(w); 
             f = frm1;
             if (w.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
             ShowWindow(w, 9);
             SetForegroundWindow(w);
-            
-            SendKeys.SendWait("{RIGHT}"); 
-            SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("{TAB}"); 
-            SendKeys.SendWait("{TAB}");
-            SendKeys.SendWait("{TAB}");
+
+            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RIGHT);
+            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
             for (int i = 0; i < dataGridViewRes.Rows.Count-1; i++)
             {
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200);
                 SendKeys.SendWait(sas);
-                SendKeys.SendWait("{TAB}");
-                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A); Thread.Sleep(200);
                 Thread thread = new Thread(() => Clipboard.SetData(DataFormats.Text, Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]));
                 thread.SetApartmentState(ApartmentState.STA);
                 thread.Start();
                 thread.Join();
                 Thread.Sleep(200);
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_V);
-                SendKeys.SendWait("{TAB}");
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200); 
                 SendKeys.SendWait(Database.o[i].ToString());
-                SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}");
-                Thread.Sleep(200);
-                SendKeys.SendWait("{ENTER}");
-                SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}"); 
-                SendKeys.SendWait("{TAB}");
-                SendKeys.SendWait("{TAB}"); 
-                SendKeys.SendWait("{TAB}"); 
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
-                SendKeys.SendWait("{TAB}");
-                Thread.Sleep(4000);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                Thread.Sleep(200);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                Thread.Sleep(500);
                 string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
 
                 Thread.Sleep(200);

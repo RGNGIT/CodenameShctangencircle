@@ -34,7 +34,7 @@ namespace CodenameShctangencircle
         public static List<string> VGU = new List<string>();
         public static List<string> NGU = new List<string>();
 
-        public static void ClearShit()
+        public static void ClearStuff()
         {
             o.Clear();
             o1.Clear();
