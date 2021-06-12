@@ -50,7 +50,7 @@ namespace CodenameShctangencircle
             //dataGridViewCyclesRes.Rows.Clear();
             //dataGridViewRes.Rows.Clear();
             //dataGridViewFin.Rows.Clear();
-
+            iterator = 1;
             if(fl)
             {
                 r.Close();
@@ -100,7 +100,7 @@ namespace CodenameShctangencircle
         }
 
         double NoRepeatAmount, LongestStep, LowerBorder, UpperBorder, KE = 0;
-
+       
         void GetFileVars(int iterator)
         {
             string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
@@ -167,7 +167,7 @@ namespace CodenameShctangencircle
             if (w.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
             ShowWindow(w, 9);
             SetForegroundWindow(w);
-
+            
             simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RIGHT);
             simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
             simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
@@ -257,6 +257,7 @@ namespace CodenameShctangencircle
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             Process myProcess = Process.Start(@"GaugeBlockv3-1.exe"); Thread.Sleep(1000); s = myProcess;
+           
             ProgramCycles();
         }
         int iterator = 1;

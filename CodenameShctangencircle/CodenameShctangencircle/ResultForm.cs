@@ -115,33 +115,36 @@ namespace CodenameShctangencircle
 
         public void FillBestResultsDG()
         {
-            string N = DataGridSchool.Rows[0].Cells[0].Value.ToString(); double best = Convert.ToDouble(DataGridSchool.Rows[0].Cells[6].Value); int bestI = 0;
-            for(int i = 0; i < DataGridSchool.Rows.Count-1; i++)
+            if (DataGridSchool.Rows.Count - 1 != 0)
             {
-                if(N != DataGridSchool.Rows[i].Cells[0].Value.ToString())
+                string N = DataGridSchool.Rows[0].Cells[0].Value.ToString(); double best = Convert.ToDouble(DataGridSchool.Rows[0].Cells[6].Value); int bestI = 0;
+                for (int i = 0; i < DataGridSchool.Rows.Count - 1; i++)
                 {
-                    bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
-                        DataGridSchool.Rows[bestI].Cells[1].Value,
-                        DataGridSchool.Rows[bestI].Cells[2].Value,
-                        DataGridSchool.Rows[bestI].Cells[3].Value,
-                        DataGridSchool.Rows[bestI].Cells[4].Value,
-                        DataGridSchool.Rows[bestI].Cells[5].Value,
-                        DataGridSchool.Rows[bestI].Cells[6].Value);
+                    if (N != DataGridSchool.Rows[i].Cells[0].Value.ToString())
+                    {
+                        bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
+                            DataGridSchool.Rows[bestI].Cells[1].Value,
+                            DataGridSchool.Rows[bestI].Cells[2].Value,
+                            DataGridSchool.Rows[bestI].Cells[3].Value,
+                            DataGridSchool.Rows[bestI].Cells[4].Value,
+                            DataGridSchool.Rows[bestI].Cells[5].Value,
+                            DataGridSchool.Rows[bestI].Cells[6].Value);
 
-                    N = DataGridSchool.Rows[i].Cells[0].Value.ToString();
-                    best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value); bestI = i;
-                }
+                        N = DataGridSchool.Rows[i].Cells[0].Value.ToString();
+                        best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value); bestI = i;
+                    }
 
-                if (best < Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value)) { bestI = i; best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value); }
-                if(i == DataGridSchool.Rows.Count - 2)
-                {
-                    bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
-                        DataGridSchool.Rows[bestI].Cells[1].Value,
-                        DataGridSchool.Rows[bestI].Cells[2].Value,
-                        DataGridSchool.Rows[bestI].Cells[3].Value,
-                        DataGridSchool.Rows[bestI].Cells[4].Value,
-                        DataGridSchool.Rows[bestI].Cells[5].Value,
-                        DataGridSchool.Rows[bestI].Cells[6].Value);
+                    if (best < Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value)) { bestI = i; best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value); }
+                    if (i == DataGridSchool.Rows.Count - 2)
+                    {
+                        bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
+                            DataGridSchool.Rows[bestI].Cells[1].Value,
+                            DataGridSchool.Rows[bestI].Cells[2].Value,
+                            DataGridSchool.Rows[bestI].Cells[3].Value,
+                            DataGridSchool.Rows[bestI].Cells[4].Value,
+                            DataGridSchool.Rows[bestI].Cells[5].Value,
+                            DataGridSchool.Rows[bestI].Cells[6].Value);
+                    }
                 }
             }
         }
