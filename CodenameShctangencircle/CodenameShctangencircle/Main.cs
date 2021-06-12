@@ -29,11 +29,17 @@ namespace CodenameShctangencircle
             dataGridViewCyclesRes.Columns.Add("_n4", "n4");
             dataGridViewCyclesRes.Columns.Add("_n5", "n5");
             dataGridViewRes.Columns.Add("_count", "Индекс");
-            dataGridViewRes.Columns.Add("_l1", "l1");
-            dataGridViewRes.Columns.Add("_l2", "l2");
-            dataGridViewRes.Columns.Add("_l3", "l3");
-            dataGridViewRes.Columns.Add("_l4", "l4");
-            dataGridViewRes.Columns.Add("_l5", "l5");
+            dataGridViewRes.Columns.Add("_l1", "А1q");
+            dataGridViewRes.Columns.Add("_l2", "A2q");
+            dataGridViewRes.Columns.Add("_l3", "A3q");
+            dataGridViewRes.Columns.Add("_l4", "A4q");
+            dataGridViewRes.Columns.Add("_l5", "A5q");
+            dataGridView1.Rows.Add("Если A11=0,500 и (δ1=0,005; δ2=0,01; δ3=0,1; δ4=1; δ5=10), то", "n1 = (K1 - 99)", "n2 = (K2  -0,5K1)", "n3  = (K3 - 0,1K2)", "n4 = (K4 - 0,1K3)", "n5 = (K5-0,1K4)");
+            dataGridView1.Rows.Add("Если A11=0,500 и (δ1=0,005; δ2=0,01; δ3=0,1; δ4=0,5; δ5=10), то", "n1 = (K1 - 99)", "n2 = (K2  -0,5K1)", "n3  = (K3 - 0,1K2)", "n4 = (K4 - 0,2K3)", "n5 = (K5-0,05K4)");
+            dataGridView1.Rows.Add("Если A11=0,500 и (δ1=0,005; δ2=0,05; δ3=0,1; δ4=1; δ5=10), то ", "n1 = (K1 - 99)", "n2 = (K2  -0,1K1)", "n3  = (K3 - 0,5K2)", "n4 = (K4-0,1K3)", "n5 = (K5-0,1K4)");
+            dataGridView1.Rows.Add("Если A11=0,505 и (δ1=0,005; δ2=0,01; δ3=0,1; δ4=1; δ5=10), то", "n1 = (K1 - 100)", "n2 = (K2  -0,5K1)", "n3  = (K3 - 0,1K2)", "n4 = (K4 - 0,1K3)", "n5 = (K5-0,1K4)");
+            dataGridView1.Rows.Add("Если A11=0,505 и (δ1=0,005; δ2=0,01; δ3=0,1; δ4=0,5; δ5=10), то", "n1 = (K1 - 100)", "n2 = (K2  -0,5K1)", "n3  = (K3 - 0,1K2)", "n4 = (K4 - 0,2K3)", "n5 = (K5-0,05K4)");
+            dataGridView1.Rows.Add("Если A11=0,505 и (δ1=0,005; δ2=0,05; δ3=0,1; δ4=1; δ5=10), то ", "n1 = (K1 - 100)", "n2 = (K2  -0,1K1)", "n3  = (K3 - 0,5K2)", "n4 = (K4-0,1K3)", "n5 = (K5-0,1K4)");
         }
 
         public List<string> Output = new List<string>();
@@ -42,7 +48,15 @@ namespace CodenameShctangencircle
 
         private void Start_Click(object sender, EventArgs e)
         {
+            Output.Clear();
+            OutputVisual.Clear();
+            stepOutput.Clear();
+            dataGridViewCyclesRes.Rows.Clear();
+            dataGridViewRes.Rows.Clear();
+            dataGridViewFin.Rows.Clear();
+            Database.ClearShit();
             checkKoefs();
+
             Cycles cikl = new Cycles();
             cikl.nCycle(ref OutputVisual, ref Output, Convert.ToInt32(textBox1.Text), Convert.ToInt32(textBox2.Text), defaultcase);
             for (int i = 0; i < Database.GridCount.Count; i++)
@@ -62,32 +76,14 @@ namespace CodenameShctangencircle
                     Database.p5[i]);
             }
             button1_Click(sender, e);
+            DrawTable();
         }
         int defaultcase = 0;
 
         public IntPtr WinApi { get; private set; }
 
         void checkKoefs()
-        {/*
-            if (Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()) == 0.500)
-            {
-                if (Convert.ToDouble(step2TB.Text) == 0.01)
-                {
-                    if (Convert.ToDouble(step4TB.Text) == 1) { defaultcase = 0; }
-                    else defaultcase = 1;
-                }
-                if (Convert.ToDouble(step2TB.Text) == 0.05) defaultcase = 2;
-            }
-            if (Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()) == 0.505)
-            {
-                if (Convert.ToDouble(step2TB.Text) == 0.01)
-                {
-                    if (Convert.ToDouble(step4TB.Text) == 1) { defaultcase = 3; }
-                    else defaultcase = 4;
-                }
-                if (Convert.ToDouble(step2TB.Text) == 0.05) defaultcase = 5;
-            }
-           */
+        {
             
             if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 0) { defaultcase = 0; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 1; step5 = 10; }
             if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 0) { defaultcase = 1; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 0.5; step5 = 10; }
@@ -111,6 +107,31 @@ namespace CodenameShctangencircle
                     Database.l3[i],
                     Database.l4[i],
                     Database.l5[i]);
+            }
+            MessageBox.Show("Рассчеты завершены. Проверяйте вкладки выше");
+        }
+
+        void DrawTable()
+        {
+            string CheckDif = string.Empty;
+            for(int i = 0, j = 0; i < dataGridViewCyclesRes.Rows.Count - 1; i++)
+            {
+                if (CheckDif == dataGridViewCyclesRes.Rows[i].Cells[1].Value.ToString())
+                {
+                    j++;
+                }
+                else
+                {
+                    j = 1;
+                    CheckDif = dataGridViewCyclesRes.Rows[i].Cells[1].Value.ToString();
+                }
+                dataGridViewFin.Rows.Add(dataGridViewCyclesRes.Rows[i].Cells[1].Value, 
+                    j, 
+                    dataGridViewRes.Rows[i].Cells[1].Value.ToString() + 
+                    dataGridViewRes.Rows[i].Cells[2].Value.ToString() + 
+                    dataGridViewRes.Rows[i].Cells[3].Value.ToString() +
+                    dataGridViewRes.Rows[i].Cells[4].Value.ToString() +
+                    dataGridViewRes.Rows[i].Cells[5].Value.ToString());
             }
         }
 
@@ -171,7 +192,7 @@ namespace CodenameShctangencircle
             sb = new StringBuilder(Temp);
             sb.Remove(0, 1);
             KE = Convert.ToDouble(sb.ToString());
-            //labelTest.Text = $"{NoRepeatAmount}||{LongestStep}||{LowerBorder}||{UpperBorder}||{KE}";
+            
         }
 
         void ProgramCycles()
@@ -183,8 +204,7 @@ namespace CodenameShctangencircle
             if (w.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
             ShowWindow(w, 9);
             SetForegroundWindow(w);
-            //myProcess.Kill(); 
-            //DataFormats.Text, Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]
+            
             SendKeys.SendWait("{RIGHT}"); 
             SendKeys.SendWait("{TAB}");
             SendKeys.SendWait("{TAB}"); 
@@ -229,8 +249,7 @@ namespace CodenameShctangencircle
                 GetFileVars(iterator);
                 Thread.Sleep(200);
 
-                dataGridAllResults.Rows.Add(Database.o[i], Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE, NoRepeatAmount, LongestStep, LowerBorder, UpperBorder);
-                
+                              
                 if (iterator % 10 == 0)
                 {
                     iterator = 0;
@@ -245,13 +264,7 @@ namespace CodenameShctangencircle
         }
         string sas, sus, sos; List<int> o = Database.o;
         Process s; IntPtr f;
-        private void button2_Click(object sender, EventArgs e)
-        {
-            sas = comboBoxa11TB.SelectedItem.ToString(); sos = textBox1.Text;
-            sus = Database.l1[0] + Database.l2[0] + Database.l3[0] + Database.l4[0] + Database.l5[0];
-            backgroundWorker1.RunWorkerAsync();
-        }
-
+        
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
       
@@ -295,9 +308,5 @@ namespace CodenameShctangencircle
         public static extern bool ShowWindow(IntPtr handle, int nCmdShow);
         #endregion
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //GetFileVars();
-        }
     }
 }

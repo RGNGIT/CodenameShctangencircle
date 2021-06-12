@@ -33,5 +33,33 @@ namespace CodenameShctangencircle
         public static List<string> SDM = new List<string>();
         public static List<string> VGU = new List<string>();
         public static List<string> NGU = new List<string>();
+
+        public static void ClearShit()
+        {
+            o.Clear();
+            o1.Clear();
+            o2.Clear();
+            o3.Clear();
+            o4.Clear();
+            o5.Clear();
+            p1.Clear();
+            p2.Clear();
+            p3.Clear();
+            p4.Clear();
+            p5.Clear();
+            GridCount.Clear();
+            Count.Clear();
+            l1.Clear();
+            l2.Clear();
+            l3.Clear();
+            l4.Clear();
+            l5.Clear();
+            KE.Clear();
+            KSR.Clear();
+            SDM.Clear();
+            VGU.Clear();
+            NGU.Clear();
+        }
+
     }
 }

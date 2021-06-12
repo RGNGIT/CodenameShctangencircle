@@ -24,7 +24,7 @@ namespace CodenameShctangencircle
                 n4 = getNumber(comb)[9]; if (n4 > max) max = n4;
                 n5 = getNumber(comb)[10]; if (n5 > max) max = n5;
 
-                #region не смотри сюда ты меня убьешь я это делал в 5 утра аааааааааааааааааааа
+                #region 
                 string res;
                 Database.Count.Add(Count.ToString());
 
