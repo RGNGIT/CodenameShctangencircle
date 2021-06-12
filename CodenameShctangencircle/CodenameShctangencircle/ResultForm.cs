@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Word = Microsoft.Office.Interop.Word;
 using System.IO;
+using System.Drawing;
+using Microsoft.Office.Interop.Word;
 
 namespace CodenameShctangencircle
 {
@@ -191,13 +193,14 @@ namespace CodenameShctangencircle
 
 
                 dynamic oRange = oDoc.Content.Application.Selection.Range;
+             
                 string oTemp = "";
                 for (r = 0; r <= RowCount - 1; r++)
                 {
                     for (int c = 0; c <= ColumnCount - 1; c++)
                     {
                         oTemp = oTemp + DataArray[r, c] + "\t";
-
+                        
                     }
                 }
 
@@ -205,18 +208,20 @@ namespace CodenameShctangencircle
                 oRange.Text = oTemp;
 
                 object Separator = Word.WdTableFieldSeparator.wdSeparateByTabs;
+                
                 object ApplyBorders = true;
                 object AutoFit = true;
+                object ApplyColor = Color.Black;
                 object AutoFitBehavior = Word.WdAutoFitBehavior.wdAutoFitContent;
 
                 oRange.ConvertToTable(ref Separator, ref RowCount, ref ColumnCount,
                                       Type.Missing, Type.Missing, ref ApplyBorders,
-                                      Type.Missing, Type.Missing, Type.Missing,
+                                      Type.Missing, Type.Missing, ref ApplyColor,
                                       Type.Missing, Type.Missing, Type.Missing,
                                       Type.Missing, ref AutoFit, ref AutoFitBehavior, Type.Missing);
 
                 oRange.Select();
-
+               
                 oDoc.Application.Selection.Tables[1].Select();
                 oDoc.Application.Selection.Tables[1].Rows.AllowBreakAcrossPages = 0;
                 oDoc.Application.Selection.Tables[1].Rows.Alignment = 0;
@@ -233,13 +238,21 @@ namespace CodenameShctangencircle
                 for (int c = 0; c <= ColumnCount - 1; c++)
                 {
                     oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Text = DGV.Columns[c].HeaderText;
+                    oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Borders[WdBorderType.wdBorderLeft].LineStyle = WdLineStyle.wdLineStyleSingle;
+                    oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Borders[WdBorderType.wdBorderRight].LineStyle = WdLineStyle.wdLineStyleSingle;
+                    oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Borders[WdBorderType.wdBorderTop].LineStyle = WdLineStyle.wdLineStyleSingle;
+                    oDoc.Application.Selection.Tables[1].Cell(1, c + 1).Range.Borders[WdBorderType.wdBorderBottom].LineStyle = WdLineStyle.wdLineStyleSingle;
                 }
 
                 //table style 
-                /*oDoc.Application.Selection.Tables[1].set_Style("Grid Table 1 - Accent 2");
+                //oDoc.Application.Selection.Tables[1].set_Style("Grid Table 1 - Accent 2");
                 oDoc.Application.Selection.Tables[1].Rows[1].Select();
-                oDoc.Application.Selection.Cells.VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;*/
-
+                oDoc.Application.Selection.Cells.VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+              
+                oDoc.Application.Selection.Tables[1].Range.Borders[WdBorderType.wdBorderLeft].LineStyle = WdLineStyle.wdLineStyleSingle;
+                oDoc.Application.Selection.Tables[1].Range.Borders[WdBorderType.wdBorderRight].LineStyle = WdLineStyle.wdLineStyleSingle;
+                oDoc.Application.Selection.Tables[1].Range.Borders[WdBorderType.wdBorderTop].LineStyle = WdLineStyle.wdLineStyleSingle;
+                oDoc.Application.Selection.Tables[1].Range.Borders[WdBorderType.wdBorderBottom].LineStyle = WdLineStyle.wdLineStyleSingle;
                 //header text
                 foreach (Word.Section section in oDoc.Application.ActiveDocument.Sections)
                 {
@@ -262,7 +275,6 @@ namespace CodenameShctangencircle
                 //save the file
                 oDoc.SaveAs2(filename);
 
-                //NASSIM LOUCHANI
             }
         }
 
