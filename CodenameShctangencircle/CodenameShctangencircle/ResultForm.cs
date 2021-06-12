@@ -161,7 +161,7 @@ namespace CodenameShctangencircle
             if (sfd.ShowDialog() == DialogResult.OK)
             {
 
-                Export_Data_To_Word(DataGridSchool, sfd.FileName, 0);
+                Export_Data_To_Word(dataGridViewCyclesRes, sfd.FileName, 0);
             }
         }
 
@@ -277,7 +277,7 @@ namespace CodenameShctangencircle
             if (sfd.ShowDialog() == DialogResult.OK)
             {
 
-                Export_Data_To_Word(DataGridSchool, sfd.FileName, 1);
+                Export_Data_To_Word(dataGridViewRes, sfd.FileName, 1);
             }
         }
 
@@ -292,7 +292,7 @@ namespace CodenameShctangencircle
             if (sfd.ShowDialog() == DialogResult.OK)
             {
 
-                Export_Data_To_Word(DataGridSchool, sfd.FileName, 2);
+                Export_Data_To_Word(dataGridViewFin, sfd.FileName, 2);
             }
         }
 
@@ -322,7 +322,7 @@ namespace CodenameShctangencircle
             if (sfd.ShowDialog() == DialogResult.OK)
             {
 
-                Export_Data_To_Word(DataGridSchool, sfd.FileName, 4);
+                Export_Data_To_Word(bestResultsDG, sfd.FileName, 4);
             }
         }
     }
