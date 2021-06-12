@@ -41,7 +41,7 @@ namespace CodenameShctangencircle
         public List<string> Output = new List<string>();
         public List<string> OutputVisual = new List<string>();
         public List<string> stepOutput = new List<string>();
-
+        bool fl = false;
         private void Start_Click(object sender, EventArgs e)
         {
             Output.Clear();
@@ -50,6 +50,18 @@ namespace CodenameShctangencircle
             //dataGridViewCyclesRes.Rows.Clear();
             //dataGridViewRes.Rows.Clear();
             //dataGridViewFin.Rows.Clear();
+
+            if(fl)
+            {
+                r.Close();
+                r = null; clearFiles();
+            }
+
+            if (!fl)
+            {
+                fl = true;
+            }
+
             Database.ClearStuff();
             checkKoefs();
 
@@ -209,12 +221,12 @@ namespace CodenameShctangencircle
                     for (int j = 1; j < 11; j++) File.Delete($"Составленные{j}_0.txt");
                 }
                 iterator++;
-                r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.Count[i].ToString(), LongestStep.ToString());
+                r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.o[i].ToString(), LongestStep.ToString());
                 
             }
             SendKeys.SendWait("%{F4}");
             MessageBox.Show("Рассчеты завершены.");
-            
+            r.FillBestResultsDG();
             
         }
         string sas, sus, sos; List<int> o = Database.o;
@@ -249,7 +261,7 @@ namespace CodenameShctangencircle
         }
         int iterator = 1;
 
-        private void Main_Load(object sender, EventArgs e)
+        void clearFiles()
         {
             try
             {
@@ -265,7 +277,11 @@ namespace CodenameShctangencircle
                 if (File.Exists("Составленные10_0.txt")) File.Delete("Составленные10_0.txt");
             }
             catch { }
-            
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            clearFiles();
         }
 
         #region SendKeysToOtherWindow

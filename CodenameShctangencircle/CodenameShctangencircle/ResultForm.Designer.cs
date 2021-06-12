@@ -29,19 +29,14 @@ namespace CodenameShctangencircle
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.SaveResultMerSizesBTN = new System.Windows.Forms.TabControl();
             this.z = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridViewCyclesRes = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewRes = new System.Windows.Forms.DataGridView();
-            this.SaveToDocBTN = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewFin = new System.Windows.Forms.DataGridView();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.DataGridSchool = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,72 +45,72 @@ namespace CodenameShctangencircle
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabControl1.SuspendLayout();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.bestResultsDG = new System.Windows.Forms.DataGridView();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaveToDocBTN = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaveResultMerSizesBTN.SuspendLayout();
             this.z.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCyclesRes)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRes)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFin)).BeginInit();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridSchool)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bestResultsDG)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // SaveResultMerSizesBTN
             // 
-            this.tabControl1.Controls.Add(this.z);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(802, 449);
-            this.tabControl1.TabIndex = 0;
+            this.SaveResultMerSizesBTN.Controls.Add(this.z);
+            this.SaveResultMerSizesBTN.Controls.Add(this.tabPage2);
+            this.SaveResultMerSizesBTN.Controls.Add(this.tabPage3);
+            this.SaveResultMerSizesBTN.Controls.Add(this.tabPage4);
+            this.SaveResultMerSizesBTN.Controls.Add(this.tabPage1);
+            this.SaveResultMerSizesBTN.Location = new System.Drawing.Point(0, 0);
+            this.SaveResultMerSizesBTN.Name = "SaveResultMerSizesBTN";
+            this.SaveResultMerSizesBTN.SelectedIndex = 0;
+            this.SaveResultMerSizesBTN.Size = new System.Drawing.Size(802, 476);
+            this.SaveResultMerSizesBTN.TabIndex = 0;
             // 
             // z
             // 
+            this.z.Controls.Add(this.label6);
+            this.z.Controls.Add(this.label1);
             this.z.Controls.Add(this.dataGridViewCyclesRes);
+            this.z.Controls.Add(this.SaveToDocBTN);
             this.z.Location = new System.Drawing.Point(4, 22);
             this.z.Name = "z";
             this.z.Padding = new System.Windows.Forms.Padding(3);
-            this.z.Size = new System.Drawing.Size(794, 423);
+            this.z.Size = new System.Drawing.Size(794, 450);
             this.z.TabIndex = 0;
             this.z.Text = "Результаты циклов подбора";
             this.z.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.dataGridViewRes);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(794, 423);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Результаты подбора размеров мер";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dataGridViewFin);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(794, 423);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Итоговая таблица размеров мер";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.DataGridSchool);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(794, 423);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Оптимальные наборы";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // dataGridViewCyclesRes
             // 
@@ -125,6 +120,20 @@ namespace CodenameShctangencircle
             this.dataGridViewCyclesRes.Size = new System.Drawing.Size(794, 424);
             this.dataGridViewCyclesRes.TabIndex = 3;
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.dataGridViewRes);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(794, 450);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Результаты подбора размеров мер";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // dataGridViewRes
             // 
             this.dataGridViewRes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -133,23 +142,19 @@ namespace CodenameShctangencircle
             this.dataGridViewRes.Size = new System.Drawing.Size(791, 424);
             this.dataGridViewRes.TabIndex = 1;
             // 
-            // SaveToDocBTN
+            // tabPage3
             // 
-            this.SaveToDocBTN.Location = new System.Drawing.Point(4, 451);
-            this.SaveToDocBTN.Name = "SaveToDocBTN";
-            this.SaveToDocBTN.Size = new System.Drawing.Size(123, 23);
-            this.SaveToDocBTN.TabIndex = 1;
-            this.SaveToDocBTN.Text = "Сохранить в Word";
-            this.SaveToDocBTN.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(133, 456);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Результаты представлены ввиде таблиц.";
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.label3);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.dataGridViewFin);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(794, 450);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Итоговая таблица размеров мер";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // dataGridViewFin
             // 
@@ -160,26 +165,22 @@ namespace CodenameShctangencircle
             this.Column9});
             this.dataGridViewFin.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewFin.Name = "dataGridViewFin";
-            this.dataGridViewFin.Size = new System.Drawing.Size(794, 427);
+            this.dataGridViewFin.Size = new System.Drawing.Size(794, 425);
             this.dataGridViewFin.TabIndex = 2;
             // 
-            // Column7
+            // tabPage4
             // 
-            this.Column7.HeaderText = "Количество мер N в наборе";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Номер набора";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Размеры мер набора";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
+            this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Controls.Add(this.label4);
+            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.DataGridSchool);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(794, 450);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Оптимальные наборы";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // DataGridSchool
             // 
@@ -200,7 +201,7 @@ namespace CodenameShctangencircle
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Количество мер";
+            this.Column1.HeaderText = "Количество мер набора";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
@@ -240,35 +241,270 @@ namespace CodenameShctangencircle
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.bestResultsDG);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(794, 450);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Лучшие наборы";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // bestResultsDG
+            // 
+            this.bestResultsDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bestResultsDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17});
+            this.bestResultsDG.Location = new System.Drawing.Point(0, 0);
+            this.bestResultsDG.Name = "bestResultsDG";
+            this.bestResultsDG.Size = new System.Drawing.Size(794, 423);
+            this.bestResultsDG.TabIndex = 0;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "Количество мер набора";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "Размеры мер набора";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "КСР";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "СДМ";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            // 
+            // Column15
+            // 
+            this.Column15.HeaderText = "ВГУ";
+            this.Column15.Name = "Column15";
+            this.Column15.ReadOnly = true;
+            // 
+            // Column16
+            // 
+            this.Column16.HeaderText = "НГУ";
+            this.Column16.Name = "Column16";
+            this.Column16.ReadOnly = true;
+            // 
+            // Column17
+            // 
+            this.Column17.HeaderText = "КЭ";
+            this.Column17.Name = "Column17";
+            this.Column17.ReadOnly = true;
+            // 
+            // SaveToDocBTN
+            // 
+            this.SaveToDocBTN.Location = new System.Drawing.Point(8, 424);
+            this.SaveToDocBTN.Name = "SaveToDocBTN";
+            this.SaveToDocBTN.Size = new System.Drawing.Size(123, 23);
+            this.SaveToDocBTN.TabIndex = 1;
+            this.SaveToDocBTN.Text = "Сохранить в Word";
+            this.SaveToDocBTN.UseVisualStyleBackColor = true;
+            this.SaveToDocBTN.Click += new System.EventHandler(this.SaveToDocBTN_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(137, 429);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(217, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Результаты представлены ввиде таблиц.";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(135, 429);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(217, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Результаты представлены ввиде таблиц.";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(6, 424);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Сохранить в Word";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(135, 432);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(217, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Результаты представлены ввиде таблиц.";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 427);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(123, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Сохранить в Word";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(132, 429);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(217, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Результаты представлены ввиде таблиц.";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(3, 424);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(123, 23);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Сохранить в Word";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(135, 429);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(217, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Результаты представлены ввиде таблиц.";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 424);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(123, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Сохранить в Word";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(612, 430);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(172, 13);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "(сохраняется открытая таблица)";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(616, 429);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(172, 13);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "(сохраняется открытая таблица)";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(619, 430);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(172, 13);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "(сохраняется открытая таблица)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(616, 429);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(172, 13);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "(сохраняется открытая таблица)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(616, 430);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(172, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "(сохраняется открытая таблица)";
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Количество мер N в наборе";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Номер набора";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Размеры мер набора";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 550;
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 481);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.SaveToDocBTN);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(800, 474);
+            this.Controls.Add(this.SaveResultMerSizesBTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ResultForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Панель результатов";
-            this.tabControl1.ResumeLayout(false);
+            this.SaveResultMerSizesBTN.ResumeLayout(false);
             this.z.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
+            this.z.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCyclesRes)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRes)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFin)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridSchool)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bestResultsDG)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl SaveResultMerSizesBTN;
         private System.Windows.Forms.TabPage z;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
@@ -278,9 +514,6 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.Button SaveToDocBTN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewFin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridView DataGridSchool;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
@@ -289,5 +522,30 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView bestResultsDG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }
