@@ -59,18 +59,56 @@ namespace CodenameShctangencircle
             }
             DrawTable();
         }
+
+        private void MergeGridviewCells(DataGridView DGV, int[] idx)
+        {
+            DataGridViewRow Prev = null;
+
+            foreach (DataGridViewRow item in DGV.Rows)
+            {
+                if (Prev != null)
+                {
+                    string firstCellText = string.Empty;
+                    string secondCellText = string.Empty;
+
+                    foreach (int i in idx)
+                    {
+                        DataGridViewCell firstCell = Prev.Cells[i];
+                        DataGridViewCell secondCell = item.Cells[i];
+
+                        firstCellText = (firstCell != null && firstCell.Value != null ? firstCell.Value.ToString() : string.Empty);
+                        secondCellText = (secondCell != null && secondCell.Value != null ? secondCell.Value.ToString() : string.Empty);
+
+                        if (firstCellText == secondCellText)
+                        {
+                            secondCell.Style.ForeColor = Color.Transparent;
+                        }
+                        else
+                        {
+                            Prev = item;
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    Prev = item;
+                }
+            }
+        }
+
         void DrawTable()
         {
-            string CheckDif = string.Empty;
+            string CheckDif = string.Empty; 
             for (int i = 0, j = 0; i < dataGridViewCyclesRes.Rows.Count - 1; i++)
             {
                 if (CheckDif == dataGridViewCyclesRes.Rows[i].Cells[1].Value.ToString())
                 {
-                    j++;
+                    j++; 
                 }
                 else
                 {
-                    j = 1;
+                    j = 1; 
                     CheckDif = dataGridViewCyclesRes.Rows[i].Cells[1].Value.ToString();
                 }
                 dataGridViewFin.Rows.Add(dataGridViewCyclesRes.Rows[i].Cells[1].Value,
@@ -110,9 +148,9 @@ namespace CodenameShctangencircle
             return sum.ToString();
         }
 
-        public void FillSchoodDG(string Sizes, string KE, string NGU, string VGU, string N, string KSR) 
+        public void FillSchoodDG(string Sizes, string KE, string NGU, string VGU, string N, string KSR, string NoRepeatAmount) 
         {
-            DataGridSchool.Rows.Add(N, Sizes, KSR, countSDM(Sizes), VGU, NGU, KE);
+            DataGridSchool.Rows.Add(N, Sizes, KSR, countSDM(Sizes), VGU, NGU, KE, NoRepeatAmount);
         }
 
         public void FillBestResultsDG()
@@ -130,9 +168,11 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[3].Value,
                             DataGridSchool.Rows[bestI].Cells[4].Value,
                             DataGridSchool.Rows[bestI].Cells[5].Value,
-                            DataGridSchool.Rows[bestI].Cells[6].Value);
+                            DataGridSchool.Rows[bestI].Cells[6].Value,
+                            DataGridSchool.Rows[bestI].Cells[7].Value);
 
-                        N = DataGridSchool.Rows[i].Cells[0].Value.ToString();
+
+                N = DataGridSchool.Rows[i].Cells[0].Value.ToString();
                         best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value); bestI = i;
                     }
 
@@ -145,7 +185,8 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[3].Value,
                             DataGridSchool.Rows[bestI].Cells[4].Value,
                             DataGridSchool.Rows[bestI].Cells[5].Value,
-                            DataGridSchool.Rows[bestI].Cells[6].Value);
+                            DataGridSchool.Rows[bestI].Cells[6].Value,
+                            DataGridSchool.Rows[bestI].Cells[7].Value);
                     }
                 }
             }
