@@ -156,7 +156,32 @@ namespace CodenameShctangencircle
             KE = Convert.ToDouble(Temp);
             
         }
+
         ResultForm r;
+
+        void GetArr(int iterator, out string[] arr) 
+        {
+            try
+            {
+                if (File.Exists($"Составленные{iterator}_0.txt"))
+                {
+                    arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
+                }
+                else
+                {
+                    while (!File.Exists($"Составленные{iterator}_0.txt"))
+                    {
+                        Thread.Sleep(1000);
+                    }
+                    arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
+                }
+            }
+            catch (Exception)
+            {
+                GetArr(iterator, out arr);
+            }
+        }
+
         void ProgramCycles()
         {
             //DataFormats.Text, 
@@ -208,14 +233,8 @@ namespace CodenameShctangencircle
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 Thread.Sleep(1000); string[] arr;
-                
-                if (File.Exists($"Составленные{iterator}_0.txt"))
-                    arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
-                else { 
-                    while(!File.Exists($"Составленные{iterator}_0.txt"))
-                        Thread.Sleep(1000);
-                    arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
-                }
+
+                GetArr(iterator, out arr);
 
                 Thread.Sleep(200);
                 GetFileVars(iterator);
