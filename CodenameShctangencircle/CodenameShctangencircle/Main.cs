@@ -16,7 +16,7 @@ namespace CodenameShctangencircle
         public Main()
         {
             InitializeComponent();
-            comboBoxa11TB.SelectedIndex = 1; comboBox1.SelectedIndex = 1;
+            comboBoxa11TB.SelectedIndex = 0; comboBox1.SelectedIndex = 2;
             /*dataGridViewCyclesRes.Columns.Add("_count", "Индекс");
             dataGridViewCyclesRes.Columns.Add("_n", "n");
             dataGridViewCyclesRes.Columns.Add("_k1", "k1");
@@ -68,8 +68,8 @@ namespace CodenameShctangencircle
             Cycles cikl = new Cycles();
             cikl.nCycle(ref OutputVisual, ref Output, Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value), defaultcase);
             //тут был грид циклов
-            Thread.Sleep(1000);
-            button1_Click(sender, e); Thread.Sleep(1000);
+            Thread.Sleep(2000);
+            button1_Click(sender, e); Thread.Sleep(2000);
             //DrawTable();
             sas = comboBoxa11TB.SelectedItem.ToString();
             backgroundWorker1.RunWorkerAsync(); 
@@ -207,8 +207,15 @@ namespace CodenameShctangencircle
                 Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                Thread.Sleep(1000);
-                string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
+                Thread.Sleep(1000); string[] arr;
+                
+                if (File.Exists($"Составленные{iterator}_0.txt"))
+                    arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
+                else { 
+                    while(!File.Exists($"Составленные{iterator}_0.txt"))
+                        Thread.Sleep(1000);
+                    arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
+                }
 
                 Thread.Sleep(200);
                 GetFileVars(iterator);

@@ -262,7 +262,7 @@ namespace CodenameShctangencircle
             this.numericUpDown1.Size = new System.Drawing.Size(45, 26);
             this.numericUpDown1.TabIndex = 25;
             this.numericUpDown1.Value = new decimal(new int[] {
-            35,
+            55,
             0,
             0,
             0});
@@ -286,7 +286,7 @@ namespace CodenameShctangencircle
             this.numericUpDown2.Size = new System.Drawing.Size(45, 26);
             this.numericUpDown2.TabIndex = 26;
             this.numericUpDown2.Value = new decimal(new int[] {
-            35,
+            55,
             0,
             0,
             0});
