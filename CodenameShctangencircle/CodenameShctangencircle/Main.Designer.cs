@@ -136,7 +136,7 @@ namespace CodenameShctangencircle
             this.Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Start.Location = new System.Drawing.Point(12, 152);
             this.Start.Name = "Start";
-            this.Start.Size = new System.Drawing.Size(157, 27);
+            this.Start.Size = new System.Drawing.Size(160, 27);
             this.Start.TabIndex = 0;
             this.Start.Text = "Расчёт";
             this.Start.UseVisualStyleBackColor = true;
@@ -194,6 +194,7 @@ namespace CodenameShctangencircle
             // 
             // backgroundWorker1
             // 
+            this.backgroundWorker1.WorkerSupportsCancellation = true;
             this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
             this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
             // 
@@ -296,7 +297,7 @@ namespace CodenameShctangencircle
             // buttonPause
             // 
             this.buttonPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPause.Location = new System.Drawing.Point(175, 152);
+            this.buttonPause.Location = new System.Drawing.Point(127, 212);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(157, 27);
             this.buttonPause.TabIndex = 27;
@@ -308,7 +309,7 @@ namespace CodenameShctangencircle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 188);
+            this.ClientSize = new System.Drawing.Size(428, 189);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);

@@ -168,7 +168,7 @@ namespace CodenameShctangencircle
         int globalCalcIter = 0;
         InputSimulator simulator = new InputSimulator();
 
-        void ProgramCycles()
+        void ProgramCycles(int cycleI)
         {   
             IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); 
             IntPtr frm1 = FindWindow(null, "Form1");
@@ -182,9 +182,9 @@ namespace CodenameShctangencircle
             {
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
             }
-            for (int calcIter = globalCalcIter; calcIter < Database.l1.Count; calcIter++)
+            for (int i = cycleI; i < Database.l1.Count; i++)
             {
-                globalCalcIter = calcIter;
+                
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200);
                 simulator.Keyboard.TextEntry(Entry);
@@ -192,19 +192,19 @@ namespace CodenameShctangencircle
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200);
-                simulator.Keyboard.TextEntry(Database.l1[calcIter] + Database.l2[calcIter] + Database.l3[calcIter] + Database.l4[calcIter] + Database.l5[calcIter]);
+                simulator.Keyboard.TextEntry(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]);
                 Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200);
-                SendKeys.SendWait(Database.o[calcIter].ToString());
-                for (int i = 0; i < 3; i++)
+                SendKeys.SendWait(Database.o[i].ToString());
+                for (int m = 0; m < 3; m++)
                 {
                     simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 }
                 Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
-                for (int i = 0; i < 7; i++)
+                for (int m = 0; m < 7; m++)
                 {
                     simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 }
@@ -227,8 +227,8 @@ namespace CodenameShctangencircle
                     iterator = 0;
                     for (int j = 1; j < 11; j++) File.Delete($"Составленные{j}_0.txt");
                 }
-                iterator++;
-                r.FillSchoodDG(Database.l1[calcIter] + Database.l2[calcIter] + Database.l3[calcIter] + Database.l4[calcIter] + Database.l5[calcIter], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.o[calcIter].ToString(), LongestStep.ToString(), NoRepeatAmount.ToString());
+                iterator++; globalCalcIter++;
+                r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.o[i].ToString(), LongestStep.ToString(), NoRepeatAmount.ToString());
                 
             }
             SendKeys.SendWait("%{F4}");
@@ -268,7 +268,7 @@ namespace CodenameShctangencircle
             Thread.Sleep(1000); 
             s = myProcess;
            
-            ProgramCycles();
+            ProgramCycles(globalCalcIter);
         }
 
         bool isPaused = false;
@@ -285,7 +285,7 @@ namespace CodenameShctangencircle
                 Process myProcess = Process.Start(@"GaugeBlockv3-1.exe");
                 Thread.Sleep(1000);
                 buttonPause.Text = "Пауза";
-                ProgramCycles();
+                ProgramCycles(globalCalcIter);
             } 
             else
             {
@@ -316,6 +316,8 @@ namespace CodenameShctangencircle
             }
             catch { }
         }
+
+       
 
         private void Main_Load(object sender, EventArgs e)
         {
