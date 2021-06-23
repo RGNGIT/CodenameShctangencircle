@@ -148,19 +148,21 @@ namespace CodenameShctangencircle
             return sum.ToString();
         }
 
+        int schoolCounter = 1; 
         public void FillSchoodDG(string Sizes, string KE, string NGU, string VGU, string N, string KSR, string NoRepeatAmount) 
         {
-            DataGridSchool.Rows.Add(N, Sizes, KSR, countSDM(Sizes), VGU, NGU, KE, NoRepeatAmount);
+            DataGridSchool.Rows.Add(schoolCounter, N, Sizes, KSR, countSDM(Sizes), VGU, NGU, KE, NoRepeatAmount);
+            schoolCounter++;
         }
 
         public void FillBestResultsDG()
         {
             if (DataGridSchool.Rows.Count - 1 != 0)
             {
-                string N = DataGridSchool.Rows[0].Cells[0].Value.ToString(); double best = Convert.ToDouble(DataGridSchool.Rows[0].Cells[6].Value); int bestI = 0;
+                string N = DataGridSchool.Rows[0].Cells[1].Value.ToString(); double best = Convert.ToDouble(DataGridSchool.Rows[0].Cells[7].Value); int bestI = 0;
                 for (int i = 0; i < DataGridSchool.Rows.Count - 1; i++)
                 {
-                    if (N != DataGridSchool.Rows[i].Cells[0].Value.ToString())
+                    if (N != DataGridSchool.Rows[i].Cells[1].Value.ToString())
                     {
                         bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
                             DataGridSchool.Rows[bestI].Cells[1].Value,
@@ -169,14 +171,15 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[4].Value,
                             DataGridSchool.Rows[bestI].Cells[5].Value,
                             DataGridSchool.Rows[bestI].Cells[6].Value,
-                            DataGridSchool.Rows[bestI].Cells[7].Value);
+                            DataGridSchool.Rows[bestI].Cells[7].Value,
+                            DataGridSchool.Rows[bestI].Cells[8].Value);
 
 
                 N = DataGridSchool.Rows[i].Cells[0].Value.ToString();
-                        best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value); bestI = i;
+                        best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value); bestI = i;
                     }
 
-                    if (best < Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value)) { bestI = i; best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[6].Value); }
+                    if (best < Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value)) { bestI = i; best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value); }
                     if (i == DataGridSchool.Rows.Count - 2)
                     {
                         bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
@@ -186,7 +189,8 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[4].Value,
                             DataGridSchool.Rows[bestI].Cells[5].Value,
                             DataGridSchool.Rows[bestI].Cells[6].Value,
-                            DataGridSchool.Rows[bestI].Cells[7].Value);
+                            DataGridSchool.Rows[bestI].Cells[7].Value,
+                            DataGridSchool.Rows[bestI].Cells[8].Value);
                     }
                 }
             }

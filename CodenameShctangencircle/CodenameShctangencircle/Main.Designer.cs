@@ -64,7 +64,7 @@ namespace CodenameShctangencircle
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(382, 20);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Общее количество мер N в наборе (от 20 до 122)";
+            this.label4.Text = "Общее количество мер N в наборе (от 35 до 122)";
             // 
             // label2
             // 
@@ -222,7 +222,7 @@ namespace CodenameShctangencircle
             this.Справка.AutoSize = true;
             this.Справка.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Справка.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.Справка.Location = new System.Drawing.Point(335, 159);
+            this.Справка.Location = new System.Drawing.Point(343, 155);
             this.Справка.Name = "Справка";
             this.Справка.Size = new System.Drawing.Size(73, 20);
             this.Справка.TabIndex = 22;
@@ -295,7 +295,8 @@ namespace CodenameShctangencircle
             // 
             // buttonPause
             // 
-            this.buttonPause.Location = new System.Drawing.Point(175, 153);
+            this.buttonPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonPause.Location = new System.Drawing.Point(175, 152);
             this.buttonPause.Name = "buttonPause";
             this.buttonPause.Size = new System.Drawing.Size(157, 27);
             this.buttonPause.TabIndex = 27;

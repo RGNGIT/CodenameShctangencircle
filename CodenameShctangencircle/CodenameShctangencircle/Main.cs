@@ -277,6 +277,7 @@ namespace CodenameShctangencircle
         {
             if (isPaused)
             {
+                iterator = 1; clearFiles();
                 IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик");
                 ShowWindow(w, 9);
                 SetForegroundWindow(w);
@@ -292,6 +293,8 @@ namespace CodenameShctangencircle
                 // iterator--;
                 buttonPause.Text = "Продолжить";
             }
+
+         
         } 
 
         int iterator = 1;
