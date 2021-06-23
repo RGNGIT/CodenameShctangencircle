@@ -289,7 +289,7 @@ namespace CodenameShctangencircle
             else
             {
                 isPaused = !isPaused;
-                iterator--;
+                // iterator--;
                 buttonPause.Text = "Продолжить";
             }
         } 
