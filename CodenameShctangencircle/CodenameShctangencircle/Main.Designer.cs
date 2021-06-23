@@ -51,6 +51,7 @@ namespace CodenameShctangencircle
             this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.buttonPause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -292,11 +293,22 @@ namespace CodenameShctangencircle
             0});
             this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
+            // buttonPause
+            // 
+            this.buttonPause.Location = new System.Drawing.Point(175, 153);
+            this.buttonPause.Name = "buttonPause";
+            this.buttonPause.Size = new System.Drawing.Size(157, 27);
+            this.buttonPause.TabIndex = 27;
+            this.buttonPause.Text = "Пауза";
+            this.buttonPause.UseVisualStyleBackColor = true;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 188);
+            this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label7);
@@ -353,6 +365,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Button buttonPause;
     }
 }
 

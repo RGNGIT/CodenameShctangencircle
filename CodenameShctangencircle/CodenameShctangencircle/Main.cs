@@ -16,45 +16,27 @@ namespace CodenameShctangencircle
         public Main()
         {
             InitializeComponent();
-            comboBoxa11TB.SelectedIndex = 0; comboBox1.SelectedIndex = 2;
-            /*dataGridViewCyclesRes.Columns.Add("_count", "Индекс");
-            dataGridViewCyclesRes.Columns.Add("_n", "n");
-            dataGridViewCyclesRes.Columns.Add("_k1", "k1");
-            dataGridViewCyclesRes.Columns.Add("_k2", "k2");
-            dataGridViewCyclesRes.Columns.Add("_k3", "k3");
-            dataGridViewCyclesRes.Columns.Add("_k4", "k4");
-            dataGridViewCyclesRes.Columns.Add("_k5", "k5");
-            dataGridViewCyclesRes.Columns.Add("_n1", "n1");
-            dataGridViewCyclesRes.Columns.Add("_n2", "n2");
-            dataGridViewCyclesRes.Columns.Add("_n3", "n3");
-            dataGridViewCyclesRes.Columns.Add("_n4", "n4");
-            dataGridViewCyclesRes.Columns.Add("_n5", "n5");
-            dataGridViewRes.Columns.Add("_count", "Индекс");
-            dataGridViewRes.Columns.Add("_l1", "А1q");
-            dataGridViewRes.Columns.Add("_l2", "A2q");
-            dataGridViewRes.Columns.Add("_l3", "A3q");
-            dataGridViewRes.Columns.Add("_l4", "A4q");
-            dataGridViewRes.Columns.Add("_l5", "A5q");*/
-            
+            comboBoxa11TB.SelectedIndex = 0; 
+            comboBox1.SelectedIndex = 2;
+            buttonPause.Visible = false;
         }
 
         public List<string> Output = new List<string>();
         public List<string> OutputVisual = new List<string>();
         public List<string> stepOutput = new List<string>();
         bool fl = false;
+
         private void Start_Click(object sender, EventArgs e)
         {
             Output.Clear();
             OutputVisual.Clear();
             stepOutput.Clear();
-            //dataGridViewCyclesRes.Rows.Clear();
-            //dataGridViewRes.Rows.Clear();
-            //dataGridViewFin.Rows.Clear();
             iterator = 1;
             if(fl)
             {
                 r.Close();
-                r = null; clearFiles();
+                r = null; 
+                clearFiles();
             }
 
             if (!fl)
@@ -67,14 +49,14 @@ namespace CodenameShctangencircle
 
             Cycles cikl = new Cycles();
             cikl.nCycle(ref OutputVisual, ref Output, Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value), defaultcase);
-            //тут был грид циклов
             Thread.Sleep(2000);
-            button1_Click(sender, e); Thread.Sleep(2000);
-            //DrawTable();
-            sas = comboBoxa11TB.SelectedItem.ToString();
-            backgroundWorker1.RunWorkerAsync(); 
-            
+            button1_Click(sender, e); 
+            Thread.Sleep(2000);
+            Entry = comboBoxa11TB.SelectedItem.ToString();
+            backgroundWorker1.RunWorkerAsync();
+            buttonPause.Visible = true;
         }
+
         int defaultcase = 0;
 
         public IntPtr WinApi { get; private set; }
@@ -89,14 +71,15 @@ namespace CodenameShctangencircle
             if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 1) { defaultcase = 4; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 0.5; step5 = 10; }
             if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 1) { defaultcase = 5; step1 = 0.005; step2 = 0.05; step3 = 0.1; step4 = 1; step5 = 10; } 
         
-            }
+        }
+
         double step1, step2, step3, step4, step5;
+
         private void button1_Click(object sender, EventArgs e)
         {
             FindSteps fs = new FindSteps();
             fs.vFindSteps(Output, step1, step2, step3, step4, step5, ref stepOutput, Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()));
             r = new ResultForm();
-            //тут был грид степов
         }
 
         double NoRepeatAmount, LongestStep, LowerBorder, UpperBorder, KE = 0;
@@ -182,57 +165,55 @@ namespace CodenameShctangencircle
             }
         }
 
+        int globalCalcIter = 0;
+        InputSimulator simulator = new InputSimulator();
+
         void ProgramCycles()
-        {
-            //DataFormats.Text, 
-            InputSimulator simulator = new InputSimulator();
-            IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); IntPtr frm1 = FindWindow(null, "Form1");// if (frm1.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
-            //BringWindowToTop(w); 
+        {   
+            IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); 
+            IntPtr frm1 = FindWindow(null, "Form1");
             f = frm1;
             if (w.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
             ShowWindow(w, 9);
             SetForegroundWindow(w);
             
             simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RIGHT);
-            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-            simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-            for (int i = 0; i < Database.l1.Count; i++)
+            for(int i = 0; i < 4; i++)
             {
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+            }
+            for (int calcIter = globalCalcIter; calcIter < Database.l1.Count; calcIter++)
+            {
+                globalCalcIter = calcIter;
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200);
-                //SendKeys.SendWait(sas); 
-                simulator.Keyboard.TextEntry(sas); Thread.Sleep(200);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A); Thread.Sleep(200);
-                /*Thread thread = new Thread(() => Clipboard.SetText(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i])); Thread.Sleep(200);
-                thread.SetApartmentState(ApartmentState.STA);
-                thread.Start();
-                thread.Join();
+                simulator.Keyboard.TextEntry(Entry);
                 Thread.Sleep(200);
-                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_V);*/
-                simulator.Keyboard.TextEntry(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]); Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
-                Thread.Sleep(200); 
-                SendKeys.SendWait(Database.o[i].ToString());
+                Thread.Sleep(200);
+                simulator.Keyboard.TextEntry(Database.l1[calcIter] + Database.l2[calcIter] + Database.l3[calcIter] + Database.l4[calcIter] + Database.l5[calcIter]);
+                Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
+                Thread.Sleep(200);
+                SendKeys.SendWait(Database.o[calcIter].ToString());
+                for (int i = 0; i < 3; i++)
+                {
+                    simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                }
+                Thread.Sleep(200);
+                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
+                for (int i = 0; i < 7; i++)
+                {
+                    simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
+                }
                 Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                Thread.Sleep(200);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.RETURN);
-                simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
-                Thread.Sleep(1000); string[] arr;
+                Thread.Sleep(1000);
+
+                string[] arr;
 
                 GetArr(iterator, out arr);
 
@@ -241,13 +222,13 @@ namespace CodenameShctangencircle
                 Thread.Sleep(200);
 
                               
-                if (iterator % 10 == 0)
+                if (iterator % 10 == 0 && iterator != 0)
                 {
                     iterator = 0;
                     for (int j = 1; j < 11; j++) File.Delete($"Составленные{j}_0.txt");
                 }
                 iterator++;
-                r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.o[i].ToString(), LongestStep.ToString(), NoRepeatAmount.ToString());
+                r.FillSchoodDG(Database.l1[calcIter] + Database.l2[calcIter] + Database.l3[calcIter] + Database.l4[calcIter] + Database.l5[calcIter], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.o[calcIter].ToString(), LongestStep.ToString(), NoRepeatAmount.ToString());
                 
             }
             SendKeys.SendWait("%{F4}");
@@ -255,7 +236,8 @@ namespace CodenameShctangencircle
             r.FillBestResultsDG();
             
         }
-        string sas, sus, sos; List<int> o = Database.o;
+
+        string Entry;
 
         private void Справка_Click(object sender, EventArgs e)
         {
@@ -282,10 +264,36 @@ namespace CodenameShctangencircle
         
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            Process myProcess = Process.Start(@"GaugeBlockv3-1.exe"); Thread.Sleep(1000); s = myProcess;
+            Process myProcess = Process.Start(@"GaugeBlockv3-1.exe"); 
+            Thread.Sleep(1000); 
+            s = myProcess;
            
             ProgramCycles();
         }
+
+        bool isPaused = false;
+
+        private void buttonPause_Click(object sender, EventArgs e)
+        {
+            if (isPaused)
+            {
+                IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик");
+                ShowWindow(w, 9);
+                SetForegroundWindow(w);
+                SendKeys.SendWait("%{F4}");
+                Process myProcess = Process.Start(@"GaugeBlockv3-1.exe");
+                Thread.Sleep(1000);
+                buttonPause.Text = "Пауза";
+                ProgramCycles();
+            } 
+            else
+            {
+                isPaused = !isPaused;
+                iterator--;
+                buttonPause.Text = "Продолжить";
+            }
+        } 
+
         int iterator = 1;
 
         void clearFiles()
