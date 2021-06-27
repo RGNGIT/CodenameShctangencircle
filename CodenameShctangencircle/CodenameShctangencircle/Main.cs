@@ -228,7 +228,8 @@ namespace CodenameShctangencircle
                     for (int j = 1; j < 11; j++) File.Delete($"Составленные{j}_0.txt");
                 }
                 iterator++; globalCalcIter++;
-                r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.o[i].ToString(), LongestStep.ToString(), NoRepeatAmount.ToString());
+                string Ns = ("n1 = " + Database.p1[i] + " n2 = " + Database.p2[i] + " n3 = " + Database.p3[i] + " n4 = " + Database.p4[i] + " n5 = " + Database.p5[i]).ToString();
+                r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.o[i].ToString(), LongestStep.ToString(), NoRepeatAmount.ToString(), Ns);
                 
             }
             SendKeys.SendWait("%{F4}");
@@ -252,12 +253,12 @@ namespace CodenameShctangencircle
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            if (numericUpDown1.Value > numericUpDown2.Value) numericUpDown1.Value = numericUpDown2.Value;
+            if (numericUpDown1.Value > numericUpDown2.Value) numericUpDown2.Value = numericUpDown1.Value;
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            if (numericUpDown2.Value < numericUpDown1.Value) numericUpDown2.Value = numericUpDown1.Value;
+            if (numericUpDown2.Value < numericUpDown1.Value) numericUpDown1.Value = numericUpDown2.Value;
         }
 
         Process s; IntPtr f;

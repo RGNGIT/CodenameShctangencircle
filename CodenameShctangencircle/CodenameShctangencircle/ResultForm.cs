@@ -149,9 +149,9 @@ namespace CodenameShctangencircle
         }
 
         int schoolCounter = 1; 
-        public void FillSchoodDG(string Sizes, string KE, string NGU, string VGU, string N, string KSR, string NoRepeatAmount) 
+        public void FillSchoodDG(string Sizes, string KE, string NGU, string VGU, string N, string KSR, string NoRepeatAmount, string Ns) 
         {
-            DataGridSchool.Rows.Add(schoolCounter, N, Sizes, KSR, countSDM(Sizes), VGU, NGU, KE, NoRepeatAmount);
+            DataGridSchool.Rows.Add(schoolCounter, N, Sizes, KSR, countSDM(Sizes), VGU, NGU, KE, NoRepeatAmount, Ns);
             schoolCounter++;
         }
 
@@ -172,7 +172,9 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[5].Value,
                             DataGridSchool.Rows[bestI].Cells[6].Value,
                             DataGridSchool.Rows[bestI].Cells[7].Value,
-                            DataGridSchool.Rows[bestI].Cells[8].Value);
+                            DataGridSchool.Rows[bestI].Cells[8].Value,
+                            DataGridSchool.Rows[bestI].Cells[9].Value
+                            );
 
 
                 N = DataGridSchool.Rows[i].Cells[0].Value.ToString();
@@ -190,7 +192,8 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[5].Value,
                             DataGridSchool.Rows[bestI].Cells[6].Value,
                             DataGridSchool.Rows[bestI].Cells[7].Value,
-                            DataGridSchool.Rows[bestI].Cells[8].Value);
+                            DataGridSchool.Rows[bestI].Cells[8].Value,
+                            DataGridSchool.Rows[bestI].Cells[9].Value);
                     }
                 }
             }
