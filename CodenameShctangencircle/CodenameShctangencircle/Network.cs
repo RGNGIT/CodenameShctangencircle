@@ -34,6 +34,22 @@ namespace CodenameShctangencircle
             }
         }
 
+        public void Delete(Uri ServerUri)
+        {
+            try
+            {
+                FtpWebRequest Request = WebRequest.Create(ServerUri) as FtpWebRequest;
+                Request.Credentials = credential;
+                Request.Method = WebRequestMethods.Ftp.DeleteFile;
+                FtpWebResponse Response = Request.GetResponse() as FtpWebResponse;
+                Response.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Произошло исключение: {e.Message}");
+            }
+        }
+
         public byte[] GetInput(Uri InputUri)
         {
             WebClient Request = new WebClient()

@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -101,6 +102,7 @@ namespace CodenameShctangencircle
             }
             main.r.FillBestResultsDG();
             main.r.Show();
+            new Network(credential, textBoxAddress.Text).Delete(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/Output.shc"));
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -108,7 +110,7 @@ namespace CodenameShctangencircle
             string Ping;
             if(new Network(null, null).Ping(textBoxAddress.Text, out Ping))
             {
-                label1.Text = Ping;
+                label1.Text = Ping + "\nИдут удаленные расчеты...\nПо завершении откроется окно с результатами";
                 textBoxAddress.Visible = false;
                 Serializer(FillBlock());
                 // Выгрузка
