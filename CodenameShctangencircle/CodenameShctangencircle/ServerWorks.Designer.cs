@@ -54,9 +54,10 @@ namespace CodenameShctangencircle
             // 
             // buttonStart
             // 
-            this.buttonStart.Location = new System.Drawing.Point(316, 178);
+            this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonStart.Location = new System.Drawing.Point(303, 64);
             this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(75, 23);
+            this.buttonStart.Size = new System.Drawing.Size(88, 27);
             this.buttonStart.TabIndex = 10;
             this.buttonStart.Text = "Старт";
             this.buttonStart.UseVisualStyleBackColor = true;
@@ -66,10 +67,11 @@ namespace CodenameShctangencircle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(403, 213);
+            this.ClientSize = new System.Drawing.Size(403, 103);
             this.Controls.Add(this.textBoxAddress);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ServerWorks";
             this.Text = "Облачные расчеты";
             this.ResumeLayout(false);

@@ -224,7 +224,7 @@ namespace CodenameShctangencircle
             this.Справка.AutoSize = true;
             this.Справка.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Справка.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.Справка.Location = new System.Drawing.Point(343, 155);
+            this.Справка.Location = new System.Drawing.Point(343, 144);
             this.Справка.Name = "Справка";
             this.Справка.Size = new System.Drawing.Size(73, 20);
             this.Справка.TabIndex = 22;
@@ -309,11 +309,12 @@ namespace CodenameShctangencircle
             // checkBoxServer
             // 
             this.checkBoxServer.AutoSize = true;
-            this.checkBoxServer.Location = new System.Drawing.Point(178, 158);
+            this.checkBoxServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxServer.Location = new System.Drawing.Point(191, 133);
             this.checkBoxServer.Name = "checkBoxServer";
-            this.checkBoxServer.Size = new System.Drawing.Size(141, 17);
+            this.checkBoxServer.Size = new System.Drawing.Size(120, 44);
             this.checkBoxServer.TabIndex = 28;
-            this.checkBoxServer.Text = "Облачные вычисления";
+            this.checkBoxServer.Text = "Облачные \r\nвычисления";
             this.checkBoxServer.UseVisualStyleBackColor = true;
             // 
             // Main
