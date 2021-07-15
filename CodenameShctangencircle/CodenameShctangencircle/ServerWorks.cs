@@ -103,8 +103,9 @@ namespace CodenameShctangencircle
             {
                 label1.Text = Ping;
                 textBoxAddress.Visible = false;
-                Serializer(new Database.DataBlock());
+                Serializer(FillBlock(new Database.DataBlock()));
                 // Выгрузка
+                new Network(credential, textBoxAddress.Text).SendOutput(File.ReadAllBytes("SetInput.shc"));
                 while (true)
                 {
                     if(Listen())
