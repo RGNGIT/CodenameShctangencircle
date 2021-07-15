@@ -52,6 +52,7 @@ namespace CodenameShctangencircle
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.buttonPause = new System.Windows.Forms.Button();
+            this.checkBoxServer = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -305,11 +306,22 @@ namespace CodenameShctangencircle
             this.buttonPause.UseVisualStyleBackColor = true;
             this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
+            // checkBoxServer
+            // 
+            this.checkBoxServer.AutoSize = true;
+            this.checkBoxServer.Location = new System.Drawing.Point(178, 158);
+            this.checkBoxServer.Name = "checkBoxServer";
+            this.checkBoxServer.Size = new System.Drawing.Size(141, 17);
+            this.checkBoxServer.TabIndex = 28;
+            this.checkBoxServer.Text = "Облачные вычисления";
+            this.checkBoxServer.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 189);
+            this.Controls.Add(this.checkBoxServer);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
@@ -368,6 +380,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Button buttonPause;
+        private System.Windows.Forms.CheckBox checkBoxServer;
     }
 }
 

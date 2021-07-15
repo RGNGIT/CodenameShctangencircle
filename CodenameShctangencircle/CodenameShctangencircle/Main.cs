@@ -53,7 +53,14 @@ namespace CodenameShctangencircle
             button1_Click(sender, e); 
             Thread.Sleep(2000);
             Entry = comboBoxa11TB.SelectedItem.ToString();
-            backgroundWorker1.RunWorkerAsync();
+            if (!checkBoxServer.Checked)
+            {
+                backgroundWorker1.RunWorkerAsync();
+            }
+            else
+            {
+                ServerCycles();
+            }
             buttonPause.Visible = true;
         }
 
@@ -140,7 +147,7 @@ namespace CodenameShctangencircle
             
         }
 
-        ResultForm r;
+        public ResultForm r;
 
         void GetArr(int iterator, out string[] arr) 
         {
@@ -172,7 +179,7 @@ namespace CodenameShctangencircle
         {   
             IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); 
             IntPtr frm1 = FindWindow(null, "Form1");
-            f = frm1;
+            // f = frm1;
             if (w.ToInt32() == 0) MessageBox.Show("Окно не найдено :c");
             ShowWindow(w, 9);
             SetForegroundWindow(w);
@@ -262,13 +269,18 @@ namespace CodenameShctangencircle
         }
 
         Process s; IntPtr f;
-        
+
+        void ServerCycles()
+        {
+            ServerWorks serverWorks = new ServerWorks(this);
+            serverWorks.Show();
+        }
+
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            Process myProcess = Process.Start(@"GaugeBlockv3-1.exe"); 
-            Thread.Sleep(1000); 
+            Process myProcess = Process.Start(@"GaugeBlockv3-1.exe");
+            Thread.Sleep(1000);
             s = myProcess;
-           
             ProgramCycles(globalCalcIter);
         }
 
