@@ -22,43 +22,46 @@ namespace CodenameShctangencircle
 
         Main main;
 
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
-
-        void Serializer(Database.DataBlock data)
+        void Serializer(DataBlock data)
         {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
             using (FileStream fileStream = new FileStream("SetInput.shc", FileMode.OpenOrCreate))
             {
                 binaryFormatter.Serialize(fileStream, data);
             }
         }
 
-        Database.DataBlock FillBlock(Database.DataBlock block)
+        DataBlock FillBlock()
         {
-            block.o = Database.o;
-            block.o1 = Database.o1;
-            block.o2 = Database.o2;
-            block.o3 = Database.o3;
-            block.o4 = Database.o4;
-            block.o5 = Database.o5;
-            block.p1 = Database.p1;
-            block.p2 = Database.p2;
-            block.p3 = Database.p3;
-            block.p4 = Database.p4;
-            block.p5 = Database.p5;
-            block.GridCount = Database.GridCount;
-            block.Count = Database.Count;
-            block.l1 = Database.l1;
-            block.l2 = Database.l2;
-            block.l3 = Database.l3;
-            block.l4 = Database.l4;
-            block.l5 = Database.l5;
-            block.KE = Database.KE;
-            block.KSR = Database.KSR;
-            block.SDM = Database.SDM;
-            block.VGU = Database.VGU;
-            block.NGU = Database.NGU;
+            DataBlock block = new DataBlock()
+            {
+            Entry = main.Entry,
+            o = Database.o,
+            o1 = Database.o1,
+            o2 = Database.o2,
+            o3 = Database.o3,
+            o4 = Database.o4,
+            o5 = Database.o5,
+            p1 = Database.p1,
+            p2 = Database.p2,
+            p3 = Database.p3,
+            p4 = Database.p4,
+            p5 = Database.p5,
+            GridCount = Database.GridCount,
+            Count = Database.Count,
+            l1 = Database.l1,
+            l2 = Database.l2,
+            l3 = Database.l3,
+            l4 = Database.l4,
+            l5 = Database.l5,
+            KE = Database.KE,
+            KSR = Database.KSR,
+            SDM = Database.SDM,
+            VGU = Database.VGU,
+            NGU = Database.NGU,
+        };
             return block;
-        }
+    }
 
         static System.Net.NetworkCredential credential = new System.Net.NetworkCredential()
         {
@@ -78,12 +81,14 @@ namespace CodenameShctangencircle
                 return false;
             }
         }
-        GridBlock GetBlock()
+
+        ShctangenNetwork.GridBlock GetBlock()
         {
-            GridBlock DeserializeBlock;
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            ShctangenNetwork.GridBlock DeserializeBlock;
             using (FileStream fileStream = new FileStream("GetOutput.shc", FileMode.OpenOrCreate))
             {
-                DeserializeBlock = binaryFormatter.Deserialize(fileStream) as GridBlock;
+                DeserializeBlock = binaryFormatter.Deserialize(fileStream) as ShctangenNetwork.GridBlock;
             }
             return DeserializeBlock;
         }
@@ -103,7 +108,7 @@ namespace CodenameShctangencircle
             {
                 label1.Text = Ping;
                 textBoxAddress.Visible = false;
-                Serializer(FillBlock(new Database.DataBlock()));
+                Serializer(FillBlock());
                 // Выгрузка
                 new Network(credential, textBoxAddress.Text).SendOutput(File.ReadAllBytes("SetInput.shc"));
                 while (true)

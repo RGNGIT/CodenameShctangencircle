@@ -245,7 +245,7 @@ namespace CodenameShctangencircle
             
         }
 
-        string Entry;
+        public string Entry;
 
         private void Справка_Click(object sender, EventArgs e)
         {
