@@ -99,6 +99,8 @@ namespace CodenameShctangencircle
             {
                 main.r.FillSchoodDG(GetBlock().Summ[i], GetBlock().KE[i], GetBlock().LowerBorder[i], GetBlock().UpperBorder[i], GetBlock().o[i], GetBlock().LongestStep[i], GetBlock().NoRepeatAmount[i], GetBlock().Ns[i]);
             }
+            main.r.FillBestResultsDG();
+            main.r.Show();
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
