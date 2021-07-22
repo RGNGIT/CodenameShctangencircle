@@ -5,6 +5,7 @@ using Word = Microsoft.Office.Interop.Word;
 using System.IO;
 using System.Drawing;
 using Microsoft.Office.Interop.Word;
+using System.Xml.Serialization;
 
 namespace CodenameShctangencircle
 {
@@ -383,6 +384,66 @@ namespace CodenameShctangencircle
             {
 
                 Export_Data_To_Word(bestResultsDG, sfd.FileName, 4);
+            }
+        }
+
+        List<string> GridListReturner(DataGridView dataGrid, int Index)
+        {
+            List<string> Temp = new List<string>();
+            for(int i = 0; i < dataGrid.Rows.Count - 1; i++)
+            {
+                Temp.Add(dataGrid.Rows[i].Cells[Index].Value.ToString());
+            }
+            return Temp;
+        }
+
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ShctangenContainer));
+            ShctangenContainer Container = new ShctangenContainer()
+            {
+                n = GridListReturner(dataGridViewCyclesRes, 1),
+                k1 = GridListReturner(dataGridViewCyclesRes, 2),
+                k2 = GridListReturner(dataGridViewCyclesRes, 3),
+                k3 = GridListReturner(dataGridViewCyclesRes, 4),
+                k4 = GridListReturner(dataGridViewCyclesRes, 5),
+                k5 = GridListReturner(dataGridViewCyclesRes, 6),
+                n1 = GridListReturner(dataGridViewCyclesRes, 7),
+                n2 = GridListReturner(dataGridViewCyclesRes, 8),
+                n3 = GridListReturner(dataGridViewCyclesRes, 9),
+                n4 = GridListReturner(dataGridViewCyclesRes, 10),
+                n5 = GridListReturner(dataGridViewCyclesRes, 11),
+                A1q = GridListReturner(dataGridViewRes, 1),
+                A2q = GridListReturner(dataGridViewRes, 2),
+                A3q = GridListReturner(dataGridViewRes, 3),
+                A4q = GridListReturner(dataGridViewRes, 4),
+                A5q = GridListReturner(dataGridViewRes, 5),
+                MesAmount = GridListReturner(dataGridViewFin, 0),
+                Number = GridListReturner(dataGridViewFin, 1),
+                Size = GridListReturner(dataGridViewFin, 2),
+                MesAmountSch = GridListReturner(DataGridSchool, 1),
+                SizeSch = GridListReturner(DataGridSchool, 2),
+                KSR = GridListReturner(DataGridSchool, 3),
+                SDM = GridListReturner(DataGridSchool, 4),
+                VGU = GridListReturner(DataGridSchool, 5),
+                NGU = GridListReturner(DataGridSchool, 6),
+                KE = GridListReturner(DataGridSchool, 7),
+                KSM = GridListReturner(DataGridSchool, 8),
+                nSch = GridListReturner(DataGridSchool, 9)
+            };
+            SaveFileDialog saveFileDialog = new SaveFileDialog() 
+            {
+                Filter = "ShctangenFile|*.shc",
+                Title = "Сохранить данные из таблиц"
+            };
+            string FileName = String.Empty;
+            if(saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileName = saveFileDialog.FileName;
+            }
+            using(FileStream fs = new FileStream(FileName, FileMode.Create))
+            {
+                xmlSerializer.Serialize(fs, Container);
             }
         }
     }

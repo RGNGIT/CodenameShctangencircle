@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Text;
 using WindowsInput;
+using System.Xml.Serialization;
 
 namespace CodenameShctangencircle
 {
@@ -308,7 +309,77 @@ namespace CodenameShctangencircle
             }
 
          
-        } 
+        }
+
+        private void buttonLoad_Click(object sender, EventArgs e)
+        {
+            ResultForm resultForm = new ResultForm();
+            ShctangenContainer container;
+            XmlSerializer xmlSerializer = new XmlSerializer(typeof(ShctangenContainer));
+            string FileName = String.Empty;
+            OpenFileDialog openFileDialog = new OpenFileDialog()
+            {
+                Filter = "ShctangenFile|*.shc",
+                Title = "Открыть файл с таблицами"
+            };
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileName = openFileDialog.FileName;
+            }
+            using(FileStream fs = new FileStream(FileName, FileMode.OpenOrCreate))
+            {
+                container = xmlSerializer.Deserialize(fs) as ShctangenContainer;
+            }
+            for(int i = 0; i < container.n.Count; i++)
+            {
+                resultForm.dataGridViewCyclesRes.Rows.Add(
+                    i + 1, 
+                    container.n[i], 
+                    container.k1[i], 
+                    container.k2[i], 
+                    container.k3[i],
+                    container.k4[i],
+                    container.k5[i],
+                    container.n1[i],
+                    container.n2[i],
+                    container.n3[i],
+                    container.n4[i],
+                    container.n5[i]);
+            }
+            for(int i = 0; i < container.A1q.Count; i++)
+            {
+                resultForm.dataGridViewRes.Rows.Add(
+                    i + 1,
+                    container.A1q[i],
+                    container.A2q[i],
+                    container.A3q[i],
+                    container.A4q[i],
+                    container.A5q[i]);
+            }
+            for(int i = 0; i < container.MesAmount.Count; i++)
+            {
+                resultForm.dataGridViewFin.Rows.Add(
+                   container.MesAmount[i],
+                   container.Number[i],
+                   container.Size[i]);
+            }
+            for(int i = 0; i < container.MesAmountSch.Count; i++)
+            {
+                resultForm.DataGridSchool.Rows.Add(
+                    i + 1,
+                    container.MesAmountSch[i],
+                    container.SizeSch[i],
+                    container.KSR[i],
+                    container.SDM[i],
+                    container.VGU[i],
+                    container.NGU[i],
+                    container.KE[i],
+                    container.KSM[i],
+                    container.nSch[i]);
+            }
+            resultForm.FillBestResultsDG();
+            resultForm.Show();
+        }
 
         int iterator = 1;
 

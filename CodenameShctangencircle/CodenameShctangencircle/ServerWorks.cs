@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShctangenNetLib;
 
 namespace CodenameShctangencircle
 {
@@ -83,13 +84,13 @@ namespace CodenameShctangencircle
             }
         }
 
-        ShctangenNetwork.GridBlock GetBlock()
+        GridBlock GetBlock()
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            ShctangenNetwork.GridBlock DeserializeBlock;
+            GridBlock DeserializeBlock;
             using (FileStream fileStream = new FileStream("GetOutput.shc", FileMode.OpenOrCreate))
             {
-                DeserializeBlock = binaryFormatter.Deserialize(fileStream) as ShctangenNetwork.GridBlock;
+                DeserializeBlock = binaryFormatter.Deserialize(fileStream) as GridBlock;
             }
             return DeserializeBlock;
         }

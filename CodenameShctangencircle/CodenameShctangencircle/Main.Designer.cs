@@ -53,6 +53,7 @@ namespace CodenameShctangencircle
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.buttonPause = new System.Windows.Forms.Button();
             this.checkBoxServer = new System.Windows.Forms.CheckBox();
+            this.buttonLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -224,7 +225,7 @@ namespace CodenameShctangencircle
             this.Справка.AutoSize = true;
             this.Справка.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Справка.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.Справка.Location = new System.Drawing.Point(343, 144);
+            this.Справка.Location = new System.Drawing.Point(346, 155);
             this.Справка.Name = "Справка";
             this.Справка.Size = new System.Drawing.Size(73, 20);
             this.Справка.TabIndex = 22;
@@ -310,18 +311,30 @@ namespace CodenameShctangencircle
             // 
             this.checkBoxServer.AutoSize = true;
             this.checkBoxServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBoxServer.Location = new System.Drawing.Point(191, 133);
+            this.checkBoxServer.Location = new System.Drawing.Point(178, 123);
             this.checkBoxServer.Name = "checkBoxServer";
-            this.checkBoxServer.Size = new System.Drawing.Size(120, 44);
+            this.checkBoxServer.Size = new System.Drawing.Size(202, 24);
             this.checkBoxServer.TabIndex = 28;
-            this.checkBoxServer.Text = "Облачные \r\nвычисления";
+            this.checkBoxServer.Text = "Облачные вычисления";
             this.checkBoxServer.UseVisualStyleBackColor = true;
+            // 
+            // buttonLoad
+            // 
+            this.buttonLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonLoad.Location = new System.Drawing.Point(178, 152);
+            this.buttonLoad.Name = "buttonLoad";
+            this.buttonLoad.Size = new System.Drawing.Size(160, 27);
+            this.buttonLoad.TabIndex = 29;
+            this.buttonLoad.Text = "Загрузить файл";
+            this.buttonLoad.UseVisualStyleBackColor = true;
+            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 189);
+            this.Controls.Add(this.buttonLoad);
             this.Controls.Add(this.checkBoxServer);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.numericUpDown2);
@@ -382,6 +395,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.CheckBox checkBoxServer;
+        private System.Windows.Forms.Button buttonLoad;
     }
 }
 
