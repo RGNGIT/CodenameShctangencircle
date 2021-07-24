@@ -23,6 +23,7 @@ namespace CodenameShctangencircle
         }
 
         Main main;
+        string ID = "_shctangenNetworkSessionId_";
 
         void Serializer(DataBlock data)
         {
@@ -75,7 +76,7 @@ namespace CodenameShctangencircle
         {
             try
             {
-                File.WriteAllBytes("GetOutput.shc", new Network(credential, textBoxAddress.Text).GetInput(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/Output.shc")));
+                File.WriteAllBytes("GetOutput.shc", new Network(credential, textBoxAddress.Text).GetInput(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/{ID}/Output.shc")));
                 return true;
             }
             catch (Exception)
@@ -103,19 +104,24 @@ namespace CodenameShctangencircle
             }
             main.r.FillBestResultsDG();
             main.r.Show();
-            new Network(credential, textBoxAddress.Text).Delete(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/Output.shc"));
+            new Network(credential, textBoxAddress.Text).Delete(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/{ID}/Output.shc"));
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
             string Ping;
+            timer.Start();
             if(new Network(null, null).Ping(textBoxAddress.Text, out Ping))
             {
-                label1.Text = Ping + "\nИдут удаленные расчеты...\nПо завершении откроется окно с результатами";
+                label1.Text = Ping + "\nИдут удаленные расчеты...\nПо завершении откроется окно с результатами\n";
                 textBoxAddress.Visible = false;
+                label2.Visible = false;
+                textBoxId.Visible = false;
+                buttonStart.Visible = false;
                 Serializer(FillBlock());
+                ID += textBoxId.Text;
                 // Выгрузка
-                new Network(credential, textBoxAddress.Text).SendOutput(File.ReadAllBytes("SetInput.shc"));
+                new Network(credential, textBoxAddress.Text).SendOutput(File.ReadAllBytes("SetInput.shc"), ID);
                 while (true)
                 {
                     if(Listen())
@@ -124,7 +130,16 @@ namespace CodenameShctangencircle
                     }
                 }
                 FillDG();
+                timer.Stop();
+                label1.Text += $"Прошло времени: {Secs} секунд";
             }
+        }
+
+        int Secs = 0;
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Secs++;
         }
     }
 }
