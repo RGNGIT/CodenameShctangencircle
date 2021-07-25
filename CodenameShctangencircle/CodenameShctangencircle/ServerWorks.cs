@@ -28,7 +28,7 @@ namespace CodenameShctangencircle
         void Serializer(DataBlock data)
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (FileStream fileStream = new FileStream("SetInput.shc", FileMode.OpenOrCreate))
+            using (FileStream fileStream = new FileStream("SetInput.wshc", FileMode.OpenOrCreate))
             {
                 binaryFormatter.Serialize(fileStream, data);
             }
@@ -76,7 +76,7 @@ namespace CodenameShctangencircle
         {
             try
             {
-                File.WriteAllBytes("GetOutput.shc", new Network(credential, textBoxAddress.Text).GetInput(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/{ID}/Output.shc")));
+                File.WriteAllBytes("GetOutput.wshc", new Network(credential, textBoxAddress.Text).GetInput(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/{ID}/Output.wshc")));
                 return true;
             }
             catch (Exception)
@@ -89,7 +89,7 @@ namespace CodenameShctangencircle
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             GridBlock DeserializeBlock;
-            using (FileStream fileStream = new FileStream("GetOutput.shc", FileMode.OpenOrCreate))
+            using (FileStream fileStream = new FileStream("GetOutput.wshc", FileMode.OpenOrCreate))
             {
                 DeserializeBlock = binaryFormatter.Deserialize(fileStream) as GridBlock;
             }
@@ -104,7 +104,7 @@ namespace CodenameShctangencircle
             }
             main.r.FillBestResultsDG();
             main.r.Show();
-            new Network(credential, textBoxAddress.Text).Delete(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/{ID}/Output.shc"));
+            new Network(credential, textBoxAddress.Text).Delete(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/{ID}/Output.wshc"));
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
@@ -121,7 +121,7 @@ namespace CodenameShctangencircle
                 Serializer(FillBlock());
                 ID += textBoxId.Text;
                 // Выгрузка
-                new Network(credential, textBoxAddress.Text).SendOutput(File.ReadAllBytes("SetInput.shc"), ID);
+                new Network(credential, textBoxAddress.Text).SendOutput(File.ReadAllBytes("SetInput.wshc"), ID);
                 while (true)
                 {
                     if(Listen())
