@@ -18,6 +18,12 @@ namespace CodenameShctangencircle
             InitializeComponent();
             comboBoxa11TB.SelectedIndex = 0; 
             comboBox1.SelectedIndex = 2;
+            comboBox2.SelectedIndex = 3;
+            comboBox3.SelectedIndex = 3;
+            comboBox4.SelectedIndex = 4;
+            comboBox5.SelectedIndex = 3;
+
+
             buttonPause.Visible = false;
         }
 
@@ -45,10 +51,21 @@ namespace CodenameShctangencircle
             }
 
             Database.ClearStuff();
-            checkKoefs();
+            //checkKoefs();
 
             Cycles cikl = new Cycles();
-            cikl.nCycle(ref OutputVisual, ref Output, Convert.ToInt32(numericUpDown1.Value), Convert.ToInt32(numericUpDown2.Value), defaultcase);
+
+            cikl.nCycle(
+                ref OutputVisual, ref Output,
+                Convert.ToInt32(numericUpDown1.Value),
+                Convert.ToInt32(numericUpDown2.Value),
+                Convert.ToDouble(comboBox1.SelectedItem),
+                Convert.ToDouble(comboBox2.SelectedItem),
+                Convert.ToDouble(comboBox3.SelectedItem),
+                Convert.ToDouble(comboBox4.SelectedItem),
+                Convert.ToDouble(comboBox5.SelectedItem),
+                Convert.ToDouble(comboBoxa11TB.SelectedItem));
+
             Thread.Sleep(2000);
             button1_Click(sender, e); 
             Thread.Sleep(2000);
@@ -308,7 +325,61 @@ namespace CodenameShctangencircle
             }
 
          
-        } 
+        }
+
+        #region InputCombos
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(Convert.ToDouble(comboBox1.SelectedItem) >= Convert.ToDouble(comboBox2.SelectedItem))
+            {
+                comboBox1.SelectedIndex = 0;
+            }
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToDouble(comboBox2.SelectedItem) >= Convert.ToDouble(comboBox3.SelectedItem))
+            {
+                comboBox2.SelectedIndex = 0;
+            }
+            if (Convert.ToDouble(comboBox2.SelectedItem) <= Convert.ToDouble(comboBox1.SelectedItem))
+            {
+                comboBox1.SelectedIndex = 0;
+            }
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToDouble(comboBox3.SelectedItem) >= Convert.ToDouble(comboBox4.SelectedItem))
+            {
+                comboBox3.SelectedIndex = 0;
+            }
+            if (Convert.ToDouble(comboBox3.SelectedItem) <= Convert.ToDouble(comboBox2.SelectedItem))
+            {
+                comboBox2.SelectedIndex = 0;
+            }
+        }
+
+        private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToDouble(comboBox4.SelectedItem) >= Convert.ToDouble(comboBox5.SelectedItem))
+            {
+                comboBox4.SelectedIndex = 0;
+            }
+            if (Convert.ToDouble(comboBox4.SelectedItem) <= Convert.ToDouble(comboBox3.SelectedItem))
+            {
+                comboBox3.SelectedIndex = 0;
+            }
+        }
+
+        private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Convert.ToDouble(comboBox5.SelectedItem) <= Convert.ToDouble(comboBox4.SelectedItem))
+            {
+                comboBox4.SelectedIndex = 0;
+            }
+        }
+        #endregion
 
         int iterator = 1;
 

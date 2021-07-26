@@ -53,6 +53,15 @@ namespace CodenameShctangencircle
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.buttonPause = new System.Windows.Forms.Button();
             this.checkBoxServer = new System.Windows.Forms.CheckBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -93,13 +102,14 @@ namespace CodenameShctangencircle
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "δ1=0,005; δ2=0,01; δ3=0,1; δ4=1; δ5=10",
-            "δ1=0,005; δ2=0,01; δ3=0,1; δ4=0,5; δ5=10",
-            "δ1=0,005; δ2=0,05; δ3=0,1; δ4=1; δ5=10"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 60);
+            "0,001",
+            "0,005",
+            "0,01"});
+            this.comboBox1.Location = new System.Drawing.Point(52, 60);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(341, 28);
+            this.comboBox1.Size = new System.Drawing.Size(69, 28);
             this.comboBox1.TabIndex = 14;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // comboBoxa11TB
             // 
@@ -108,7 +118,9 @@ namespace CodenameShctangencircle
             this.comboBoxa11TB.FormattingEnabled = true;
             this.comboBoxa11TB.Items.AddRange(new object[] {
             "0,500",
-            "0,505"});
+            "0,1",
+            "1",
+            "2"});
             this.comboBoxa11TB.Location = new System.Drawing.Point(12, 6);
             this.comboBoxa11TB.Name = "comboBoxa11TB";
             this.comboBoxa11TB.Size = new System.Drawing.Size(66, 28);
@@ -309,6 +321,7 @@ namespace CodenameShctangencircle
             // checkBoxServer
             // 
             this.checkBoxServer.AutoSize = true;
+            this.checkBoxServer.Enabled = false;
             this.checkBoxServer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.checkBoxServer.Location = new System.Drawing.Point(191, 133);
             this.checkBoxServer.Name = "checkBoxServer";
@@ -317,11 +330,137 @@ namespace CodenameShctangencircle
             this.checkBoxServer.Text = "Облачные \r\nвычисления";
             this.checkBoxServer.UseVisualStyleBackColor = true;
             // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "0,005",
+            "0,01",
+            "0,05",
+            "0,1"});
+            this.comboBox2.Location = new System.Drawing.Point(173, 60);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(69, 28);
+            this.comboBox2.TabIndex = 29;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "0,01",
+            "0,05",
+            "0,1",
+            "0,5",
+            "1"});
+            this.comboBox3.Location = new System.Drawing.Point(297, 60);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(69, 28);
+            this.comboBox3.TabIndex = 30;
+            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "0,05",
+            "0,1",
+            "0,5",
+            "1",
+            "5"});
+            this.comboBox4.Location = new System.Drawing.Point(422, 60);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(69, 28);
+            this.comboBox4.TabIndex = 31;
+            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "0,5",
+            "1",
+            "5",
+            "10",
+            "25"});
+            this.comboBox5.Location = new System.Drawing.Point(543, 60);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(69, 28);
+            this.comboBox5.TabIndex = 32;
+            this.comboBox5.SelectedIndexChanged += new System.EventHandler(this.comboBox5_SelectedIndexChanged);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(15, 63);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(31, 20);
+            this.label8.TabIndex = 33;
+            this.label8.Text = "δ1 ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(127, 63);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(40, 20);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "< δ2";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(251, 63);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(40, 20);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "< δ3";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(376, 63);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 20);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "< δ4";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label12.Location = new System.Drawing.Point(497, 63);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 20);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "< δ5";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 189);
+            this.ClientSize = new System.Drawing.Size(995, 189);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.comboBox5);
+            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.checkBoxServer);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.numericUpDown2);
@@ -382,6 +521,15 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.CheckBox checkBoxServer;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 
