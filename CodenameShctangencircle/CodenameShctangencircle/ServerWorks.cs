@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ShctangenNetLib;
 
 namespace CodenameShctangencircle
 {
@@ -22,11 +23,12 @@ namespace CodenameShctangencircle
         }
 
         Main main;
+        string ID = "_shctangenNetworkSessionId_";
 
         void Serializer(DataBlock data)
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            using (FileStream fileStream = new FileStream("SetInput.shc", FileMode.OpenOrCreate))
+            using (FileStream fileStream = new FileStream("SetInput.wshc", FileMode.OpenOrCreate))
             {
                 binaryFormatter.Serialize(fileStream, data);
             }
@@ -74,7 +76,7 @@ namespace CodenameShctangencircle
         {
             try
             {
-                File.WriteAllBytes("GetOutput.shc", new Network(credential, textBoxAddress.Text).GetInput(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/Output.shc")));
+                File.WriteAllBytes("GetOutput.wshc", new Network(credential, textBoxAddress.Text).GetInput(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/{ID}/Output.wshc")));
                 return true;
             }
             catch (Exception)
@@ -83,13 +85,13 @@ namespace CodenameShctangencircle
             }
         }
 
-        ShctangenNetwork.GridBlock GetBlock()
+        GridBlock GetBlock()
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            ShctangenNetwork.GridBlock DeserializeBlock;
-            using (FileStream fileStream = new FileStream("GetOutput.shc", FileMode.OpenOrCreate))
+            GridBlock DeserializeBlock;
+            using (FileStream fileStream = new FileStream("GetOutput.wshc", FileMode.OpenOrCreate))
             {
-                DeserializeBlock = binaryFormatter.Deserialize(fileStream) as ShctangenNetwork.GridBlock;
+                DeserializeBlock = binaryFormatter.Deserialize(fileStream) as GridBlock;
             }
             return DeserializeBlock;
         }
@@ -102,19 +104,24 @@ namespace CodenameShctangencircle
             }
             main.r.FillBestResultsDG();
             main.r.Show();
-            new Network(credential, textBoxAddress.Text).Delete(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/Output.shc"));
+            new Network(credential, textBoxAddress.Text).Delete(new Uri($"ftp://{textBoxAddress.Text}/files/ShctangenNetwork/{ID}/Output.wshc"));
         }
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
             string Ping;
+            timer.Start();
             if(new Network(null, null).Ping(textBoxAddress.Text, out Ping))
             {
-                label1.Text = Ping + "\nИдут удаленные расчеты...\nПо завершении откроется окно с результатами";
+                label1.Text = Ping + "\nИдут удаленные расчеты...\nПо завершении откроется окно с результатами\n";
                 textBoxAddress.Visible = false;
+                label2.Visible = false;
+                textBoxId.Visible = false;
+                buttonStart.Visible = false;
                 Serializer(FillBlock());
+                ID += textBoxId.Text;
                 // Выгрузка
-                new Network(credential, textBoxAddress.Text).SendOutput(File.ReadAllBytes("SetInput.shc"));
+                new Network(credential, textBoxAddress.Text).SendOutput(File.ReadAllBytes("SetInput.wshc"), ID);
                 while (true)
                 {
                     if(Listen())
@@ -123,7 +130,16 @@ namespace CodenameShctangencircle
                     }
                 }
                 FillDG();
+                timer.Stop();
+                label1.Text += $"Прошло времени: {Secs} секунд";
             }
+        }
+
+        int Secs = 0;
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            Secs++;
         }
     }
 }

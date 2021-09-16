@@ -53,11 +53,6 @@ namespace CodenameShctangencircle
             this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.DataGridSchool = new System.Windows.Forms.DataGridView();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.bestResultsDG = new System.Windows.Forms.DataGridView();
             this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,6 +63,11 @@ namespace CodenameShctangencircle
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.bestResultsDG = new System.Windows.Forms.DataGridView();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -78,6 +78,7 @@ namespace CodenameShctangencircle
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.SaveResultMerSizesBTN.SuspendLayout();
             this.z.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCyclesRes)).BeginInit();
@@ -130,7 +131,7 @@ namespace CodenameShctangencircle
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(137, 429);
+            this.label1.Location = new System.Drawing.Point(132, 429);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(217, 13);
             this.label1.TabIndex = 2;
@@ -146,7 +147,7 @@ namespace CodenameShctangencircle
             // 
             // SaveToDocBTN
             // 
-            this.SaveToDocBTN.Location = new System.Drawing.Point(8, 424);
+            this.SaveToDocBTN.Location = new System.Drawing.Point(3, 424);
             this.SaveToDocBTN.Name = "SaveToDocBTN";
             this.SaveToDocBTN.Size = new System.Drawing.Size(123, 23);
             this.SaveToDocBTN.TabIndex = 1;
@@ -180,7 +181,7 @@ namespace CodenameShctangencircle
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(135, 429);
+            this.label2.Location = new System.Drawing.Point(132, 429);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(217, 13);
             this.label2.TabIndex = 4;
@@ -188,7 +189,7 @@ namespace CodenameShctangencircle
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(6, 424);
+            this.button1.Location = new System.Drawing.Point(3, 424);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(123, 23);
             this.button1.TabIndex = 3;
@@ -230,7 +231,7 @@ namespace CodenameShctangencircle
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(135, 432);
+            this.label3.Location = new System.Drawing.Point(132, 430);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(217, 13);
             this.label3.TabIndex = 4;
@@ -238,7 +239,7 @@ namespace CodenameShctangencircle
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(6, 427);
+            this.button2.Location = new System.Drawing.Point(3, 424);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(123, 23);
             this.button2.TabIndex = 3;
@@ -255,7 +256,7 @@ namespace CodenameShctangencircle
             this.Column9});
             this.dataGridViewFin.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewFin.Name = "dataGridViewFin";
-            this.dataGridViewFin.Size = new System.Drawing.Size(794, 425);
+            this.dataGridViewFin.Size = new System.Drawing.Size(794, 424);
             this.dataGridViewFin.TabIndex = 2;
             // 
             // Column7
@@ -339,67 +340,6 @@ namespace CodenameShctangencircle
             this.DataGridSchool.Size = new System.Drawing.Size(794, 423);
             this.DataGridSchool.TabIndex = 0;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.bestResultsDG);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(794, 450);
-            this.tabPage1.TabIndex = 4;
-            this.tabPage1.Text = "Лучшие наборы";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(616, 430);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(172, 13);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "(сохраняется открытая таблица)";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(135, 429);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(217, 13);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Результаты представлены ввиде таблиц.";
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 424);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 23);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Сохранить в Word";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // bestResultsDG
-            // 
-            this.bestResultsDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bestResultsDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column21,
-            this.Column11,
-            this.Column12,
-            this.Column13,
-            this.Column14,
-            this.Column15,
-            this.Column16,
-            this.Column17,
-            this.Column19,
-            this.Column23});
-            this.bestResultsDG.Location = new System.Drawing.Point(0, 0);
-            this.bestResultsDG.Name = "bestResultsDG";
-            this.bestResultsDG.Size = new System.Drawing.Size(794, 423);
-            this.bestResultsDG.TabIndex = 0;
-            // 
             // Column20
             // 
             this.Column20.HeaderText = "Индекс";
@@ -462,6 +402,67 @@ namespace CodenameShctangencircle
             this.Column22.Name = "Column22";
             this.Column22.ReadOnly = true;
             this.Column22.Width = 200;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label10);
+            this.tabPage1.Controls.Add(this.label5);
+            this.tabPage1.Controls.Add(this.button4);
+            this.tabPage1.Controls.Add(this.bestResultsDG);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(794, 450);
+            this.tabPage1.TabIndex = 4;
+            this.tabPage1.Text = "Лучшие наборы";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(616, 430);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(172, 13);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "(сохраняется открытая таблица)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(132, 429);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(217, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Результаты представлены ввиде таблиц.";
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(3, 424);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(123, 23);
+            this.button4.TabIndex = 3;
+            this.button4.Text = "Сохранить в Word";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // bestResultsDG
+            // 
+            this.bestResultsDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.bestResultsDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column21,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14,
+            this.Column15,
+            this.Column16,
+            this.Column17,
+            this.Column19,
+            this.Column23});
+            this.bestResultsDG.Location = new System.Drawing.Point(0, 0);
+            this.bestResultsDG.Name = "bestResultsDG";
+            this.bestResultsDG.Size = new System.Drawing.Size(794, 423);
+            this.bestResultsDG.TabIndex = 0;
             // 
             // Column21
             // 
@@ -526,11 +527,22 @@ namespace CodenameShctangencircle
             this.Column23.ReadOnly = true;
             this.Column23.Width = 200;
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(4, 478);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(123, 23);
+            this.buttonSave.TabIndex = 5;
+            this.buttonSave.Text = "Сохранить в файл";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 474);
+            this.ClientSize = new System.Drawing.Size(800, 505);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.SaveResultMerSizesBTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ResultForm";
@@ -557,18 +569,12 @@ namespace CodenameShctangencircle
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl SaveResultMerSizesBTN;
         private System.Windows.Forms.TabPage z;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dataGridViewCyclesRes;
-        private System.Windows.Forms.DataGridView dataGridViewRes;
         private System.Windows.Forms.Button SaveToDocBTN;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridViewFin;
-        private System.Windows.Forms.DataGridView DataGridSchool;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView bestResultsDG;
         private System.Windows.Forms.Label label6;
@@ -607,5 +613,11 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
+        private System.Windows.Forms.Button buttonSave;
+        public System.Windows.Forms.TabControl SaveResultMerSizesBTN;
+        public System.Windows.Forms.DataGridView dataGridViewCyclesRes;
+        public System.Windows.Forms.DataGridView dataGridViewRes;
+        public System.Windows.Forms.DataGridView dataGridViewFin;
+        public System.Windows.Forms.DataGridView DataGridSchool;
     }
 }

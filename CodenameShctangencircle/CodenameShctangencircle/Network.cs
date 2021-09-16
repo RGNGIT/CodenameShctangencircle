@@ -71,12 +71,12 @@ namespace CodenameShctangencircle
             }
         }
 
-        public void SendOutput(byte[] OutputData)
+        public void SendOutput(byte[] OutputData, string ID)
         {
             try
             {
-                string PFN = new FileInfo("Input.shc").Name;
-                string UploadURL = $"ftp://{URL}/files/ShctangenNetwork/{PFN}";
+                string PFN = new FileInfo("Input.wshc").Name;
+                string UploadURL = $"ftp://{URL}/files/ShctangenNetwork/{ID}/{PFN}";
                 FtpWebRequest request = WebRequest.Create(UploadURL) as FtpWebRequest;
                 request.Method = WebRequestMethods.Ftp.UploadFile;
                 request.Credentials = credential;
