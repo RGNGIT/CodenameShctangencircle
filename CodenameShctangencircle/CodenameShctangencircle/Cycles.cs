@@ -17,7 +17,7 @@ namespace CodenameShctangencircle
 
             for(int k1 = 100; k1 <= 200; k1++)
             {
-                n1 = (k1 - _a11) / (_koef1 + 1);
+                n1 = k1 - _a11 / _koef1 + 1;
                 //if (n1 > 0 && n1 % 1 == 0)
                 //{
                     k2Cycle(n, k1, n1); 
