@@ -53,7 +53,6 @@ namespace CodenameShctangencircle
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.buttonPause = new System.Windows.Forms.Button();
             this.checkBoxServer = new System.Windows.Forms.CheckBox();
-
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox4 = new System.Windows.Forms.ComboBox();
@@ -63,9 +62,6 @@ namespace CodenameShctangencircle
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-
-      
-
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -281,7 +277,7 @@ namespace CodenameShctangencircle
             this.numericUpDown1.Size = new System.Drawing.Size(45, 26);
             this.numericUpDown1.TabIndex = 25;
             this.numericUpDown1.Value = new decimal(new int[] {
-            55,
+            43,
             0,
             0,
             0});
@@ -305,7 +301,7 @@ namespace CodenameShctangencircle
             this.numericUpDown2.Size = new System.Drawing.Size(45, 26);
             this.numericUpDown2.TabIndex = 26;
             this.numericUpDown2.Value = new decimal(new int[] {
-            55,
+            43,
             0,
             0,
             0});
@@ -333,7 +329,9 @@ namespace CodenameShctangencircle
             this.checkBoxServer.TabIndex = 28;
             this.checkBoxServer.Text = "Облачные вычисления";
             this.checkBoxServer.UseVisualStyleBackColor = true;
-
+            // 
+            // comboBox2
+            // 
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox2.FormattingEnabled = true;
@@ -448,25 +446,12 @@ namespace CodenameShctangencircle
             this.label12.Size = new System.Drawing.Size(40, 20);
             this.label12.TabIndex = 37;
             this.label12.Text = "< δ5";
-
-            // buttonLoad
-            // 
-            /*this.buttonLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonLoad.Location = new System.Drawing.Point(178, 152);
-            this.buttonLoad.Name = "buttonLoad";
-            this.buttonLoad.Size = new System.Drawing.Size(160, 27);
-            this.buttonLoad.TabIndex = 29;
-            this.buttonLoad.Text = "Загрузить файл";
-            this.buttonLoad.UseVisualStyleBackColor = true;
-            this.buttonLoad.Click += new System.EventHandler(this.buttonLoad_Click);
-            */
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-
-            this.ClientSize = new System.Drawing.Size(995, 189);
+            this.ClientSize = new System.Drawing.Size(627, 189);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -476,10 +461,6 @@ namespace CodenameShctangencircle
             this.Controls.Add(this.comboBox4);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
-
-            this.ClientSize = new System.Drawing.Size(428, 189);
-           
-
             this.Controls.Add(this.checkBoxServer);
             this.Controls.Add(this.buttonPause);
             this.Controls.Add(this.numericUpDown2);

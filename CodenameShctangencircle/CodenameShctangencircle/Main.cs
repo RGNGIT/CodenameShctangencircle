@@ -21,9 +21,12 @@ namespace CodenameShctangencircle
             comboBox1.SelectedIndex = 2;
             comboBox2.SelectedIndex = 3;
             comboBox3.SelectedIndex = 3;
-            comboBox4.SelectedIndex = 4;
+            comboBox4.SelectedIndex = 1;
             comboBox5.SelectedIndex = 3;
-
+            comboBox4.SelectedIndex = 3;
+            comboBox3.SelectedIndex = 2;
+            comboBox2.SelectedIndex = 1;
+            comboBox1.SelectedIndex = 1;
 
             buttonPause.Visible = false;
         }
@@ -103,12 +106,20 @@ namespace CodenameShctangencircle
         private void button1_Click(object sender, EventArgs e)
         {
             FindSteps fs = new FindSteps();
-            fs.vFindSteps(Output, step1, step2, step3, step4, step5, ref stepOutput, Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()));
+            fs.vFindSteps(
+                Output, 
+                Convert.ToDouble(comboBox1.SelectedItem),
+                Convert.ToDouble(comboBox2.SelectedItem),
+                Convert.ToDouble(comboBox3.SelectedItem),
+                Convert.ToDouble(comboBox4.SelectedItem),
+                Convert.ToDouble(comboBox5.SelectedItem), 
+                ref stepOutput, 
+                Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()));
             r = new ResultForm();
         }
 
         double NoRepeatAmount, LongestStep, LowerBorder, UpperBorder, KE = 0;
-       
+        
         void GetFileVars(int iterator)
         {
             string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
