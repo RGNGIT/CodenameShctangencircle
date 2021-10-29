@@ -27,7 +27,7 @@ namespace CodenameShctangencircle
             comboBox3.SelectedIndex = 2;
             comboBox2.SelectedIndex = 1;
             comboBox1.SelectedIndex = 1;
-
+            beginStep.SelectedIndex = 1;
             buttonPause.Visible = false;
         }
 
@@ -91,7 +91,6 @@ namespace CodenameShctangencircle
 
         void checkKoefs()
         {
-            
             if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 0) { defaultcase = 0; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 1; step5 = 10; }
             if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 0) { defaultcase = 1; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 0.5; step5 = 10; }
             if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 0) { defaultcase = 2; step1 = 0.005; step2 = 0.05; step3 = 0.1; step4 = 1; step5 = 10; }

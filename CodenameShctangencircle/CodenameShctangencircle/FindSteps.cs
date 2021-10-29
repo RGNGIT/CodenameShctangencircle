@@ -7,7 +7,7 @@ namespace CodenameShctangencircle
     {
         private List<string> stepCombinations = new List<string>();
 
-        public void vFindSteps(List<string> Combinations, double q1, double q2, double q3, double q4, double q5, ref List<string> stComb, double A11)
+        public void vFindSteps(List<string> Combinations, double q1, double q2, double q3, double q4, double q5, ref List<string> stComb, double A11, double delta)
         {
             int n, n1, n2, n3, n4, n5;
             double KSR, SDM = 0, VGU = 0, NGU = 0, KE;
