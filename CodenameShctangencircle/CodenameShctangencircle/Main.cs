@@ -211,8 +211,18 @@ namespace CodenameShctangencircle
         int globalCalcIter = 0;
         InputSimulator simulator = new InputSimulator();
 
+        void DebugOutput(List<string> Output)
+        {
+            foreach(string i in Output)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
         void DoShkolnikCycle(int ii)
         {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             bool flag = false;
             try
             {
@@ -285,6 +295,16 @@ namespace CodenameShctangencircle
                     LowerBorder = GaugeCalculations.SequenceBegin2;
                     UpperBorder = GaugeCalculations.SequenceEnd2;
                     KE = GaugeCalculations.KE2;
+                    DebugOutput(new List<string> {
+                        $"Iter: {ii}",
+                        $"NoRepeatAmount: {GaugeCalculations.SummaryCount2}",
+                        $"LongestStep: {GaugeCalculations.SequenceCount2}",
+                        $"LowerBorder: {GaugeCalculations.SequenceBegin2}",
+                        $"UpperBorder: {GaugeCalculations.SequenceEnd2}",
+                        $"KE: {GaugeCalculations.KE2}",
+                        $"Elapsed time of iteration: {sw.Elapsed}\n"
+                    });
+                    sw.Stop();
                 }
                 catch (Exception)
                 {
