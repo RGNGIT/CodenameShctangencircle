@@ -39,7 +39,10 @@ namespace CodenameShctangencircle
 
         private void Start_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Считаю...");
+            Start.Enabled = false;
+            Start.Text = "Shit I am...";
+            stopwatch = new Stopwatch();
+            stopwatch.Start();
             Output.Clear();
             OutputVisual.Clear();
             stepOutput.Clear();
@@ -362,8 +365,9 @@ namespace CodenameShctangencircle
             //SendKeys.SendWait("%{F4}");
             MessageBox.Show("Рассчеты завершены.");
             r.FillBestResultsDG();
-            
         }
+
+        Stopwatch stopwatch;
 
         public string Entry;
 
@@ -376,6 +380,9 @@ namespace CodenameShctangencircle
         private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             r.Show();
+            Start.Enabled = true;
+            Start.Text = "Рассчет";
+            Elapsed.Text = $"Предыдущие рассчеты завершились за {stopwatch.Elapsed}";
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
