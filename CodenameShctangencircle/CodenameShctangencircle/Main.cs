@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using WindowsInput;
 using System.Xml.Serialization;
+using System.Linq;
 
 namespace CodenameShctangencircle
 {
@@ -38,6 +39,7 @@ namespace CodenameShctangencircle
 
         private void Start_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Считаю...");
             Output.Clear();
             OutputVisual.Clear();
             stepOutput.Clear();
@@ -121,6 +123,7 @@ namespace CodenameShctangencircle
         
         void GetFileVars(int iterator)
         {
+            /*
             string[] arr = File.ReadAllLines($"Составленные{iterator}_0.txt");
             StringBuilder sb;
             string Temp = string.Empty;
@@ -172,11 +175,12 @@ namespace CodenameShctangencircle
                 }
             }
             KE = Convert.ToDouble(Temp);
-            
+            */
         }
 
         public ResultForm r;
 
+        /*
         void GetArr(int iterator, out string[] arr) 
         {
             try
@@ -199,12 +203,96 @@ namespace CodenameShctangencircle
                 GetArr(iterator, out arr);
             }
         }
+        */
 
         int globalCalcIter = 0;
         InputSimulator simulator = new InputSimulator();
 
+        void DoShkolnikCycle(int ii)
+        {
+            bool flag = false;
+            try
+            {
+                GaugeCalculations.CompositeStep = double.Parse(Entry.ToString().Replace('.', ','));
+                flag = true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Сука неправильно");
+            }
+            if (flag)
+            {
+                try
+                {
+                    int num = int.Parse(Database.o[ii].ToString());
+                    string[] array = (Database.l1[ii] + Database.l2[ii] + Database.l3[ii] + Database.l4[ii] + Database.l5[ii]).ToString().Trim(new char[]
+                    {
+                ';'
+                    }).Split(new char[]
+                    {
+                ' '
+                    }, StringSplitOptions.RemoveEmptyEntries);
+                    double[] array2 = new double[num];
+                    for (int i = 0; i < num; i++)
+                    {
+                        array2[i] = double.Parse(array[i].Replace('.', ','));
+                    }
+                    int[] array3 = new int[5];
+                    double[] array4 = new double[5];
+                    double a = 0.0;
+                    double amax = 0.0;
+                    a = array2[0];
+                    amax = array2[num - 1];
+                    double num2 = Math.Round(Math.Abs(array2[1] - array2[0]), 4);
+                    int num3 = 0;
+                    array4[num3] = num2;
+                    array3[num3]++;
+                    bool complete = true;
+                    try
+                    {
+                        for (int j = 1; j < num; j++)
+                        {
+                            if (Math.Abs(array2[j] - array2[j - 1] - array4[num3]) < 1E-06)
+                            {
+                                array3[num3]++;
+                            }
+                            else
+                            {
+                                num3++;
+                                array4[num3] = Math.Round(Math.Abs(array2[j] - array2[j - 1]), 4);
+                                array3[num3]++;
+                            }
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        complete = false;
+                        MessageBox.Show("Для данного набора не удалось подсчитать набор дельта, значение универсальной функции вычислено не будет!");
+                    }
+                    GaugeCalculations.Sizes = array2;
+                    GaugeCalculations.Sizes2 = array2;
+                    GaugeCalculations.Sets.Clear();
+                    GaugeCalculations.Sets.Add(array3);
+                    GaugeCalculations.DefineVariables1(num, a, amax, array4, 0.005, complete);
+                    GaugeCalculations.SummarySizes = GaugeCalculations.Sizes.Sum();
+                    GaugeCalculations.DefineParameters(1, 1);
+                    string kek = GaugeCalculations.Print1(GaugeCalculations.Sets.Last<int[]>(), true, complete);
+                    NoRepeatAmount = GaugeCalculations.SummaryCount2;
+                    LongestStep = GaugeCalculations.SequenceCount2;
+                    LowerBorder = GaugeCalculations.SequenceBegin2;
+                    UpperBorder = GaugeCalculations.SequenceEnd2;
+                    KE = GaugeCalculations.KE2;
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Введены некорректные данные или количество введенных мер не совпадает с N! Пожалуйста проверьте правильность значений!");
+                }
+            }
+        }
+
         void ProgramCycles(int cycleI)
         {   
+            /*
             IntPtr w = FindWindow(null, "Поиск лучшего набора и расчет характеристик"); 
             IntPtr frm1 = FindWindow(null, "Form1");
             // f = frm1;
@@ -217,8 +305,10 @@ namespace CodenameShctangencircle
             {
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
             }
-            for (int i = cycleI; i < Database.l1.Count; i++)
+            */
+            for (int i = 0; i < Database.l1.Count; i++)
             {
+                /*
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200);
                 simulator.Keyboard.TextEntry(Entry);
@@ -226,6 +316,7 @@ namespace CodenameShctangencircle
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200);
+                Console.WriteLine(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]);
                 simulator.Keyboard.TextEntry(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i]);
                 Thread.Sleep(200);
                 simulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.TAB);
@@ -262,11 +353,13 @@ namespace CodenameShctangencircle
                     for (int j = 1; j < 11; j++) File.Delete($"Составленные{j}_0.txt");
                 }
                 iterator++; globalCalcIter++;
+                */
+                DoShkolnikCycle(i);
                 string Ns = ("n1 = " + Database.p1[i] + " n2 = " + Database.p2[i] + " n3 = " + Database.p3[i] + " n4 = " + Database.p4[i] + " n5 = " + Database.p5[i]).ToString();
                 r.FillSchoodDG(Database.l1[i] + Database.l2[i] + Database.l3[i] + Database.l4[i] + Database.l5[i], KE.ToString(), LowerBorder.ToString(), UpperBorder.ToString(), Database.o[i].ToString(), LongestStep.ToString(), NoRepeatAmount.ToString(), Ns);
                 
             }
-            SendKeys.SendWait("%{F4}");
+            //SendKeys.SendWait("%{F4}");
             MessageBox.Show("Рассчеты завершены.");
             r.FillBestResultsDG();
             
@@ -305,9 +398,11 @@ namespace CodenameShctangencircle
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
+            /*
             Process myProcess = Process.Start(@"GaugeBlockv3-1.exe");
             Thread.Sleep(1000);
             s = myProcess;
+            */
             ProgramCycles(globalCalcIter);
         }
 
