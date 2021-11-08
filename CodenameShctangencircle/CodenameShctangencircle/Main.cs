@@ -73,7 +73,7 @@ namespace CodenameShctangencircle
             Thread.Sleep(2000);
             button1_Click(sender, e); 
             Thread.Sleep(2000);
-            Entry = comboBoxa11TB.SelectedItem.ToString();
+            Entry = beginStep.SelectedItem.ToString();
             if (!checkBoxServer.Checked)
             {
                 backgroundWorker1.RunWorkerAsync();
@@ -97,7 +97,6 @@ namespace CodenameShctangencircle
             if (comboBox1.SelectedIndex == 0 && comboBoxa11TB.SelectedIndex == 1) { defaultcase = 3; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 1; step5 = 10; }
             if (comboBox1.SelectedIndex == 1 && comboBoxa11TB.SelectedIndex == 1) { defaultcase = 4; step1 = 0.005; step2 = 0.01; step3 = 0.1; step4 = 0.5; step5 = 10; }
             if (comboBox1.SelectedIndex == 2 && comboBoxa11TB.SelectedIndex == 1) { defaultcase = 5; step1 = 0.005; step2 = 0.05; step3 = 0.1; step4 = 1; step5 = 10; } 
-        
         }
 
         double step1, step2, step3, step4, step5;
@@ -113,7 +112,8 @@ namespace CodenameShctangencircle
                 Convert.ToDouble(comboBox4.SelectedItem),
                 Convert.ToDouble(comboBox5.SelectedItem), 
                 ref stepOutput, 
-                Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()));
+                Convert.ToDouble(comboBoxa11TB.SelectedItem.ToString()),
+                Convert.ToDouble(beginStep.SelectedItem.ToString()));
             r = new ResultForm();
         }
 
@@ -219,7 +219,6 @@ namespace CodenameShctangencircle
             }
             for (int i = cycleI; i < Database.l1.Count; i++)
             {
-                
                 simulator.Keyboard.ModifiedKeyStroke(WindowsInput.Native.VirtualKeyCode.CONTROL, WindowsInput.Native.VirtualKeyCode.VK_A);
                 Thread.Sleep(200);
                 simulator.Keyboard.TextEntry(Entry);

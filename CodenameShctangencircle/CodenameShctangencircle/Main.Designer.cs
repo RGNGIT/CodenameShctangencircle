@@ -437,9 +437,9 @@ namespace CodenameShctangencircle
             this.beginStep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.beginStep.FormattingEnabled = true;
             this.beginStep.Items.AddRange(new object[] {
-            "0.001",
-            "0.005",
-            "0.01"});
+            "0,001",
+            "0,005",
+            "0,01"});
             this.beginStep.Location = new System.Drawing.Point(12, 40);
             this.beginStep.Name = "beginStep";
             this.beginStep.Size = new System.Drawing.Size(66, 28);

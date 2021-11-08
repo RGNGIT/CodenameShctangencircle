@@ -34,7 +34,7 @@ namespace CodenameShctangencircle
                 res += temp + " ";
                 for (int i = 1; i < n1; i++)
                 {   
-                    temp += q1;
+                    temp += delta;
                     if (max == n1 && i == 0) NGU = temp;
       
                     res += temp + " ";
@@ -47,7 +47,7 @@ namespace CodenameShctangencircle
                 res = " ";
                 for (int i = 0; i < n2; i++)
                 {
-                    temp += q2;
+                    temp += delta;
                     if (max == n2 && i == 0) NGU = temp;
                     res += temp + " ";
                 }
@@ -59,7 +59,7 @@ namespace CodenameShctangencircle
                 res = " ";
                 for (int i = 0; i < n3; i++)
                 {
-                    temp += q3;
+                    temp += delta;
                     if (max == n3 && i == 0) NGU = temp;
                     res += temp + " ";
                 }
@@ -71,7 +71,7 @@ namespace CodenameShctangencircle
                 res = " ";
                 for (int i = 0; i < n4; i++)
                 {
-                    temp += q4;
+                    temp += delta;
                     if (max == n4 && i == 0) NGU = temp;
                     res += temp + " ";
                 }
@@ -83,7 +83,7 @@ namespace CodenameShctangencircle
                 res = " ";
                 for (int i = 0; i < n5; i++)
                 {
-                    temp += q5;
+                    temp += delta;
                     if (max == n5 && i == 0) NGU = temp;
                     res += temp + " ";
                 }
