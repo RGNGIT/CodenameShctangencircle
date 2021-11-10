@@ -29,6 +29,8 @@ namespace CodenameShctangencircle
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SaveResultMerSizesBTN = new System.Windows.Forms.TabControl();
             this.z = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
@@ -79,6 +81,7 @@ namespace CodenameShctangencircle
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.SaveResultMerSizesBTN.SuspendLayout();
             this.z.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCyclesRes)).BeginInit();
@@ -334,6 +337,14 @@ namespace CodenameShctangencircle
             this.Column10,
             this.Column18,
             this.Column22});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DataGridSchool.DefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridSchool.Location = new System.Drawing.Point(0, 0);
             this.DataGridSchool.Name = "DataGridSchool";
             this.DataGridSchool.ReadOnly = true;
@@ -447,6 +458,8 @@ namespace CodenameShctangencircle
             // 
             // bestResultsDG
             // 
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bestResultsDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.bestResultsDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bestResultsDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column21,
@@ -529,7 +542,7 @@ namespace CodenameShctangencircle
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(4, 478);
+            this.buttonSave.Location = new System.Drawing.Point(7, 478);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(123, 23);
             this.buttonSave.TabIndex = 5;
@@ -537,11 +550,21 @@ namespace CodenameShctangencircle
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(136, 483);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(171, 13);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Сохранить в загружаемый файл";
+            // 
             // ResultForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 505);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.SaveResultMerSizesBTN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -565,6 +588,7 @@ namespace CodenameShctangencircle
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bestResultsDG)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -619,5 +643,6 @@ namespace CodenameShctangencircle
         public System.Windows.Forms.DataGridView dataGridViewRes;
         public System.Windows.Forms.DataGridView dataGridViewFin;
         public System.Windows.Forms.DataGridView DataGridSchool;
+        private System.Windows.Forms.Label label11;
     }
 }

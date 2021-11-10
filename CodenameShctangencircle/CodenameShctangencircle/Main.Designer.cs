@@ -63,6 +63,7 @@ namespace CodenameShctangencircle
             this.beginStep = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.Elapsed = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -148,7 +149,7 @@ namespace CodenameShctangencircle
             // Start
             // 
             this.Start.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Start.Location = new System.Drawing.Point(12, 195);
+            this.Start.Location = new System.Drawing.Point(19, 196);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(160, 27);
             this.Start.TabIndex = 0;
@@ -459,16 +460,28 @@ namespace CodenameShctangencircle
             // Elapsed
             // 
             this.Elapsed.AutoSize = true;
-            this.Elapsed.Location = new System.Drawing.Point(178, 203);
+            this.Elapsed.Location = new System.Drawing.Point(644, 55);
             this.Elapsed.Name = "Elapsed";
             this.Elapsed.Size = new System.Drawing.Size(0, 13);
             this.Elapsed.TabIndex = 40;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(185, 196);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(159, 27);
+            this.button2.TabIndex = 41;
+            this.button2.Text = "Загрузить данные";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 233);
+            this.ClientSize = new System.Drawing.Size(620, 233);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.Elapsed);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.beginStep);
@@ -552,6 +565,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.ComboBox beginStep;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label Elapsed;
+        private System.Windows.Forms.Button button2;
     }
 }
 

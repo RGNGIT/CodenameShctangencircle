@@ -120,6 +120,25 @@ namespace CodenameShctangencircle
                     dataGridViewRes.Rows[i].Cells[4].Value.ToString() +
                     dataGridViewRes.Rows[i].Cells[5].Value.ToString());
             }
+            //fixFontSizes();
+        }
+
+        private void fixFontSizes()
+        {
+            /*foreach (DataGridViewColumn c in dataGridViewRes.Columns)
+            {
+                c.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
+            }
+            foreach (DataGridViewColumn c in dataGridViewFin.Columns)
+            {
+                c.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
+            }
+            */
+            foreach (DataGridViewColumn c in dataGridViewCyclesRes.Columns)
+            {
+                c.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
+            }
+            //dataGridViewCyclesRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
         }
 
         string countSDM(string sizes)
@@ -177,7 +196,7 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[8].Value,
                             DataGridSchool.Rows[bestI].Cells[9].Value
                             );
-
+                        //bestResultsDG.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
                         N = DataGridSchool.Rows[i].Cells[1].Value.ToString();
                         best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value); bestI = i;
 
@@ -196,6 +215,7 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[7].Value,
                             DataGridSchool.Rows[bestI].Cells[8].Value,
                             DataGridSchool.Rows[bestI].Cells[9].Value);
+                            //bestResultsDG.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
                     }
                 }
             }
@@ -442,10 +462,14 @@ namespace CodenameShctangencircle
             {
                 FileName = saveFileDialog.FileName;
             }
-            using(FileStream fs = new FileStream(FileName, FileMode.Create))
+            try
             {
-                xmlSerializer.Serialize(fs, Container);
+                using (FileStream fs = new FileStream(FileName, FileMode.Create))
+                {
+                    xmlSerializer.Serialize(fs, Container);
+                }
             }
+            catch(Exception) { }
         }
     }
 }
