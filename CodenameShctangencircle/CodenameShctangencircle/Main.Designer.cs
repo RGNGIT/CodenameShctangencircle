@@ -62,6 +62,7 @@ namespace CodenameShctangencircle
             this.label12 = new System.Windows.Forms.Label();
             this.beginStep = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.Elapsed = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -455,11 +456,20 @@ namespace CodenameShctangencircle
             this.label6.TabIndex = 39;
             this.label6.Text = "Требуемый шаг составленных размеров Δ ";
             // 
+            // Elapsed
+            // 
+            this.Elapsed.AutoSize = true;
+            this.Elapsed.Location = new System.Drawing.Point(178, 203);
+            this.Elapsed.Name = "Elapsed";
+            this.Elapsed.Size = new System.Drawing.Size(0, 13);
+            this.Elapsed.TabIndex = 40;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(627, 233);
+            this.Controls.Add(this.Elapsed);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.beginStep);
             this.Controls.Add(this.label12);
@@ -541,6 +551,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.Button buttonLoad;
         private System.Windows.Forms.ComboBox beginStep;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label Elapsed;
     }
 }
 

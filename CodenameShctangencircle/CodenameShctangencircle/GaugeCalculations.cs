@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace GaugeBlockv3
+namespace CodenameShctangencircle
 {
 	// Token: 0x02000005 RID: 5
-	internal class GaugeCalculations
+	static class GaugeCalculations
 	{
 
 		internal struct CompositeBlock
@@ -224,7 +224,7 @@ namespace GaugeBlockv3
 					{
 						GaugeCalculations.CompositeBlocks.Clear();
 					}
-					GaugeCalculations.DefineParameters(pBar1, lblStatus1, lblOperation1, b, GaugeCalculations.RSets.Count);
+					GaugeCalculations.DefineParameters(b, GaugeCalculations.RSets.Count);
 					if (GaugeCalculations.KE2 >= GaugeCalculations.KE)
 					{
 						if (Math.Abs(GaugeCalculations.KE2 - GaugeCalculations.KE) > 0.0001)
@@ -274,7 +274,7 @@ namespace GaugeBlockv3
 			stopwatch.Stop();
 			GaugeCalculations.SummaryTime = stopwatch.Elapsed;
 		}
-
+		/*
 		// Token: 0x06000025 RID: 37 RVA: 0x00004FBC File Offset: 0x000031BC
 		public static void DefineParameters(ProgressBar pBar1, Label lblStatus1, Label lblOperation1, byte num, int count)
 		{
@@ -289,6 +289,32 @@ namespace GaugeBlockv3
 			GaugeCalculations.lblStatus = lblStatus1;
 			GaugeCalculations.pBar = pBar1;
 			GaugeCalculations.ProgressIdentifier(1, GaugeCalculations.N, GaugeCalculations.Name);
+			GaugeCalculations.SequenceCount2 = 0;
+			GaugeCalculations.SequenceBegin2 = 0.0;
+			GaugeCalculations.SequenceEnd2 = 0.0;
+			GaugeCalculations.KE2 = 0.0;
+			GaugeCalculations.SummaryCount2 = 0.0;
+			GaugeCalculations.SummarySizes2 = GaugeCalculations.Sizes2.Sum();
+			GaugeCalculations.CurrentStep = 0L;
+			GaugeCalculations.GenerateComposite();
+			GaugeCalculations.SummaryCount2 = (double)GaugeCalculations.CompositeBlocks.Count;
+			GaugeCalculations.SearchMaxSequence(GaugeCalculations.CompositeBlocks);
+			GaugeCalculations.KE2 = (double)GaugeCalculations.SequenceCount2 / GaugeCalculations.SummarySizes2 * (GaugeCalculations.SequenceEnd2 - GaugeCalculations.SequenceBegin2);
+		}
+		*/
+		public static void DefineParameters(byte num, int count)
+		{
+			GaugeCalculations.Name = string.Concat(new object[]
+			{
+				"Генерация составленных мер для набора ",
+				num,
+				" из ",
+				count
+			});
+			//GaugeCalculations.lblOperation = lblOperation1;
+			//GaugeCalculations.lblStatus = lblStatus1;
+			//GaugeCalculations.pBar = pBar1;
+			//GaugeCalculations.ProgressIdentifier(1, GaugeCalculations.N, GaugeCalculations.Name);
 			GaugeCalculations.SequenceCount2 = 0;
 			GaugeCalculations.SequenceBegin2 = 0.0;
 			GaugeCalculations.SequenceEnd2 = 0.0;
@@ -487,7 +513,7 @@ namespace GaugeBlockv3
 					}
 					b2 += 1;
 				}
-				GaugeCalculations.pBar.Value = (int)(b + 1);
+				//GaugeCalculations.pBar.Value = (int)(b + 1);
 				b += 1;
 			}
 			yield return test2;
@@ -517,7 +543,7 @@ namespace GaugeBlockv3
 					}
 					b5 += 1;
 				}
-				GaugeCalculations.pBar.Value = (int)(i + 1);
+				//GaugeCalculations.pBar.Value = (int)(i + 1);
 				yield return test2;
 				test2.Clear();
 				GC.Collect();
@@ -549,7 +575,7 @@ namespace GaugeBlockv3
 					}
 					b += 1;
 				}
-				GaugeCalculations.pBar.Value = (int)(i + 1);
+				//GaugeCalculations.pBar.Value = (int)(i + 1);
 				if (test2.Count > test2.Capacity / 2)
 				{
 					yield return test2;
