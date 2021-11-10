@@ -43,7 +43,6 @@ namespace CodenameShctangencircle
             this.step3TB = new System.Windows.Forms.TextBox();
             this.step2TB = new System.Windows.Forms.TextBox();
             this.step1TB = new System.Windows.Forms.TextBox();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.Справка = new System.Windows.Forms.Label();
@@ -64,6 +63,7 @@ namespace CodenameShctangencircle
             this.label6 = new System.Windows.Forms.Label();
             this.Elapsed = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -207,12 +207,6 @@ namespace CodenameShctangencircle
             this.step1TB.TabIndex = 1;
             this.step1TB.Text = "0,005";
             // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.WorkerSupportsCancellation = true;
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
-            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -302,7 +296,7 @@ namespace CodenameShctangencircle
             this.buttonPause.TabIndex = 27;
             this.buttonPause.Text = "Пауза";
             this.buttonPause.UseVisualStyleBackColor = true;
-            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
+       
             // 
             // checkBoxServer
             // 
@@ -476,6 +470,11 @@ namespace CodenameShctangencircle
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.buttonLoad_Click);
             // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -519,7 +518,6 @@ namespace CodenameShctangencircle
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Справочник плоскопараллельных концевых мер";
-            this.Load += new System.EventHandler(this.Main_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             this.ResumeLayout(false);
@@ -538,7 +536,6 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBoxa11TB;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -566,6 +563,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label Elapsed;
         private System.Windows.Forms.Button button2;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

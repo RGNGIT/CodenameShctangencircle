@@ -15,12 +15,12 @@ namespace CodenameShctangencircle
         {
             double n1;
 
-            for(int k1 = 100; k1 <= 200; k1++)
+            for (int k1 = 100; k1 <= 200; k1++)
             {
                 n1 = k1 - _a11 / _koef1 + 1;
                 //if (n1 > 0 && n1 % 1 == 0)
                 //{
-                    k2Cycle(n, k1, n1); 
+                k2Cycle(n, k1, n1);
                 //} 
             }
         }
@@ -33,7 +33,7 @@ namespace CodenameShctangencircle
                 n2 = Convert.ToDouble(k2 - k1 * _koef1 / _koef2);
                 if (n2 > 0 && n2 % 1 == 0)
                 {
-                    k3Cycle(n, k1, k2, n1 , n2);
+                    k3Cycle(n, k1, k2, n1, n2);
                 }
             }
         }
@@ -72,7 +72,7 @@ namespace CodenameShctangencircle
                 n5 = Convert.ToDouble(k5 - k4 * _koef4 / _koef5);
                 if (n5 > 0 && n5 % 1 == 0)
                 {
-                    if(n == n1 + n2 + n3 + n4 + n5)
+                    if (n == n1 + n2 + n3 + n4 + n5)
                     {
                         Combinations.Add($"{n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
                         Combination2.Add($"({Count}) {n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
@@ -90,54 +90,17 @@ namespace CodenameShctangencircle
 
         public void nCycle(ref List<string> VisualOutput, ref List<string> Output, int higher, int lower, double koef1, double koef2, double koef3, double koef4, double koef5, double a11)
         {
-            //vcheckDefaultCase(defaultcase);
             _koef1 = koef1; _koef2 = koef2; _koef3 = koef3; _koef4 = koef4; _koef5 = koef5; _a11 = a11;
             for (int n = higher; n <= lower; n++)
-            { 
+            {
                 k1Cycle(n);
             }
             System.IO.File.WriteAllLines("file.txt", Combinations);
             Output = Combinations;
             VisualOutput = Combination2;
-
         }
 
         double _koef1, _koef2, _koef3, _koef4, _koef5, _a11;
-        double k1Negative = 99, k2Negative = 0.5, k3Negative = 0.1, k4Negative = 0.1, k5Negative = 0.1;
-
-        void vcheckDefaultCase(int defaultcase)
-        {
-            switch (defaultcase) 
-            {
-                case 0:
-                    {
-                        break;
-                    }
-                case 1:
-                    {
-                        k4Negative = 0.2; k5Negative = 0.05; break;
-                    }
-                case 2:
-                    {
-                        k2Negative = 0.1; k3Negative = 0.5; break;
-                    }
-                case 3:
-                    {
-                        k1Negative = 100; break;
-                    }
-                case 4:
-                    {
-                        k1Negative = 100; k4Negative = 0.2; k5Negative = 0.05; break;
-                    }
-                case 5:
-                    {
-                        k1Negative = 100; k2Negative = 0.1; k3Negative = 0.5; break;
-                    }
-            }
-
-        }
-
-
 
     }
 }

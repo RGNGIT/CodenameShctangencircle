@@ -81,7 +81,6 @@
     <Compile Include="CheckDiafant.cs" />
     <Compile Include="Cycles.cs" />
     <Compile Include="Database.cs" />
-    <Compile Include="DataBlock.cs" />
     <Compile Include="GaugeCalculations.cs" />
     <Compile Include="ShctangenContainer.cs" />
     <Compile Include="FindSteps.cs" />
