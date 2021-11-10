@@ -40,7 +40,7 @@ namespace CodenameShctangencircle
         private void Start_Click(object sender, EventArgs e)
         {
             Start.Enabled = false;
-            Start.Text = "Shit I am...";
+            Start.Text = "Идет расчёт...";
             stopwatch = new Stopwatch();
             stopwatch.Start();
             Output.Clear();

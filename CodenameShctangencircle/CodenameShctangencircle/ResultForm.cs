@@ -163,6 +163,7 @@ namespace CodenameShctangencircle
                 string N = DataGridSchool.Rows[0].Cells[1].Value.ToString(); double best = Convert.ToDouble(DataGridSchool.Rows[0].Cells[7].Value); int bestI = 0;
                 for (int i = 0; i < DataGridSchool.Rows.Count - 1; i++)
                 {
+                    if (best < Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value)) { bestI = i; best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value); }
                     if (N != DataGridSchool.Rows[i].Cells[1].Value.ToString())
                     {
                         bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
@@ -177,12 +178,12 @@ namespace CodenameShctangencircle
                             DataGridSchool.Rows[bestI].Cells[9].Value
                             );
 
-
-                N = DataGridSchool.Rows[i].Cells[0].Value.ToString();
+                        N = DataGridSchool.Rows[i].Cells[1].Value.ToString();
                         best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value); bestI = i;
+
                     }
 
-                    if (best < Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value)) { bestI = i; best = Convert.ToDouble(DataGridSchool.Rows[i].Cells[7].Value); }
+                    
                     if (i == DataGridSchool.Rows.Count - 2)
                     {
                         bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
