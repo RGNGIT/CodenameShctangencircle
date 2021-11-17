@@ -30,7 +30,6 @@ namespace CodenameShctangencircle
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.SaveResultMerSizesBTN = new System.Windows.Forms.TabControl();
             this.z = new System.Windows.Forms.TabPage();
             this.label6 = new System.Windows.Forms.Label();
@@ -292,7 +291,7 @@ namespace CodenameShctangencircle
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage4.Size = new System.Drawing.Size(794, 450);
             this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Оптимальные наборы";
+            this.tabPage4.Text = "Все наборы";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // label9
@@ -337,14 +336,6 @@ namespace CodenameShctangencircle
             this.Column10,
             this.Column18,
             this.Column22});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DataGridSchool.DefaultCellStyle = dataGridViewCellStyle1;
             this.DataGridSchool.Location = new System.Drawing.Point(0, 0);
             this.DataGridSchool.Name = "DataGridSchool";
             this.DataGridSchool.ReadOnly = true;
@@ -458,8 +449,8 @@ namespace CodenameShctangencircle
             // 
             // bestResultsDG
             // 
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bestResultsDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bestResultsDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.bestResultsDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bestResultsDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column21,

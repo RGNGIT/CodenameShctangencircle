@@ -134,14 +134,14 @@ namespace CodenameShctangencircle
                 c.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
             }
             */
-            foreach (DataGridViewColumn c in dataGridViewCyclesRes.Columns)
-            {
-                c.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
-            }
+            //foreach (DataGridViewColumn c in dataGridViewCyclesRes.Columns)
+            //{
+            //    c.DefaultCellStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
+            //}
             //dataGridViewCyclesRes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, GraphicsUnit.Pixel);
         }
 
-        string countSDM(string sizes)
+        string countSDM(string sizes) //подсчет СДМ
         {
             string TempString = String.Empty;
             List<double> Temp = new List<double>();
@@ -202,7 +202,6 @@ namespace CodenameShctangencircle
 
                     }
 
-                    
                     if (i == DataGridSchool.Rows.Count - 2)
                     {
                         bestResultsDG.Rows.Add(DataGridSchool.Rows[bestI].Cells[0].Value,
@@ -223,7 +222,6 @@ namespace CodenameShctangencircle
 
         private void SaveToDocBTN_Click(object sender, EventArgs e)
         {
-
             SaveFileDialog sfd = new SaveFileDialog();
 
             sfd.Filter = "Word Documents (*.docx)|*.docx";

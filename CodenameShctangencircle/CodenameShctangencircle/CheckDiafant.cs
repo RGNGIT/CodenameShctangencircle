@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CodenameShctangencircle
 {
-    public class CheckDiafant
+    public class CheckDiafant //класс-рудимент для проверки диафантового уравнения
     {
         public void check(List<string> Combinations, int nKoef, int k1Koef, int k2Koef, int k3Koef, int k4Koef, int k5Koef, ref List<string> DiafantOutput)
         {

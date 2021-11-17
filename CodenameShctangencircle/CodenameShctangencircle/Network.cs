@@ -2,13 +2,11 @@
 using System.IO;
 using System.Net;
 using System.Net.NetworkInformation;
-using System.Text;
 
 namespace CodenameShctangencircle
 {
-    class Network
+    class Network //класс-рудимент (подключение к серверу для удаленных вычислений)
     {
-
         public Network(NetworkCredential credential, string URL)
         {
             this.credential = credential;

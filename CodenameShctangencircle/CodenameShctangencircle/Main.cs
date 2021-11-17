@@ -43,6 +43,8 @@ namespace CodenameShctangencircle
             Output.Clear();
             OutputVisual.Clear();
             stepOutput.Clear();
+
+            //если надо снова посчитать закрываем все прошлое
             if(fl)
             {
                 r.Close();
@@ -73,13 +75,14 @@ namespace CodenameShctangencircle
             button1_Click(sender, e); 
             Thread.Sleep(2000);
             Entry = beginStep.SelectedItem.ToString();
+
             if (!checkBoxServer.Checked)
             {
                 backgroundWorker1.RunWorkerAsync();
             }
             else
             {
-                ServerCycles();
+                ServerCycles(); //рудимент (не используется больше)
             }
             buttonPause.Visible = true;
         }
@@ -87,7 +90,7 @@ namespace CodenameShctangencircle
         private void button1_Click(object sender, EventArgs e)
         {
             FindSteps fs = new FindSteps();
-            fs.vFindSteps(
+            fs.vFindSteps( //вызов метода подсчета размеров мер
                 Output, 
                 Convert.ToDouble(comboBox1.SelectedItem),
                 Convert.ToDouble(comboBox2.SelectedItem),
@@ -114,7 +117,7 @@ namespace CodenameShctangencircle
             }
         }
 
-        void DoShkolnikCycle(int ii)
+        void DoShkolnikCycle(int ii) //полностью скопированный функционал из старой программы расчета
         {
             Stopwatch sw = new Stopwatch();
             sw.Start();
@@ -248,7 +251,7 @@ namespace CodenameShctangencircle
             if (numericUpDown2.Value < numericUpDown1.Value) numericUpDown1.Value = numericUpDown2.Value;
         }
 
-        void ServerCycles()
+        void ServerCycles() //рудимент (была идея сделать удаленный расчет)
         {
             ServerWorks serverWorks = new ServerWorks(this);
             serverWorks.Show();
@@ -261,7 +264,7 @@ namespace CodenameShctangencircle
 
         bool isPaused = false;
 
-        #region InputCombos
+        #region InputCombos //предотвращение ошибок ввода коэфициентов
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(Convert.ToDouble(comboBox1.SelectedItem) >= Convert.ToDouble(comboBox2.SelectedItem))

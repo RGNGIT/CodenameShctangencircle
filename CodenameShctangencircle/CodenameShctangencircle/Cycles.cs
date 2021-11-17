@@ -72,9 +72,9 @@ namespace CodenameShctangencircle
                 n5 = Convert.ToDouble(k5 - k4 * _koef4 / _koef5);
                 if (n5 > 0 && n5 % 1 == 0)
                 {
-                    if (n == n1 + n2 + n3 + n4 + n5)
+                    if (n == n1 + n2 + n3 + n4 + n5) //условие суммы
                     {
-                        Combinations.Add($"{n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
+                        Combinations.Add($"{n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};"); //добавление результата в базу удачных комбинаций
                         Combination2.Add($"({Count}) {n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
                         Database.o.Add(n); Database.p1.Add(n1);
                         Database.o1.Add(k1); Database.p2.Add(n2);

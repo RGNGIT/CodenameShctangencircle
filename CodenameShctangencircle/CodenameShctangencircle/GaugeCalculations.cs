@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace CodenameShctangencircle
+namespace CodenameShctangencircle //полностью скопированный класс из прошлой программы подсчета
 {
 	// Token: 0x02000005 RID: 5
 	static class GaugeCalculations

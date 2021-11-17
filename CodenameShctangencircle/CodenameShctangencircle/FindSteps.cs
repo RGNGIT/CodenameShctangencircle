@@ -14,7 +14,7 @@ namespace CodenameShctangencircle
 
             int Count = 1;
 
-            foreach (string comb in Combinations)
+            foreach (string comb in Combinations) //подсчет размеров мер 
             {
                 int max = 0;
                 n = getNumber(comb)[0]; 
