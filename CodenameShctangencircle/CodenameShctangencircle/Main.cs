@@ -87,6 +87,48 @@ namespace CodenameShctangencircle
             buttonPause.Visible = true;
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Database.ClearStuff();
+
+            Cycles cikl = new Cycles();
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if(Convert.ToDouble(comboBox1.Items[i]) < Convert.ToDouble(comboBox2.Items[j]))
+                    for (int o = 0; o < 5; o++)
+                    {
+                        if(Convert.ToDouble(comboBox2.Items[j]) < Convert.ToDouble(comboBox3.Items[o]))
+                        for(int p = 0; p < 5; p++)
+                        {
+                            if(Convert.ToDouble(comboBox3.Items[o]) < Convert.ToDouble(comboBox4.Items[p]))
+                            for(int l = 0; l < 5; l++)
+                            {
+                                if(Convert.ToDouble(comboBox4.Items[p]) < Convert.ToDouble(comboBox5.Items[l]))
+                                cikl.nCycle(
+                                ref OutputVisual, ref Output,
+                                35,
+                                122,
+                                Convert.ToDouble(comboBox1.Items[i]),
+                                Convert.ToDouble(comboBox2.Items[j]),
+                                Convert.ToDouble(comboBox3.Items[o]),
+                                Convert.ToDouble(comboBox4.Items[p]),
+                                Convert.ToDouble(comboBox5.Items[l]),
+                                Convert.ToDouble(comboBoxa11TB.SelectedItem));
+                            }
+                        }
+                    }
+                }
+            }
+
+            foreach(string res in Database.noResultList)
+            {
+                Console.WriteLine(res);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             FindSteps fs = new FindSteps();
@@ -284,6 +326,7 @@ namespace CodenameShctangencircle
                 comboBox1.SelectedIndex = 0;
             }
         }
+
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {

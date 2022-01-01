@@ -74,6 +74,7 @@ namespace CodenameShctangencircle
                 {
                     if (n == n1 + n2 + n3 + n4 + n5) //условие суммы
                     {
+                        this.gotResult = true;
                         Combinations.Add($"{n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};"); //добавление результата в базу удачных комбинаций
                         Combination2.Add($"({Count}) {n},{k1},{k2},{k3},{k4},{k5},{n1},{n2},{n3},{n4},{n5};");
                         Database.o.Add(n); Database.p1.Add(n1);
@@ -88,6 +89,8 @@ namespace CodenameShctangencircle
             }
         }
 
+        private bool gotResult = false;
+
         public void nCycle(ref List<string> VisualOutput, ref List<string> Output, int higher, int lower, double koef1, double koef2, double koef3, double koef4, double koef5, double a11)
         {
             _koef1 = koef1; _koef2 = koef2; _koef3 = koef3; _koef4 = koef4; _koef5 = koef5; _a11 = a11;
@@ -95,6 +98,7 @@ namespace CodenameShctangencircle
             {
                 k1Cycle(n);
             }
+            if (!gotResult) Database.noResultList.Add((_koef1 + " " + koef2 + " " + koef3 + " " + koef4 + " " + koef5).ToString());
             System.IO.File.WriteAllLines("file.txt", Combinations);
             Output = Combinations;
             VisualOutput = Combination2;

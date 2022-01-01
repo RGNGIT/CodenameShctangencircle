@@ -17,6 +17,7 @@ namespace CodenameShctangencircle
         public static List<double> p4 = new List<double>();
         public static List<double> p5 = new List<double>();
         public static List<int> GridCount = new List<int>();
+        public static List<string> noResultList = new List<string>();
         // База результатов подбора
         public static List<string> Count = new List<string>();
         public static List<string> l1 = new List<string>();
@@ -55,6 +56,7 @@ namespace CodenameShctangencircle
             SDM.Clear();
             VGU.Clear();
             NGU.Clear();
+            noResultList.Clear();
         }
         
     }
