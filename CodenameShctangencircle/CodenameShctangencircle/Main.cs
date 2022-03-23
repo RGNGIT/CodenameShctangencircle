@@ -327,6 +327,11 @@ namespace CodenameShctangencircle
             }
         }
 
+        private void buttonGradList_Click(object sender, EventArgs e)
+        {
+            Grid grid = new Grid(this);
+            grid.Show();
+        }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {

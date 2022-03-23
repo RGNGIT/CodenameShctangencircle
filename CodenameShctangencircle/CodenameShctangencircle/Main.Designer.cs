@@ -65,6 +65,7 @@ namespace CodenameShctangencircle
             this.button2 = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.button3 = new System.Windows.Forms.Button();
+            this.buttonGradList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             this.SuspendLayout();
@@ -477,7 +478,7 @@ namespace CodenameShctangencircle
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(441, 193);
+            this.button3.Location = new System.Drawing.Point(533, 200);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 42;
@@ -485,11 +486,23 @@ namespace CodenameShctangencircle
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // buttonGradList
+            // 
+            this.buttonGradList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonGradList.Location = new System.Drawing.Point(453, 140);
+            this.buttonGradList.Name = "buttonGradList";
+            this.buttonGradList.Size = new System.Drawing.Size(159, 27);
+            this.buttonGradList.TabIndex = 43;
+            this.buttonGradList.Text = "Получить список";
+            this.buttonGradList.UseVisualStyleBackColor = true;
+            this.buttonGradList.Click += new System.EventHandler(this.buttonGradList_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(620, 233);
+            this.Controls.Add(this.buttonGradList);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.Elapsed);
@@ -547,7 +560,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboBoxa11TB;
-        private System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
@@ -559,10 +572,10 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.Button buttonPause;
         private System.Windows.Forms.CheckBox checkBoxServer;
 
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.ComboBox comboBox5;
+        public System.Windows.Forms.ComboBox comboBox2;
+        public System.Windows.Forms.ComboBox comboBox3;
+        public System.Windows.Forms.ComboBox comboBox4;
+        public System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -576,6 +589,7 @@ namespace CodenameShctangencircle
         private System.Windows.Forms.Button button2;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonGradList;
     }
 }
 
