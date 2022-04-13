@@ -309,22 +309,22 @@ namespace CodenameShctangencircle
         #region InputCombos //предотвращение ошибок ввода коэфициентов
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(Convert.ToDouble(comboBox1.SelectedItem) >= Convert.ToDouble(comboBox2.SelectedItem))
-            {
-                comboBox1.SelectedIndex = 0;
-            }
+            //if(Convert.ToDouble(comboBox1.SelectedItem) >= Convert.ToDouble(comboBox2.SelectedItem))
+            //{
+            //    comboBox1.SelectedIndex = 0;
+            //}
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(comboBox2.SelectedItem) >= Convert.ToDouble(comboBox3.SelectedItem))
-            {
-                comboBox2.SelectedIndex = 0;
-            }
-            if (Convert.ToDouble(comboBox2.SelectedItem) <= Convert.ToDouble(comboBox1.SelectedItem))
-            {
-                comboBox1.SelectedIndex = 0;
-            }
+            //if (Convert.ToDouble(comboBox2.SelectedItem) >= Convert.ToDouble(comboBox3.SelectedItem))
+            //{
+            //    comboBox2.SelectedIndex = 0;
+            //}
+            //if (Convert.ToDouble(comboBox2.SelectedItem) <= Convert.ToDouble(comboBox1.SelectedItem))
+            //{
+            //    comboBox1.SelectedIndex = 0;
+            //}
         }
 
         private void buttonGradList_Click(object sender, EventArgs e)
@@ -335,34 +335,34 @@ namespace CodenameShctangencircle
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(comboBox3.SelectedItem) >= Convert.ToDouble(comboBox4.SelectedItem))
-            {
-                comboBox3.SelectedIndex = 0;
-            }
-            if (Convert.ToDouble(comboBox3.SelectedItem) <= Convert.ToDouble(comboBox2.SelectedItem))
-            {
-                comboBox2.SelectedIndex = 0;
-            }
+            //if (Convert.ToDouble(comboBox3.SelectedItem) >= Convert.ToDouble(comboBox4.SelectedItem))
+            //{
+            //    comboBox3.SelectedIndex = 0;
+            //}
+            //if (Convert.ToDouble(comboBox3.SelectedItem) <= Convert.ToDouble(comboBox2.SelectedItem))
+            //{
+            //    comboBox2.SelectedIndex = 0;
+            //}
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(comboBox4.SelectedItem) >= Convert.ToDouble(comboBox5.SelectedItem))
-            {
-                comboBox4.SelectedIndex = 0;
-            }
-            if (Convert.ToDouble(comboBox4.SelectedItem) <= Convert.ToDouble(comboBox3.SelectedItem))
-            {
-                comboBox3.SelectedIndex = 0;
-            }
+            //if (Convert.ToDouble(comboBox4.SelectedItem) >= Convert.ToDouble(comboBox5.SelectedItem))
+            //{
+            //    comboBox4.SelectedIndex = 0;
+            //}
+            //if (Convert.ToDouble(comboBox4.SelectedItem) <= Convert.ToDouble(comboBox3.SelectedItem))
+            //{
+            //    comboBox3.SelectedIndex = 0;
+            //}
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Convert.ToDouble(comboBox5.SelectedItem) <= Convert.ToDouble(comboBox4.SelectedItem))
-            {
-                comboBox4.SelectedIndex = 0;
-            }
+            //if (Convert.ToDouble(comboBox5.SelectedItem) <= Convert.ToDouble(comboBox4.SelectedItem))
+            //{
+            //    comboBox4.SelectedIndex = 0;
+            //}
         }
         #endregion
 
